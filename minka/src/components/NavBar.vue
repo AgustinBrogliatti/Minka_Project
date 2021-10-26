@@ -1,9 +1,9 @@
 <template>
   <div id="content-NavBar">
-    <p>Mi Estudio</p>
-    <p>Calendario</p>
-    <p>Contacto</p>
-    <p>Miravalles</p>
+    <p class="nav__option">Mi Estudio</p>
+    <p class="nav__option">Calendario</p>
+    <p class="nav__option">Contacto</p>
+    <p class="nav__option">Miravalles</p>
   </div>
 </template>
 
@@ -16,8 +16,19 @@ export default {
 <style scoped>
   #content-NavBar   {
     width: 200px;
-    height: 350px;
+    height: 300px;
     border: 1px solid red;
     margin: 25px;
+  }
+
+  .nav__option  {
+    background-color: green;
+    margin: 0;
+    font-size: 20px;
+    padding: 10px;
+  }
+
+  .nav__option:hover  {
+    background-color: red;
   }
 </style>

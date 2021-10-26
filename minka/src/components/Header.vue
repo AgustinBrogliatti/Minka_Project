@@ -1,7 +1,7 @@
 <template>
   <div id="header">
     <div id="content-logo">
-      <img id="content-logo__logo" src="../assets/img/logo.png" alt="minkaLogo">
+      <img id="content-logo__logo" alt="minkaLogo" v-bind:src="logoImage">
     </div>
     <div id="content-login">
       <div id="content-login__tagName">
@@ -19,7 +19,8 @@ export default {
   data ()   {
     return  {
       userName: "Agustin Brogliatti",
-      logo: "Minka"
+      logoImage: `../assets/img/logo.png`,
+
     }
   }
 }
@@ -43,7 +44,6 @@ export default {
 
   #content-logo   {
     width: 15%;
-
 
   }
 
