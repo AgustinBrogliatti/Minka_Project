@@ -12,6 +12,7 @@ export default {
 <style scoped>
   #content-footer   {
     width: 100%;
-    height: 150px;
+    height: 300px;
+    background-color: #212529;
   }
 </style>

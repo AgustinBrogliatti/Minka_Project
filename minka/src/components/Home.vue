@@ -1,6 +1,12 @@
 <template>
   <div id="content-home">
-    <Article v-for="(infoArticle, index) in infoArticles" :key="index"></Article>
+    <Article></Article>
+    <Article></Article>
+    <Article></Article>
+    <Article></Article>
+    <Article></Article>
+
+
 
   </div>
 </template>
@@ -15,12 +21,7 @@ export default {
   },
   data () {
     return {
-      infoArticles: [
-        {title: "Miravalles - Alma Verde", description: "2 de Febrero - Actualidad"},
-        {title: "Vicario - Somisa", description: "12 de Noviembre - 14 de Diciembre"},
-        {title: "Manfredi - Alma Verde", description: "18 de Abril - Actualidad"},
-        {title: "Vicario - Belgrano", description: "24 de Marzo - Actualidad"},
-      ],
+
     }
   }
 }
@@ -28,13 +29,13 @@ export default {
 
 <style scoped>
   #content-home   {
-    margin: auto;
-    margin-top: 60px;
-    padding: 24px;
+    margin: 80px auto 60px auto;
+    padding: 44px;
     border: 1px solid red;
-    width: 800px;
+    width: 1200px;
     height: auto;
     display: flex;
     flex-flow: row wrap;
+
   }
 </style>

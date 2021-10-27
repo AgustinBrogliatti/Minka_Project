@@ -347,3 +347,17 @@ template {
 [hidden] {
   display: none;
 }
+
+#content-body {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f2f2f2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --main-color: steelblue;
+}

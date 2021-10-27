@@ -1,15 +1,16 @@
 <template>
   <div id="header">
     <div id="content-logo">
-      <img id="content-logo__logo" alt="minkaLogo" v-bind:src="logoImage">
+      <img id="content-logo__logo" alt="minkaLogo" src="../assets/img/logo_minka.png">
     </div>
+
     <div id="content-login">
       <div id="content-login__tagName">
         <p>{{userName}}</p>
       </div>
-      <div id="content-login__photo">
-      </div>
+      <div id="content-login__photo"></div>
     </div>
+
   </div>
 </template>
 
@@ -18,8 +19,8 @@ export default {
   name: "Header",
   data ()   {
     return  {
-      userName: "Agustin Brogliatti",
-      logoImage: `../assets/img/logo.png`,
+      userName: 'Agustin Brogliatti',
+      logoImage: '../assets/img/logo.png',
 
     }
   }
@@ -28,53 +29,53 @@ export default {
 
 <style scoped>
   *   {
-    border: 1px solid red;
-    margin: 0;
-    padding: 0;
+
     box-sizing: border-box;
+
   }
 
   #header   {
     width: 100%;
-    height: 50px;
-    background-color: cadetblue;
+    height: 60px;
+    background-color: var(--main-color);
     display: flex;
     justify-content: space-between;
+
+
   }
 
   #content-logo   {
-    width: 15%;
+    width: auto;
+    margin-left: 20px;
 
   }
 
   #content-logo__logo   {
-    width: 50px;
+    height: 60px;
+  }
 
+  #content-login  {
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 35px;
   }
 
   #content-login__tagName  {
     margin: auto;
   }
 
-  #content-login  {
-    width: 14%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-right: 20px;
-  }
-
   #content-login__photo   {
     border-radius: 50%;
     width: 45px;
     height: 45px;
-    background-image: url("../assets/img/logo.png");
+    background-image: url("../assets/img/login.png");
     background-position: center;
-
+    background-size: cover;
   }
 
   #content-login__tagName   {
-    width: auto;
-    height: 20px;
+    font-size: 20px;
   }
 </style>

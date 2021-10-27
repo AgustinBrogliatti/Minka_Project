@@ -32,13 +32,6 @@ export default {
 </script>
 
 <style scoped>
-  #content-body   {
-    border: 1px solid red;
-    display: flex;
-    justify-content: space-between;
-  }
+@import "./assets/CSS/normalize.css"
 
-  * {
-    box-sizing: border-box;
-  }
 </style>

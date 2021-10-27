@@ -1,9 +1,12 @@
 <template>
   <div id="content-NavBar">
     <p class="nav__option">Mi Estudio</p>
-    <p class="nav__option">Calendario</p>
     <p class="nav__option">Contacto</p>
+    <p class="nav__option">Proyectos</p>
     <p class="nav__option">Miravalles</p>
+    <p class="nav__option">Vicario</p>
+    <p class="nav__option">Manfredi</p>
+    <p class="nav__option">Mollo</p>
   </div>
 </template>
 
@@ -18,7 +21,7 @@ export default {
     width: 200px;
     height: 300px;
     border: 1px solid red;
-    margin: 25px;
+    margin: 30px;
   }
 
   .nav__option  {
