@@ -36,7 +36,7 @@ export default {
 
   #header   {
     width: 100%;
-    height: 60px;
+    height: 5%;
     background-color: var(--main-color);
     display: flex;
     justify-content: space-between;
@@ -46,7 +46,7 @@ export default {
 
   #content-logo   {
     width: auto;
-    margin-left: 20px;
+    margin-left: 1.5%;
 
   }
 
@@ -55,11 +55,11 @@ export default {
   }
 
   #content-login  {
-    width: 250px;
+    width: 13%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-right: 35px;
+    margin-right: 2%;
   }
 
   #content-login__tagName  {
@@ -68,14 +68,14 @@ export default {
 
   #content-login__photo   {
     border-radius: 50%;
-    width: 45px;
-    height: 45px;
+    width: 22%;
+    height: 80%;
     background-image: url("../assets/img/login.png");
     background-position: center;
     background-size: cover;
   }
 
   #content-login__tagName   {
-    font-size: 20px;
+    font-size: 1.2em;
   }
 </style>

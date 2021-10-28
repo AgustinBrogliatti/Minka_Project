@@ -5,6 +5,8 @@
     <Article></Article>
     <Article></Article>
     <Article></Article>
+    <Article></Article>
+    <Article></Article>
 
 
 
@@ -29,10 +31,10 @@ export default {
 
 <style scoped>
   #content-home   {
-    margin: 80px auto 60px auto;
-    padding: 44px;
+    margin: 5% auto 3% auto;
+    padding: 2.4%;
     border: 1px solid red;
-    width: 1200px;
+    width: 66%;
     height: auto;
     display: flex;
     flex-flow: row wrap;

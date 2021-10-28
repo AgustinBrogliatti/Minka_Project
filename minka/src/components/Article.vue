@@ -1,6 +1,8 @@
 <template>
   <div id="content-article">
-    <div id="content-artitcle__img"></div>
+    <div id="content-artitcle__img">
+      <img  src="../assets/img/miravalles.jpeg">
+    </div>
     <div id="content-article__description">
       <p>{{title}}</p>
       <p>{{name}}</p>
@@ -24,10 +26,10 @@ export default {
 
 <style scoped>
   #content-article  {
-    width: 350px;
-    height: 350px;
+    width: 31.5%;
+    height: auto;
     border: 1px solid red;
-    margin: 10px;
+    margin: .9%;
     box-sizing: border-box;
   }
 
@@ -36,25 +38,28 @@ export default {
     height: 80%;
     border: 1px solid red;
     box-sizing: border-box;
-    background-image: url("../assets/img/miravalles.jpeg");
-    background-size: cover;
+
+  }
+
+  #content-artitcle__img  img{
+    width: 100%;
   }
 
   #content-article__description   {
     width: 100%;
     height: 20%;
-    padding: 5px;
+    padding: 1%;
     border: 1px solid red;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    font-size: 14px;
+    font-size: .8 em;
 
   }
 
   #content-article__description p {
-    margin: 2px 5px;
-    font-size: 16px;
+    margin: .6% 2%;
+    font-size: 1 em;
   }
 
 </style>

@@ -18,17 +18,17 @@ export default {
 
 <style scoped>
   #content-NavBar   {
-    width: 200px;
-    height: 300px;
+    width: 11%;
+    height: 20%;
     border: 1px solid red;
-    margin: 30px;
+    margin: 1.5%;
   }
 
   .nav__option  {
     background-color: green;
     margin: 0;
-    font-size: 20px;
-    padding: 10px;
+    font-size: 1.3em;
+    padding: 4%;
   }
 
   .nav__option:hover  {
