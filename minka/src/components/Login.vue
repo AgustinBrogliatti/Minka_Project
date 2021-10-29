@@ -20,7 +20,7 @@
           placeholder="Introduzca su contraseña"
       >
       <p v-if="error" class="error">Has introducido mal el email o la contraseña.</p>
-      <input class="form-submit" type="submit" value="Login">
+      <input class="form-submit" type="submit" value="Login" @click="goHome()">
     </form>
 
   </div>
@@ -39,6 +39,9 @@ export default {
       login() {
         console.log(this.email);
         console.log(this.password);
+      },
+      goHome(){
+        this.$router.push('/home');
       }
     }
 }
@@ -46,7 +49,7 @@ export default {
 
 <style scoped>
 .login {
-  padding: 2rem;
+  padding: 5rem;
   background-image: url("https://images.unsplash.com/photo-1558346648-9757f2fa4474?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80") ;
   background-size: cover;
 }

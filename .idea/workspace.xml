@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="451d0026-20fa-4379-bc54-58dc2715cbf4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/minka/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/minka/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/minka/src/components/HomePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/minka/src/components/HomePage.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/minka/src/components/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/minka/src/components/Login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/minka/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/minka/src/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +33,9 @@
     </file-type-list>
   </component>
   <component name="ProjectId" id="1zn5dvuwlOtiRvHKPzLixwqIuf5" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -77,6 +78,7 @@
       <workItem from="1635379830128" duration="460000" />
       <workItem from="1635518759327" duration="4050000" />
       <workItem from="1635529205965" duration="492000" />
+      <workItem from="1635534051436" duration="1114000" />
     </task>
     <servers />
   </component>
