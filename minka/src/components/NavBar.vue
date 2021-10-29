@@ -22,6 +22,9 @@ export default {
     height: 30%;
     border: 1px solid red;
     margin: 1.5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .nav__option, .nav__option_project  {
