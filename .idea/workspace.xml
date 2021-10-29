@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="451d0026-20fa-4379-bc54-58dc2715cbf4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/minka/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/minka/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/minka/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/minka/src/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +16,6 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="package.json" />
         <option value="Vue Single File Component" />
       </list>
     </option>
@@ -33,9 +32,7 @@
     </file-type-list>
   </component>
   <component name="ProjectId" id="1zn5dvuwlOtiRvHKPzLixwqIuf5" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="1" id="Add" />
-  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -78,12 +75,14 @@
       <workItem from="1635379830128" duration="460000" />
       <workItem from="1635518759327" duration="4050000" />
       <workItem from="1635529205965" duration="492000" />
-      <workItem from="1635531256991" duration="262000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
