@@ -1,25 +1,54 @@
 <template>
   <div class="login">
-    <h1 class="title">Login in the page</h1>
-    <form action class="form">
+    <h1 class="title">Inicie sesión</h1>
+    <form action class="form" @submit.prevent="login">
       <label class="form-label" for="#email">Email:</label>
-      <input class="form-input" type="email" id="email" required placeholder="Email">
-      <label class="form-label" for="#password">Password:</label>
-      <input class="form-input" type="password" id="password" placeholder="Password">
+      <input
+          v-model="email"
+          class="form-input"
+          type="email"
+          id="email"
+          required
+          placeholder="Introduzca su email"
+      >
+      <label class="form-label" for="#password">Contraseña:</label>
+      <input
+          v-model="password"
+          class="form-input"
+          type="password"
+          id="password"
+          placeholder="Introduzca su contraseña"
+      >
+      <p v-if="error" class="error">Has introducido mal el email o la contraseña.</p>
       <input class="form-submit" type="submit" value="Login">
     </form>
+
   </div>
 </template>
 
 <script>
+
 export default {
-  name: "Login"
+  name: "Login",
+  data: () => ({
+      email: "",
+      password: "",
+      error: false
+    }),
+    methods: {
+      login() {
+        console.log(this.email);
+        console.log(this.password);
+      }
+    }
 }
 </script>
 
 <style scoped>
 .login {
   padding: 2rem;
+  background-image: url("https://images.unsplash.com/photo-1558346648-9757f2fa4474?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80") ;
+  background-size: cover;
 }
 .title {
   text-align: center;

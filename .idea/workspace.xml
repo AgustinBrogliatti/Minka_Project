@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="451d0026-20fa-4379-bc54-58dc2715cbf4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/minka/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/minka/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/minka/src/components/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/minka/src/components/Home.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/minka/src/components/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/minka/src/components/Login.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +76,8 @@
       <workItem from="1635379830128" duration="460000" />
       <workItem from="1635518759327" duration="4050000" />
       <workItem from="1635529205965" duration="492000" />
+      <workItem from="1635531937865" duration="6000" />
+      <workItem from="1635531961267" duration="1725000" />
     </task>
     <servers />
   </component>
@@ -86,5 +89,17 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/minka/src/components/Login.vue</url>
+          <line>43</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

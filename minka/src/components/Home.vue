@@ -38,6 +38,6 @@ export default {
     height: auto;
     display: flex;
     flex-flow: row wrap;
-
   }
+
 </style>
