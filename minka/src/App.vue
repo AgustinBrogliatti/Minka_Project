@@ -19,4 +19,5 @@ export default {
 <style scoped>
 @import "./assets/CSS/normalize.css";
 
+
 </style>
