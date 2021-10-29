@@ -7,9 +7,6 @@
     <Article></Article>
     <Article></Article>
     <Article></Article>
-
-
-
   </div>
 </template>
 
@@ -21,23 +18,16 @@ export default {
   components:   {
     Article,
   },
-  data () {
-    return {
-
-    }
+    /*methods: {
+      goHome(){
+        this.$router.push('/projects');
+      }
+    }*/
   }
-}
 </script>
 
 <style scoped>
-  #content-home   {
-    margin: 5% auto 3% auto;
-    padding: 2.4%;
-    border: 1px solid red;
-    width: 66%;
-    height: auto;
-    display: flex;
-    flex-flow: row wrap;
-  }
+@import "../assets/CSS/main layout.css";
+
 
 </style>

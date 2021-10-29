@@ -1,6 +1,6 @@
 <template>
   <div id="content-article">
-    <div id="content-artitcle__img">
+    <div id="content-article__img">
       <img  src="../assets/img/miravalles.jpeg">
     </div>
     <div id="content-article__description">
@@ -33,15 +33,16 @@ export default {
     box-sizing: border-box;
   }
 
-  #content-artitcle__img  {
+  #content-article__img  {
     width: 100%;
     height: 80%;
     border: 1px solid red;
     box-sizing: border-box;
 
+
   }
 
-  #content-artitcle__img  img{
+  #content-article__img  img{
     width: 100%;
   }
 
