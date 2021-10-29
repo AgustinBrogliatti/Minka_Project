@@ -47,7 +47,7 @@ export default {
 
   #content-article__description   {
     width: 100%;
-    height: 20%;
+    height: 30%;
     padding: 1%;
     border: 1px solid red;
     box-sizing: border-box;

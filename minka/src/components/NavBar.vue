@@ -19,7 +19,7 @@ export default {
 <style scoped>
   #content-NavBar   {
     width: 11%;
-    height: 20%;
+    height: 30%;
     border: 1px solid red;
     margin: 1.5%;
   }
