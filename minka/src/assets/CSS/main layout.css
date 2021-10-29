@@ -3,7 +3,7 @@
     background-size: cover;
 }
 
-#content-home   {
+.content-home   {
     margin: 5% auto 3% auto;
     padding: 2.4%;
     border: 1px solid red;
@@ -12,3 +12,4 @@
     display: flex;
     flex-flow: row wrap;
 }
+

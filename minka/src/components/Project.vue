@@ -4,7 +4,8 @@
      <Header></Header>
      <div id="content-body">
        <NavBar></NavBar>
-       <Home></Home>
+       <div class="content-home"> <div id="content-project"> </div> </div>
+
        <Banner></Banner>
      </div>
      <Footer></Footer>
@@ -17,11 +18,15 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Banner from "@/components/Banner";
+/*
 import Home from "@/components/Home";
+*/
 export default {
   name: "Project",
   components: {
+/*
     Home,
+*/
     Header,
     Footer,
     NavBar,
@@ -41,10 +46,9 @@ export default {
 @import "../assets/CSS/main layout.css";
 
 #content-project {
-  width: 3335px;
-  height: 2937px;
-  border: 1px solid red;
-  margin: .9%;
-  box-sizing: border-box;
+  border: 1px black;
+  height: auto;
+  width: auto;
 }
+
 </style>
