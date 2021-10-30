@@ -3,7 +3,8 @@ import App from './App.vue'
 import VueRouter from 'vue-router'
 import HomePage from "./components/HomePage";
 import Login from "./components/Login";
-import Project from "@/components/Project";
+import ClientView from "./components/ClientView";
+import MiEstudio from "./components/MiEstudio"
 
 Vue.use(VueRouter)
 Vue.config.productionTip = false
@@ -11,7 +12,8 @@ Vue.config.productionTip = false
 const routes = [
   {path:'/home', name:"HomePage", component:HomePage},
   {path:'/login', name:"Login", component:Login},
-  {path:'/project', name:"Project", component: Project}
+  {path:'/clientview', name:"ClientView", component: ClientView},
+  {path:'/miestudio', name:"MiEstudio", component: MiEstudio}
 ]
 const router = new VueRouter({
   routes
