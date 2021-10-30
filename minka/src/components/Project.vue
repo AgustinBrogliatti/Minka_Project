@@ -44,7 +44,7 @@ export default {
 
   data() {
     return {
-      title: "Miravalles - Alma Verde",
+      title:"Miravalles - Alma Verde",
       name: "Eugenio Miravalles",
       date: "22/05/2021"
     }
@@ -56,30 +56,32 @@ export default {
 @import "../assets/CSS/main layout.css";
 
 #content-project  {
-  width: 50%;
-  height: 60%;
+  width: 100%;
+  height: auto;
   border: 1px solid red;
   margin: .9%;
   box-sizing: border-box;
-
 }
 
 #content-project__img  {
   width: 100%;
-  height: 80%;
+  height: 100%;
   border: 1px solid red;
+  padding: 1%;
   box-sizing: border-box;
-
+  display: flex;
+  justify-content: center;
 
 }
 
 #content-project__img  img{
-  width: 100%;
+  width: 50%;
+  align-self: center;
 }
 
 #content-project__description   {
   width: 100%;
-  height: 30%;
+  height: 50%;
   padding: 1%;
   border: 1px solid red;
   box-sizing: border-box;
@@ -93,4 +95,5 @@ export default {
   margin: .6% 2%;
   font-size: 1 em;
 }
+
 </style>
