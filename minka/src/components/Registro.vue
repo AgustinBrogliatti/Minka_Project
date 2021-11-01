@@ -11,6 +11,14 @@
           required
           placeholder="Introduzca su email"
       >
+      <label class="form-label" for="#username">Nombre de Usuario:</label>
+      <input
+          v-model="username"
+          class="form-input"
+          type="username"
+          id="username"
+          placeholder="Cree un Nombre de Usuario"
+      >
       <label class="form-label" for="#password">Contraseña:</label>
       <input
           v-model="password"
@@ -19,13 +27,13 @@
           id="password"
           placeholder="Introduzca su contraseña"
       >
-      <label class="form-label" for="#username">Nombre de Usuario:</label>
+      <label class="form-label" for="#repeatPassword">Repita su contraseña:</label>
       <input
-          v-model="username"
+          v-model="repeatPassword"
           class="form-input"
-          type="username"
-          id="username"
-          placeholder="Cree un Nombre de Usuario"
+          type="password"
+          id="repeatPassword"
+          placeholder="Repita su contraseña"
       >
       <input class="form-submit" type="submit" value="Registrarse" @click="goHome()">
     </form>
@@ -39,19 +47,21 @@ export default {
   data: () => ({
     email: "",
     password: "",
+    repeatPassword: "",
     username: "",
     error: false
   }),
   methods: {
     registro() {
       console.log(this.email);
+      console.log(this.username);
       console.log(this.password);
-      console.log(this.username)
+      console.log(this.repeatPassword)
     },
     goHome(){
       this.$router.push('/home');
+    },
     }
-  }
 }
 
 </script>
