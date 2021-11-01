@@ -1,6 +1,6 @@
 <template>
   <div id="content-NavBar">
-    <p class="nav__option">Mi Estudio</p>
+    <p class="nav__option" @click="goToStudio()">Mi Estudio</p>
     <p class="nav__option">Contacto</p>
     <p class="nav__option">Proyectos</p>
     <p class="nav__option_project">Miravalles</p>
@@ -12,7 +12,12 @@
 
 <script>
 export default {
-  name: "NavBar"
+  name: "NavBar",
+  methods: {
+    goToStudio(){
+      this.$router.push('/miestudio');
+    }
+  }
 }
 </script>
 
@@ -40,5 +45,8 @@ export default {
 
   .nav__option_project {
     padding-left: 15%;
+  }
+  :hover{
+    cursor: pointer;
   }
 </style>

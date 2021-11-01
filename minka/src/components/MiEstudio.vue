@@ -14,6 +14,7 @@
             <p>{{date}}</p>
           </div>
         </div>
+        <router-link to="/home">Volver a la página principal</router-link>
       </div>
 
       <Banner></Banner>
@@ -94,4 +95,5 @@ export default {
   margin: .6% 2%;
   font-size: 1 em;
 }
+:hover
 </style>
