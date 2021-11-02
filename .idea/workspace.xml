@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="451d0026-20fa-4379-bc54-58dc2715cbf4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/minka/src/components/NavBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/minka/src/components/NavBar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/minka/src/components/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/minka/src/components/LoginArq.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/minka/src/components/PortadaInicio.vue" beforeDir="false" afterPath="$PROJECT_DIR$/minka/src/components/PortadaInicio.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/minka/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/minka/src/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

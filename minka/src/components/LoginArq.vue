@@ -21,6 +21,7 @@
       >
       <p v-if="error" class="error">Has introducido mal el email o la contraseña.</p>
       <input class="form-submit" type="submit" value="Login" @click="goHome()">
+      <p2>¿Todavía no tenes cuenta?</p2><input class="form-submit" type="submit" value="Registrarse" @click="goRegistro()">
     </form>
 
   </div>
@@ -42,6 +43,9 @@ export default {
       },
       goHome(){
         this.$router.push('/home');
+      },
+      goRegistro(){
+        this.$router.push('/registro')
       }
     }
 }
@@ -99,9 +103,16 @@ export default {
   padding: 1rem 0;
   cursor: pointer;
   transition: background 0.2s;
+  margin-bottom: 10px;
 }
 &:hover {
    background: #0b9185;
+ }
+
+ p2{
+   padding-top: 40px;
+   padding-bottom: -40px;
+   align-self: center;
  }
 
 </style>

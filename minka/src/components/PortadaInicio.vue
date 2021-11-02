@@ -2,10 +2,30 @@
   <div id="home_page">
     <HeaderPortada></HeaderPortada>
     <div id="content-body2">
-      <div class="content-home2">
-        <input class="form-submit" type="submit" value="Registrarse" @click="goRegistro()">
-        <input class="form-submit" type="submit" value="Iniciar Sesion (soy cliente)" @click="goLogIn()">
-        <input class="form-submit" type="submit" value="Iniciar Sesion (soy arquitecto)" @click="goLogIn()">
+      <div class="login">
+        <h1 class="title">Inicie sesión</h1>
+        <form action class="form" @submit.prevent="login">
+          <label class="form-label" for="#email">Email:</label>
+          <input
+              v-model="email"
+              class="form-input"
+              type="email"
+              id="email"
+              required
+              placeholder="Introduzca su email"
+          >
+          <label class="form-label" for="#password">Contraseña:</label>
+          <input
+              v-model="password"
+              class="form-input"
+              type="password"
+              id="password"
+              placeholder="Introduzca su contraseña"
+          >
+          <p v-if="error" class="error">Has introducido mal el email o la contraseña.</p>
+          <input class="form-submit" type="submit" value="Login" @click="goClientView()">
+          <input class="form-submit" type="submit" value="Iniciar Sesión como Arquitecto" @click="goLogin()">
+        </form>
       </div>
       <div id="content-body3">
         <div id="content-body4">
@@ -38,14 +58,24 @@ export default {
     Banner,
     Footer
   },
-  methods:{
-    goLogIn(){
-      this.$router.push('/login');
-    },
-    goRegistro(){
-      this.$router.push('/registro');
+
+  data: () => ({
+    email: "",
+    password: "",
+    error: false
+  }),
+  methods: {
+    login() {
+      console.log(this.email);
+      console.log(this.password);
+  },
+    goClientView(){
+    this.$router.push('/clientview');
+  },
+    goLogin(){
+      this.$router.push('/loginArq')
     }
-  }
+}
 }
 </script>
 
@@ -80,7 +110,7 @@ export default {
   background-image: url("https://images.unsplash.com/photo-1558346648-9757f2fa4474?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
   background-size: cover;
   display: flex;
-  flex-flow: column;
+  flex-flow: row;
   align-items: center;
 }
 
@@ -96,7 +126,6 @@ export default {
   width: 80%;
   font-size: 20px;
   background-color: aliceblue;
-  margin-left: 2rem;
   padding: 2%;
 }
 
@@ -107,4 +136,58 @@ export default {
   height: 300px;
   margin: 25px;
 }
+
+.login {
+  padding: 2%;
+}
+.title {
+  text-align: center;
+}
+.form {
+  margin: 3rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 20%;
+  min-width: 350px;
+  max-width: 100%;
+  background: rgba(19, 35, 47, 0.9);
+  border-radius: 5px;
+  padding: 40px;
+  box-shadow: 0 4px 10px 4px rgba(0, 0, 0, 0.3);
+}
+.form-label {
+  margin-top: 2rem;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+:first-of-type {
+  margin-top: 0rem;
+}
+
+.form-input {
+  padding: 10px 15px;
+  background: none;
+  background-image: none;
+  border: 1px solid white;
+  color: white;
+}
+
+:focus {
+  outline: 0;
+  border-color: #1ab188;
+}
+
+.form-submit {
+  background: #1ab188;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-bottom: -10px;
+  width: auto;
+}
+&:hover {
+   background: #0b9185;
+ }
 </style>
