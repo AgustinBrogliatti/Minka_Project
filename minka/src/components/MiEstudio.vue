@@ -4,10 +4,12 @@
     <div id="content-body">
       <NavBar></NavBar>
       <div class="content-home">
-        <div>
+        <div class = "projects-container" v-for="(project,index) in comp" :key="index">
+
           <NewProject></NewProject>
             <div id="add-project_button">
-              <p> Añadir proyecto </p>
+              <span v-bind:is="comp"></span>
+              <p @click="addProject(index)"> Añadir proyecto </p>
             </div>
 
 
@@ -37,10 +39,16 @@ export default {
     Banner,
     NewProject
   },
+  data() {
+    return {
+    title: "Proyecto Creado",
+    comp: []
+    }
+  },
 
   methods: {
-    addProject: function () {
-      this.components.push(NewProject);
+    addProject() {
+      this.comp.push(NewProject);
     }
   }
 

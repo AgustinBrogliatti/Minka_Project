@@ -4,24 +4,33 @@
       <img  src="../assets/img/miravalles.jpeg">
     </div>
     <div id="content-new_project__description">
-      <p>{{title}}</p>
-      <p>{{name}}</p>
-      <p>{{date}}</p>
+      <p>{{project_name}}</p>
+      <p>{{client_name}}</p>
+      <p>{{start_date}}</p>
+      <p> {{city}}</p>
     </div>
+
+
+
+
   </div>
 </template>
 
 <script>
+
 export default {
   name: "NewProject",
   data() {
     return {
-      title: "Fort - Mansión De Lujo",
-      name: "Ricardo Fort",
-      date: "12/10/2020"
+      project_name: "Mansión de Lujo",
+      client_name: "Ricardo Fort",
+      start_date: "12/12/2020",
+      city: "Miami"
     }
   }
+
 }
+
 </script>
 
 <style scoped>
