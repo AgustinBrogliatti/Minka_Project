@@ -8,6 +8,9 @@ import MiEstudio from "./components/MiEstudio";
 import Registro from "./components/Registro";
 import PortadaInicio from "./components/PortadaInicio";
 import ProjectInfo from "./components/ProjectInfo"
+import MiPerfil from "./components/MiPerfil";
+import Contacto from "./components/Contacto";
+import ErrorPage from "./components/ErrorPage";
 
 Vue.use(VueRouter)
 Vue.config.productionTip = false
@@ -19,7 +22,10 @@ const routes = [
   {path:'/miestudio', name:"MiEstudio", component: MiEstudio},
   {path:'/registro', name:"Registro", component: Registro},
   {path: '/portadainicio', name:"PortadaInicio", component: PortadaInicio},
-  {path: '/projectinfo', name:"ProjectInfo", component: ProjectInfo}
+  {path: '/projectinfo', name:"ProjectInfo", component: ProjectInfo},
+  {path: '/miperfil', name:"ProjectInfo", component: MiPerfil},
+  {path: '/contacto', name:"ProjectInfo", component: Contacto},
+  {path: '/*', name:"ProjectInfo", component: ErrorPage}
 ]
 const router = new VueRouter({
   routes

@@ -4,7 +4,7 @@
       <div class="body">
         <ul>
           <li @click="goToStudio()">Mi Estudio</li>
-          <li>Contacto</li>
+          <li @click="goToContacts()">Contacto</li>
           <li>Proyectos
             <ul>
               <li>Miravalles</li>
@@ -12,7 +12,7 @@
               <li>Olivos</li>
             </ul>
           </li>
-          <li>Mi Perfil</li>
+          <li @click="goToProfile()">Mi Perfil</li>
         </ul>
       </div>
     </div>
@@ -25,6 +25,11 @@ export default {
   methods: {
     goToStudio(){
       this.$router.push('/miestudio');
+    },
+    goToContacts(){
+      this.$router.push('/contacto');
+    },goToProfile(){
+      this.$router.push('/miperfil');
     }
   }
 }
