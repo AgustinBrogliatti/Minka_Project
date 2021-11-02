@@ -1,12 +1,21 @@
 <template>
-  <div id="content-NavBar">
-    <p class="nav__option" @click="goToStudio()">Mi Estudio</p>
-    <p class="nav__option">Contacto</p>
-    <p class="nav__option">Proyectos</p>
-    <p class="nav__option_project">Miravalles</p>
-    <p class="nav__option_project">Vicario</p>
-    <p class="nav__option_project">Manfredi</p>
-    <p class="nav__option_project">Mollo</p>
+  <div class="container">
+    <div class="navbar">
+      <div class="body">
+        <ul>
+          <li @click="goToStudio()">Mi Estudio</li>
+          <li>Contacto</li>
+          <li>Proyectos
+            <ul>
+              <li>Miravalles</li>
+              <li>Vicario</li>
+              <li>Olivos</li>
+            </ul>
+          </li>
+          <li>Mi Perfil</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -22,32 +31,54 @@ export default {
 </script>
 
 <style scoped>
-  #content-NavBar   {
-    width: 11%;
-    height: 30%;
-    border: 1px solid black;
-    margin: 1.5%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border-radius: unset;
-  }
+.container{
+  padding: 20px;
+  margin-top: 2.5%;
+}
 
-  .nav__option, .nav__option_project  {
-    background-color: green;
-    margin: 0;
-    font-size: 1.3em;
-    padding: 4%;
-  }
+.navbar{
+  width: 200px;
+  height: 200px;
+  background-color: var(--main-color);
+  border-radius: 10px 10px;
+}
 
-  .nav__option:hover, .nav__option_project:hover  {
-    background-color: red;
-  }
 
-  .nav__option_project {
-    padding-left: 15%;
-  }
-  :hover{
-    cursor: pointer;
-  }
+.body li{
+  transition: 1s all;
+  font-family: sans-serif;
+  font-size: 18px;
+  padding: 15px;
+  margin-left: -40px;
+  color: #fff;
+  list-style: none;
+  display: block;
+  border-radius: 10px 10px;
+}
+
+li:hover{
+  transition: 1s all;
+  color: #2f89fc;
+  background-color: rgba(42, 56, 65, 0.82);
+  border-radius: 10px 10px;
+  cursor: pointer;
+}
+
+.body > li{
+  float: left;
+}
+
+.body li ul{
+  background: #1E2B32;
+  margin-left: 190px;
+  margin-top: -38px;
+  display: none;
+  position: absolute;
+  border-radius: 10px 10px;
+}
+
+.body li:hover > ul{
+  display: block;
+  cursor: pointer;
+}
 </style>

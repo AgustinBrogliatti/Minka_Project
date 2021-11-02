@@ -55,11 +55,11 @@ export default {
   }
 
   #content-login  {
-    width: 13%;
+    width: 20%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-right: 2%;
+    margin-right: 1%;
   }
 
   #content-login__tagName  {
@@ -67,7 +67,7 @@ export default {
   }
 
   #content-login__photo   {
-    border-radius: 50%;
+    border-radius: 100%;
     width: 22%;
     height: 80%;
     background-image: url("../assets/img/login.png");
