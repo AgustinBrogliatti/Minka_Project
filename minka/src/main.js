@@ -7,6 +7,7 @@ import ClientView from "./components/ClientView";
 import MiEstudio from "./components/MiEstudio";
 import Registro from "./components/Registro";
 import PortadaInicio from "./components/PortadaInicio";
+import ProjectInfo from "./components/ProjectInfo"
 
 Vue.use(VueRouter)
 Vue.config.productionTip = false
@@ -17,7 +18,8 @@ const routes = [
   {path:'/clientview', name:"ClientView", component: ClientView},
   {path:'/miestudio', name:"MiEstudio", component: MiEstudio},
   {path:'/registro', name:"Registro", component: Registro},
-  {path: '/portadainicio', name:"PortadaInicio", component: PortadaInicio}
+  {path: '/portadainicio', name:"PortadaInicio", component: PortadaInicio},
+  {path: '/projectinfo', name:"ProjectInfo", component: ProjectInfo}
 ]
 const router = new VueRouter({
   routes

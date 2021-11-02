@@ -5,9 +5,9 @@
       <NavBar></NavBar>
       <div class="content-home">
         <div>
+          <NewProject></NewProject>
             <div id="add-project_button">
-              <p v-on:click="addProject"> Agregar proyecto </p>
-              <component v-bind:is ="addProject"/>
+              <p> Añadir proyecto </p>
             </div>
 
 
@@ -31,15 +31,15 @@ import NewProject from "@/components/NewProject";
 export default {
   name: "MiEstudio",
   components: {
-    NewProject,
     Header,
     Footer,
     NavBar,
     Banner,
+    NewProject
   },
 
   methods: {
-    addProject() {
+    addProject: function () {
       this.components.push(NewProject);
     }
   }
@@ -102,7 +102,7 @@ export default {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 10px;
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 4px;

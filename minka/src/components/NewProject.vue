@@ -1,5 +1,14 @@
 <template>
-
+  <div id="content-new_project">
+    <div id="content-new_project__img">
+      <img  src="../assets/img/miravalles.jpeg">
+    </div>
+    <div id="content-new_project__description">
+      <p>{{title}}</p>
+      <p>{{name}}</p>
+      <p>{{date}}</p>
+    </div>
+  </div>
 </template>
 
 <script>
