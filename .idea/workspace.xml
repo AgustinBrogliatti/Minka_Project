@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="451d0026-20fa-4379-bc54-58dc2715cbf4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/minka/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/minka/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/minka/src/components/PortadaInicio.vue" beforeDir="false" afterPath="$PROJECT_DIR$/minka/src/components/PortadaInicio.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +80,9 @@
       <workItem from="1635534051436" duration="1114000" />
       <workItem from="1635616136817" duration="5837000" />
       <workItem from="1635719659226" duration="3524000" />
+      <workItem from="1635791765115" duration="5609000" />
+      <workItem from="1635806937520" duration="863000" />
+      <workItem from="1635817010112" duration="3231000" />
     </task>
     <servers />
   </component>
@@ -88,6 +90,15 @@
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
