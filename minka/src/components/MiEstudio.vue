@@ -4,15 +4,13 @@
     <div id="content-body">
       <NavBar></NavBar>
       <div class="content-home">
-        <div id="content-project">
-          <div id="content-project__img">
-            <img src="../assets/img/miravalles.jpeg">
-          </div>
-          <div id = "content-project__description">
-            <p>{{title}}</p>
-            <p>{{name}}</p>
-            <p>{{date}}</p>
-          </div>
+        <div>
+            <div id="add-project_button">
+              <p v-on:click="addProject"> Agregar proyecto </p>
+              <component v-bind:is ="addProject"/>
+            </div>
+
+
         </div>
       </div>
 
@@ -29,25 +27,26 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Banner from "@/components/Banner";
 
+import NewProject from "@/components/NewProject";
 export default {
   name: "MiEstudio",
   components: {
-
+    NewProject,
     Header,
     Footer,
     NavBar,
     Banner,
-
   },
 
-  data() {
-    return {
-      title:"Miravalles - Alma Verde",
-      name: "Eugenio Miravalles",
-      date: "22/05/2021"
+  methods: {
+    addProject() {
+      this.components.push(NewProject);
     }
   }
-}
+
+};
+
+
 
 </script>
 
@@ -94,4 +93,20 @@ export default {
   margin: .6% 2%;
   font-size: 1 em;
 }
+
+#add-project_button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+
 </style>

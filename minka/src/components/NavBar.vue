@@ -20,11 +20,12 @@ export default {
   #content-NavBar   {
     width: 11%;
     height: 30%;
-    border: 1px solid red;
+    border: 1px solid black;
     margin: 1.5%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border-radius: unset;
   }
 
   .nav__option, .nav__option_project  {
