@@ -3,16 +3,16 @@
     <div class="navbar">
       <div class="body">
         <ul>
-          <li @click="goToStudio()">Mi Estudio</li>
-          <li @click="goToContacts()">Contacto</li>
-          <li>Proyectos
+          <li @click="goToStudio()"><i class="fas fa-house-user"></i> Mi Estudio</li>
+          <li @click="goToContacts()"><i class="fas fa-address-card"></i> Contacto</li>
+          <li><i class="fas fa-tasks"></i> Proyectos
             <ul>
               <li>Miravalles</li>
               <li>Vicario</li>
               <li>Olivos</li>
             </ul>
           </li>
-          <li @click="goToProfile()">Mi Perfil</li>
+          <li @click="goToProfile()"><i class="fas fa-user-circle"></i> Mi Perfil</li>
         </ul>
       </div>
     </div>

@@ -12,6 +12,9 @@ import MiPerfil from "./components/MiPerfil";
 import Contacto from "./components/Contacto";
 import ErrorPage from "./components/ErrorPage";
 
+//npm install --save @fortawesome/fontawesome-free
+import '@fortawesome/fontawesome-free/js/all'
+
 Vue.use(VueRouter)
 Vue.config.productionTip = false
 
