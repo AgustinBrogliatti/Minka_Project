@@ -6,9 +6,9 @@
 
     <div id="content-login">
       <div id="content-login__tagName">
-        <p>{{userName}}</p>
+        <p @click="goToProfile()">{{userName}}</p>
       </div>
-      <div id="content-login__photo"></div>
+      <div id="content-login__photo" @click="goToProfile()"></div>
     </div>
 
   </div>
@@ -17,11 +17,14 @@
 <script>
 export default {
   name: "Header",
-  data ()   {
-    return  {
+  data() {
+    return {
       userName: 'Agustin Brogliatti',
       logoImage: '../assets/img/logo.png',
-
+    }
+  }, methods: {
+    goToProfile(){
+      this.$router.push('/miperfil');
     }
   }
 }
@@ -77,5 +80,8 @@ export default {
 
   #content-login__tagName   {
     font-size: 1.2em;
+  }
+  :hover {
+    cursor: pointer;
   }
 </style>
