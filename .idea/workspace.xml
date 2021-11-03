@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="451d0026-20fa-4379-bc54-58dc2715cbf4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/minka/src/components/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/minka/src/components/Header.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/minka/src/components/LoginArq.vue" beforeDir="false" afterPath="$PROJECT_DIR$/minka/src/components/LoginArq.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

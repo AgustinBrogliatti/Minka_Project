@@ -22,6 +22,8 @@
       <p v-if="error" class="error">Has introducido mal el email o la contraseña.</p>
       <input class="form-submit" type="submit" value="Login" @click="goHome()">
       <p2>¿Todavía no tenes cuenta?</p2><input class="form-submit" type="submit" value="Registrarse" @click="goRegistro()">
+      <button @click= "loginArq()" > LOGIN ARQ </button>
+      {{listaObjetos}}
     </form>
 
   </div>
@@ -34,6 +36,7 @@ export default {
   data: () => ({
       email: "",
       password: "",
+      listaObjetos: [],
       error: false
     }),
     methods: {
@@ -46,6 +49,15 @@ export default {
       },
       goRegistro(){
         this.$router.push('/registro')
+      },
+      loginArq(){
+        let email = this.email
+        let password = this.password
+        let projectObject = {
+          "email" : email,
+          "password": password
+        }
+        this.listaObjetos.push(projectObject)
       }
     }
 }
