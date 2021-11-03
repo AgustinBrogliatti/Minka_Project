@@ -1,5 +1,5 @@
-from flask import Flask, jsonify, request, redirect, render_template, send_from_directory, abort
-import os, json, urllib.parse
+from flask import Flask, jsonify, request, send_from_directory, abort
+import os, json
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
 
@@ -28,12 +28,12 @@ def allowed_file(filename):
 
 
 @app.route('/')
-def hello_world():
-    return "Minka Backend"
+def minka_home():
+    return jsonify({'message': 'Welcome to Minka Server!!', 'status': '200 ok'})
 
 
 
-@app.route("/upload-file", methods=["GET", "POST"])
+@app.route("/api/v1/upload-file", methods=["GET", "POST", "DELETE"])
 def upload_file():
     if request.method == "POST":
 
@@ -42,61 +42,64 @@ def upload_file():
             file = request.files["file"]
 
             if file.filename == "":
-                print("No filename")
+                return jsonify({'message': 'Unnamed file', 'status': 'BAD REQUEST 400'})
 
 
             if allowed_file(file.filename):
                 filename = secure_filename(file.filename)
                 file.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
-                print("File saved")
+                return jsonify({'message': 'File saved successfully', 'status': '200 ok'})
             
 
             else:
-                print("That file extension is not allowed")
+                return jsonify({'message': 'That file extension is not allowed', 'status': 'BAD REQUEST	400'})
     
-  
-    return "Upload Files Page"
+    if request.method == "DELETE":
+        
+        body = json.loads(request.data)
+        file_name = body['name']
+        
+
+        path = os.path.join('static', 'files', file_name)
+        os.remove(path)
+        path = os.path.join("static", "files.json")
+
+        if os.path.exists(path):
+            with open(path, "r+") as file:
+
+                files = json.load(file)
+                for f in files:
+                    if f['name'] == file_name:
+
+                        files.remove(f)
+                        with open(path, "w") as file:
+                            file.write(json.dumps(files, indent = 4))
+
+                return jsonify({"files": files, "message": "File deleted successfully", "status":"ok"})
+
+
+    return jsonify({'message': 'Upload Files Page', 'status': '200 ok'})
 
     
     
 
 app.config['CLIENT_FILES'] = "static/files"
 
-
-
-
-@app.route("/uploads/<file_name>", methods=['GET', 'DELETE'])
+@app.route("/api/v1/uploads/<file_name>", methods=['GET', 'DELETE'])
 def get_file(file_name):
     
     if request.method == "GET":
 
         try:
             return send_from_directory(app.config['CLIENT_FILES'], file_name, as_attachment=False)
-
+           
         except FileNotFoundError:
             abort(404)
 
-    if request.method == "DELETE":
-        path = os.path.join('static', 'files', file_name)
-        os.remove(path)
+      
 
-        path = os.path.join("static", "files.json")
-        if os.path.exists(path):
-            with open(path, "r+") as file:
-                files = json.load(file)
-                for f in files:
-                    if f['name'] == file_name:
-                        files.remove(f)
-                        print(files)
-                        with open(path, "w") as file:
-                            file.write(json.dumps(files, indent = 4))
-                return jsonify({"files": files, "status":"ok"})
-
-        return "File deleted successfully"
-        
-
-@app.route("/uploads/files-view", methods=["GET", "POST", "DELETE"])
-def post_files_list():
+@app.route("/api/v1/uploads/files-view", methods=["GET", "POST"])
+def files_list():
 
     path = os.path.join("static", "files.json")
     
@@ -104,8 +107,8 @@ def post_files_list():
         if os.path.exists(path):
             with open(path, "r") as file:
                 files = json.load(file)
-                return jsonify({"files": files, "status":"ok"})
-        return jsonify({"files":[], "message":"empity data base","status":"not found"})
+                return jsonify({"files": files,"message": "File list uploaded", "status":"200 ok"})
+        return jsonify({"files": [], "message": "Empity data base", "status":"200 ok"})
 
     if request.method == 'POST':
         body = request.json 
@@ -115,7 +118,7 @@ def post_files_list():
                 list_files = []
                 list_files.append(body)
                 file.write(json.dumps(list_files, indent = 4))
-                return jsonify({"file": body, "status":"ok"})
+                return jsonify({"file": body, "message": "Files list updated", "status":"ok"})
     
         if os.path.exists(path):
                 with open(path, "r+") as file:
@@ -123,7 +126,7 @@ def post_files_list():
                     files.append(body)  
                     file.seek(0)
                     json.dump(files, file, indent = 4)
-                    return jsonify({"order": body, "status":"ok"})
+                    return jsonify({"order": body,"message":"Files list updated", "status":"ok"})
 
 
 
