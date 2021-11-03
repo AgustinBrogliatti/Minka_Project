@@ -14,7 +14,7 @@ export default {
 
 <style scoped>
   #content-banner   {
-    border: 1px solid red;
+    border: 1px solid steelblue;
     width: 150px;
     height: 300px;
     margin: 25px;

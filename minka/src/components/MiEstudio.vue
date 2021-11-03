@@ -63,7 +63,7 @@ export default {
 #content-project  {
   width: 100%;
   height: auto;
-  border: 1px solid red;
+  border: 1px solid steelblue;
   margin: .9%;
   box-sizing: border-box;
 }
@@ -71,7 +71,7 @@ export default {
 #content-project__img  {
   width: 100%;
   height: 100%;
-  border: 1px solid red;
+  border: 1px solid steelblue;
   padding: 1%;
   box-sizing: border-box;
   display: flex;
@@ -88,7 +88,7 @@ export default {
   width: 100%;
   height: 50%;
   padding: 1%;
-  border: 1px solid red;
+  border: 1px solid steelblue;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
