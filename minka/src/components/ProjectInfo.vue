@@ -24,8 +24,11 @@
         <label>Breve descripción del proyecto </label>
         <textarea id="subject" name="subject" style="height:200px"></textarea>
 
-        <input type="submit" value="Crear Proyecto">
-
+        <input type="text" v-model="title">
+        <input type="text" v-model="client">
+        <input type="text" v-model="date">
+        <button @click= "crearProyecto()" > CREAR PROYECTO </button>
+        {{listaObjetos}}
       </form>
     </div>
   </div>
@@ -37,12 +40,35 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Banner from "@/components/Banner";
 
+
+
 export default {
   name: "ProjectInfo",
   components:  Header,
   Footer,
   NavBar,
-  Banner
+  Banner,
+  data() {
+    return {
+      listaObjetos: [],
+      title: "",
+      client: "",
+      date: ""
+    }
+  },
+  methods: {
+    crearProyecto() {
+      let titulo = this.title
+      let cliente = this.client
+      let fecha = this.date
+      let projectObject = {
+        "titulo" : titulo,
+        "cliente": cliente,
+        "fecha": fecha
+      }
+      this.listaObjetos.push(projectObject)
+    }
+  }
 }
 </script>
 

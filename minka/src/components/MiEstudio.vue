@@ -5,11 +5,10 @@
       <NavBar></NavBar>
       <div class="content-home">
         <div class = "projects-container" v-for="(project,index) in comp" :key="index">
+          <div> <NewProject></NewProject> </div>
 
-          <NewProject></NewProject>
             <div id="add-project_button">
-              <span v-bind:is="comp"></span>
-              <p @click="addProject(index)"> Añadir proyecto </p>
+              <p> Añadir proyecto </p>
             </div>
 
 
