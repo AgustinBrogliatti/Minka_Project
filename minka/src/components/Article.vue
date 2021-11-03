@@ -28,7 +28,7 @@ export default {
   #content-article  {
     width: 31.5%;
     height: auto;
-    border: 1px solid red;
+    border: 1px solid steelblue;
     margin: .9%;
     box-sizing: border-box;
   }
@@ -36,7 +36,7 @@ export default {
   #content-article__img  {
     width: 100%;
     height: 80%;
-    border: 1px solid red;
+    border: 1px solid steelblue;
     box-sizing: border-box;
 
 
@@ -50,7 +50,7 @@ export default {
     width: 100%;
     height: 30%;
     padding: 1%;
-    border: 1px solid red;
+    border: 1px solid steelblue;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
