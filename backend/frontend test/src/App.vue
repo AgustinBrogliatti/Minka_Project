@@ -12,11 +12,10 @@
       <div v-for="(file, index) in files" :key="index" >
         <img :src="files[index].url" :alt="files[index].name" width="10%">
         <a href="#" @click="downloadFile(file.name)">{{file.name}}</a>
-        <button @click="deleteFile(file, index)">Delete</button>
+        <button @click="deleteFile(file)">Delete</button>
       </div>
 
-      <button @click="probando()">Probando</button>
-{{files}}
+        {{files}}
 
 
   </div>
@@ -27,6 +26,7 @@ import axios from 'axios';
 
 const extensionsAllowed = ['JPEG', 'JPG', 'PNG', 'GIF', 'MP4', 'MP3', 'WMV', 'DWG', 'DXF', 'XSLX', 'CSV', 'PDF']
 
+
 export default {
   name: 'App',
   components: {
@@ -35,15 +35,18 @@ export default {
     return {
       file:'',
       files: [],
-      list: [],
+
     }
   },
   mounted() {
     document.addEventListener("DOMContentLoaded", () => {
-      if (localStorage.getItem("filesList") != null) {
-        let filesList = JSON.parse(localStorage.getItem("filesList"));
-        this.files = filesList;
-      }
+      axios.get('http://127.0.0.1:4000/uploads/files-view')
+        .then(response => {
+          return this.files = response.data.files
+        })
+        .catch (err => {
+          console.log(err)
+        })
     })
   },
   methods: {
@@ -52,23 +55,24 @@ export default {
     },
 
     submitFile() {
-
       let formData = new FormData();
       formData.append('file', this.file);
-      let extension = this.file.name.split(".").reverse()[0].toUpperCase();
-      if (extensionsAllowed.includes(extension)) {
-        axios.post('http://127.0.0.1:4000/upload-file', formData,
-            {headers: {'Content-Type': 'multipart/form-data'}
-            }
-        )
-            .then( () => {
 
-              let fileName = this.file.name
-              fileName = fileName.replace(/[\s$&+,:;=?@<>"'`#%~{}^]/gi, "_");
-              fileName = fileName.replace(/^[_]*|[_]*$/gi, "");
-              fileName = fileName.replace(/[()]/gi, "");
-              fileName = fileName.replace(/[_]+/gi, "_");
+      let fileName = this.file.name
+      fileName = fileName.replace(/[\s$&+,:;=?@<>"'`#%~{}^]/gi, "_");
+      fileName = fileName.replace(/^[_]*|[_]*$/gi, "");
+      fileName = fileName.replace(/[()]/gi, "");
+      fileName = fileName.replace(/[_]+/gi, "_");
 
+
+      axios.get('http://127.0.0.1:4000/uploads/files-view')
+          .then(response => {
+
+            let fileList = response.data.files
+            if(fileList.some(file => file.name == fileName)){
+              console.log("The file already exists")
+
+            } else {
               let file = {name:'', url: ''};
               file.name = fileName;
 
@@ -79,42 +83,32 @@ export default {
               } else {
                 file.url = 'http://127.0.0.1:4000/uploads/' + file.name;
               }
-              axios.post('http://127.0.0.1:4000/uploads/files-list', file)
-              .then(() => {
-                console.log('file send')
-              })
 
-
-              if (localStorage.getItem("filesList") != null) {
-                let filesList = JSON.parse(localStorage.getItem("filesList"));
-
-                if(filesList.some(file => file.name == fileName)){
-                  console.log("File exist")
-                } else{
-                  filesList.push(file)
-                  localStorage.setItem("filesList", JSON.stringify(filesList));
-                  console.log("File sent successfully!!")
-                  location.reload()
-                }
-
-              } else {
-                let list = []
-                list.push(file)
-                localStorage.setItem("filesList", JSON.stringify(list));
-                console.log("File sent successfully!!")
-                location.reload()
+              let extension = fileName.split(".").reverse()[0].toUpperCase();
+              if (extensionsAllowed.includes(extension)) {
+                axios.post('http://127.0.0.1:4000/upload-file', formData,
+                    {headers: {'Content-Type': 'multipart/form-data'}
+                    }
+                )
+                .then(() => {
+                  axios.post('http://127.0.0.1:4000/uploads/files-view', file)
+                      .then(() => {
+                        console.log("Files list updated")
+                        location.reload()
+                      })
+                      .catch(err => {
+                        console.log(err)
+                      })
+                })
 
               }
+              else {console.log("Unsupported file extension")}
+            }
+          })
+          .catch (err => {
+            console.log(err)
 
-            })
-            .catch(error => {
-              console.log(error)
-            })
-      } else {
-        console.log("The file could not be sent")
-        console.log("The file extension not allowed")
-      }
-
+          })
 
     },
     downloadFile(fileName) {
@@ -139,13 +133,9 @@ export default {
             console.log(error)
           })
     },
-    deleteFile(file, index) {
+    deleteFile(file) {
       axios.delete('http://127.0.0.1:4000/uploads/' + file.name)
           .then(() => {
-            let filesList = JSON.parse(localStorage.getItem("filesList"));
-            filesList.splice(index, 1)
-            localStorage.setItem("filesList", JSON.stringify(filesList));
-            this.files = filesList
             console.log('File deleted successfully')
             location.reload()
           })
@@ -154,13 +144,7 @@ export default {
           })
 
     },
-    // probando() {
-    //   axios.get('http://127.0.0.1:4000/uploads/files-list')
-    //   .then(response => {
-    //     console.log(response.data.files)
-    //     this.files = response.data.files
-    //   })
-    // }
+
 
   },
 

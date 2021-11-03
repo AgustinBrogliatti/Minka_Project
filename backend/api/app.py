@@ -53,7 +53,8 @@ def upload_file():
 
             else:
                 print("That file extension is not allowed")
-
+    
+  
     return "Upload Files Page"
 
     
@@ -79,23 +80,34 @@ def get_file(file_name):
         path = os.path.join('static', 'files', file_name)
         os.remove(path)
 
+        path = os.path.join("static", "files.json")
+        if os.path.exists(path):
+            with open(path, "r+") as file:
+                files = json.load(file)
+                for f in files:
+                    if f['name'] == file_name:
+                        files.remove(f)
+                        print(files)
+                        with open(path, "w") as file:
+                            file.write(json.dumps(files, indent = 4))
+                return jsonify({"files": files, "status":"ok"})
+
         return "File deleted successfully"
         
 
-@app.route("/uploads/files-list", methods=["GET", "POST"])
+@app.route("/uploads/files-view", methods=["GET", "POST", "DELETE"])
 def post_files_list():
-    is_post = request.method == 'POST'
-    is_get = request.method == 'GET'
+
     path = os.path.join("static", "files.json")
     
-    if is_get:
+    if request.method == 'GET':
         if os.path.exists(path):
             with open(path, "r") as file:
                 files = json.load(file)
                 return jsonify({"files": files, "status":"ok"})
-        return jsonify({"message":"empity data base","status":"not found"})
+        return jsonify({"files":[], "message":"empity data base","status":"not found"})
 
-    if is_post:
+    if request.method == 'POST':
         body = request.json 
         
         if not os.path.exists(path):
@@ -112,6 +124,7 @@ def post_files_list():
                     file.seek(0)
                     json.dump(files, file, indent = 4)
                     return jsonify({"order": body, "status":"ok"})
+
 
 
 if __name__ == '__main__':
