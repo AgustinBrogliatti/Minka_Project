@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="451d0026-20fa-4379-bc54-58dc2715cbf4" name="Changes" comment="">
+    <list default="true" id="89b556c2-336a-4c89-8f76-252401a1be66" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/minka/src/components/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/minka/src/components/Header.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/minka/src/components/HeaderPortada.vue" beforeDir="false" afterPath="$PROJECT_DIR$/minka/src/components/HeaderPortada.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/minka/src/components/NavBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/minka/src/components/NavBar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/minka/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/minka/src/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +75,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="451d0026-20fa-4379-bc54-58dc2715cbf4" name="Changes" comment="" />
+      <changelist id="89b556c2-336a-4c89-8f76-252401a1be66" name="Changes" comment="" />
       <created>1634771103899</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -95,6 +98,7 @@
       <workItem from="1635942096587" duration="90000" />
       <workItem from="1635956418090" duration="1000" />
       <workItem from="1635972455195" duration="893000" />
+      <workItem from="1635973543074" duration="1080000" />
     </task>
     <servers />
   </component>

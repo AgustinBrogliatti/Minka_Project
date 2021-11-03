@@ -1,7 +1,7 @@
 <template>
   <div id="header">
     <div id="content-logo">
-      <img id="content-logo__logo" alt="minkaLogo" src="../assets/img/logo_minka.png">
+      <img id="content-logo__logo" alt="minkaLogo" @click="goToHome()" src="../assets/img/logo_minka.png">
     </div>
 
     <div id="content-login">
@@ -25,6 +25,8 @@ export default {
   }, methods: {
     goToProfile(){
       this.$router.push('/miperfil');
+    }, goToHome(){
+      this.$router.push('/home');
     }
   }
 }
@@ -81,7 +83,7 @@ export default {
   #content-login__tagName   {
     font-size: 1.2em;
   }
-  :hover {
+  #content-login__photo, #content-logo__logo, #content-login__tagName:hover{
     cursor: pointer;
   }
 </style>

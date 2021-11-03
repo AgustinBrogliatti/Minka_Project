@@ -13,6 +13,7 @@
             </ul>
           </li>
           <li @click="goToProfile()"><i class="fas fa-user-circle"></i> Mi Perfil</li>
+          <li @click="goToStart()"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</li>
         </ul>
       </div>
     </div>
@@ -30,7 +31,9 @@ export default {
       this.$router.push('/contacto');
     },goToProfile(){
       this.$router.push('/miperfil');
-    }
+    },goToStart(){
+    this.$router.push('/');
+  }
   }
 }
 </script>
@@ -43,7 +46,7 @@ export default {
 
 .navbar{
   width: 200px;
-  height: 200px;
+  height: 250px;
   background-color: var(--main-color);
   border-radius: 10px 10px;
 }
