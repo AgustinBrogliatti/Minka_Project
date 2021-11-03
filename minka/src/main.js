@@ -19,12 +19,12 @@ Vue.use(VueRouter)
 Vue.config.productionTip = false
 
 const routes = [
+  {path: '/', name:"PortadaInicio", component: PortadaInicio},
   {path:'/home', name:"HomePage", component:HomePage},
   {path:'/loginarq', name:"LoginArq", component:LoginArq},
   {path:'/clientview', name:"ClientView", component: ClientView},
   {path:'/miestudio', name:"MiEstudio", component: MiEstudio},
   {path:'/registro', name:"Registro", component: Registro},
-  {path: '/portadainicio', name:"PortadaInicio", component: PortadaInicio},
   {path: '/projectinfo', name:"ProjectInfo", component: ProjectInfo},
   {path: '/miperfil', name:"MiPerfil", component: MiPerfil},
   {path: '/contacto', name:"Contacto", component: Contacto},
