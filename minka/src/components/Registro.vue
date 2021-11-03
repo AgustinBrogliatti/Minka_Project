@@ -36,6 +36,10 @@
           placeholder="Repita su contraseña"
       >
       <input class="form-submit" type="submit" value="Registrarse" @click="goHome()">
+
+      <button @click="mostrarlistaObjetos()"> MOSTRAR LISTA </button>
+      <br>
+      {{ objectsList }}
     </form>
 
   </div>
@@ -49,6 +53,7 @@ export default {
     password: "",
     repeatPassword: "",
     username: "",
+    objectsList: [],
     error: false
   }),
   methods: {
@@ -61,6 +66,20 @@ export default {
     goHome(){
       this.$router.push('/home');
     },
+    mostrarlistaObjetos() {
+      let correo = this.email
+      let usuario = this.username
+      let contraseña = this.password
+      let repetir = this.repeatPassword
+      let projectObject = {
+        "email": correo,
+        "user": usuario,
+        "password": contraseña,
+        "repeat": repetir
+      }
+      this.objectsList.push(projectObject)
+    }
+
     }
 }
 
