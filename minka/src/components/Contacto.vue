@@ -7,7 +7,6 @@
         <h2> Nombre arquitecto: </h2>
         <p> {{nombre}} </p>
       </div>
-
       <Banner></Banner>
     </div>
     <Footer></Footer>
@@ -16,19 +15,19 @@
 
 <script>
 
-import NavBar from "@/components/NavBar";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import Banner from "@/components/Banner";
-
+import Header from "./Header";
+import Footer from "./Footer";
+import NavBar from "./NavBar";
+import Banner from "./Banner";
 
 export default {
   name: "Contacto",
-  components:
-  Header,
-  Footer,
-  NavBar,
-  Banner,
+  components: {
+    Header,
+    Footer,
+    NavBar,
+    Banner,
+  },
   data() {
     return {
       nombre: "Raul Pedro García"

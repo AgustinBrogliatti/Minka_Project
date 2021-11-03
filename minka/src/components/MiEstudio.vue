@@ -23,12 +23,13 @@
 
 <script>
 
-import NavBar from "@/components/NavBar";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import Banner from "@/components/Banner";
 
-import NewProject from "@/components/NewProject";
+import Header from "./Header";
+import Footer from "./Footer";
+import NavBar from "./NavBar";
+import Banner from "./Banner";
+import NewProject from "./NewProject";
+
 export default {
   name: "MiEstudio",
   components: {
@@ -92,13 +93,13 @@ export default {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  font-size: .8 em;
+  font-size: .8em;
 
 }
 
 #content-project__description p {
   margin: .6% 2%;
-  font-size: 1 em;
+  font-size: 1em;
 }
 
 #add-project_button {

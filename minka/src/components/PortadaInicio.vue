@@ -25,6 +25,8 @@
           <p v-if="error" class="error">Has introducido mal el email o la contraseña.</p>
           <input class="form-submit" type="submit" value="Login" @click="goClientView()">
           <input class="form-submit" type="submit" value="Iniciar Sesión como Arquitecto" @click="goLogin()">
+          <button @onclick="viewLogin()">Boton</button>
+          {{listadeObjetos}}
         </form>
       </div>
       <div id="content-body3">
@@ -62,6 +64,7 @@ export default {
   data: () => ({
     email: "",
     password: "",
+    listadeObjetos: [],
     error: false
   }),
   methods: {
@@ -74,6 +77,15 @@ export default {
   },
     goLogin(){
       this.$router.push('/loginArq')
+    },
+    viewLogin(){
+      let email = this.email
+      let password = this.password
+      let projectObject = {
+        "email" : email,
+        "password": password
+      }
+      this.listadeObjetos.push(projectObject)
     }
 }
 }
