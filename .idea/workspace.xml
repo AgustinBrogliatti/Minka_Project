@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="451d0026-20fa-4379-bc54-58dc2715cbf4" name="Changes" comment="">
+    <list default="true" id="451d0026-20fa-4379-bc54-58dc2715cbf4" name="Changes" comment="lista login">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/minka/src/components/Contacto.vue" beforeDir="false" afterPath="$PROJECT_DIR$/minka/src/components/Contacto.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/minka/src/components/MiEstudio.vue" beforeDir="false" afterPath="$PROJECT_DIR$/minka/src/components/MiEstudio.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/minka/src/components/PortadaInicio.vue" beforeDir="false" afterPath="$PROJECT_DIR$/minka/src/components/PortadaInicio.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/minka/src/components/MiPerfil.vue" beforeDir="false" afterPath="$PROJECT_DIR$/minka/src/components/MiPerfil.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +95,16 @@
       <workItem from="1635942096587" duration="90000" />
       <workItem from="1635956418090" duration="1000" />
       <workItem from="1635972455195" duration="893000" />
+      <workItem from="1636056104550" duration="2824000" />
     </task>
+    <task id="LOCAL-00001" summary="lista login">
+      <created>1635975450981</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1635975450981</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -111,11 +118,38 @@
             <State />
           </value>
         </entry>
+        <entry key="dde8bb23-2fc3-4ee7-8461-6ecfbcc2eddb">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="lista login" />
+    <option name="LAST_COMMIT_MESSAGE" value="lista login" />
   </component>
 </project>
