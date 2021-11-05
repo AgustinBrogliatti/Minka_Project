@@ -20,7 +20,7 @@ Vue.config.productionTip = false
 
 const routes = [
   {path: '/', name:"PortadaInicio", component: PortadaInicio},
-  {path:'/home', name:"HomePage", component:HomePage},
+  {path:'admin/home', name:"HomePage", component:HomePage},
   {path:'/loginarq', name:"LoginArq", component:LoginArq},
   {path:'/clientview', name:"ClientView", component: ClientView},
   {path:'/miestudio', name:"MiEstudio", component: MiEstudio},
