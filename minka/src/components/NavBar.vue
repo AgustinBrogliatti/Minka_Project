@@ -3,8 +3,8 @@
     <div class="navbar">
       <div class="body">
         <ul>
-          <li @click="goToStudio()"><i class="fas fa-house-user"></i> Mi Estudio</li>
-          <li @click="goToContacts()"><i class="fas fa-address-card"></i> Contacto</li>
+          <router-link to="/home"><li><i class="fas fa-house-user"></i> Home</li></router-link>
+          <router-link to="/contacto"><li><i class="fas fa-address-card"></i> Contacto</li></router-link>
           <li><i class="fas fa-tasks"></i> Proyectos
             <ul>
               <li>Miravalles</li>
@@ -12,8 +12,8 @@
               <li>Olivos</li>
             </ul>
           </li>
-          <li @click="goToProfile()"><i class="fas fa-user-circle"></i> Mi Perfil</li>
-          <li @click="goToStart()"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</li>
+          <router-link to="/miperfil"><li><i class="fas fa-user-circle"></i> Mi Perfil</li></router-link>
+          <router-link to="/"><li><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</li></router-link>
         </ul>
       </div>
     </div>
@@ -23,18 +23,6 @@
 <script>
 export default {
   name: "NavBar",
-  methods: {
-    goToStudio(){
-      this.$router.push('/miestudio');
-    },
-    goToContacts(){
-      this.$router.push('/contacto');
-    },goToProfile(){
-      this.$router.push('/miperfil');
-    },goToStart(){
-    this.$router.push('/');
-  }
-  }
 }
 </script>
 
@@ -88,5 +76,10 @@ li:hover{
 .body li:hover > ul{
   display: block;
   cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 </style>

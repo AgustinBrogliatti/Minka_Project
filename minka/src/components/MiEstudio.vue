@@ -2,7 +2,7 @@
   <div id="home_page">
     <Header></Header>
     <div id="content-body">
-      <NavBar></NavBar>
+      <NavBarEstudio></NavBarEstudio>
       <div class="content-home">
         <div class = "projects-container" v-for="(project,index) in comp" :key="index">
           <div> <NewProject></NewProject> </div>
@@ -26,16 +26,16 @@
 
 import Header from "./Header";
 import Footer from "./Footer";
-import NavBar from "./NavBar";
 import Banner from "./Banner";
 import NewProject from "./NewProject";
+import NavBarEstudio from "./NavBarEstudio";
 
 export default {
   name: "MiEstudio",
   components: {
+    NavBarEstudio,
     Header,
     Footer,
-    NavBar,
     Banner,
     NewProject
   },
