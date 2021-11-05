@@ -122,7 +122,7 @@ export default {
   background-image: url("https://images.unsplash.com/photo-1558346648-9757f2fa4474?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
   background-size: cover;
   display: flex;
-  flex-flow: row;
+  flex-flow: column;
   align-items: center;
 }
 
@@ -139,11 +139,12 @@ export default {
   font-size: 20px;
   background-color: aliceblue;
   padding: 2%;
+  margin-left: 1%;
 }
 
 #content-body5 {
   justify-content: flex-end;
-  border: 1px solid red;
+  border: 1px steelblue;
   width: 150px;
   height: 300px;
   margin: 25px;

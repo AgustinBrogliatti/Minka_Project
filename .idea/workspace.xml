@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="451d0026-20fa-4379-bc54-58dc2715cbf4" name="Changes" comment="lista login">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/minka/src/components/Footer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/minka/src/components/Footer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/minka/src/components/PortadaInicio.vue" beforeDir="false" afterPath="$PROJECT_DIR$/minka/src/components/PortadaInicio.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,6 +98,7 @@
       <workItem from="1636056104550" duration="2824000" />
       <workItem from="1636062522283" duration="1921000" />
       <workItem from="1636138718368" duration="1770000" />
+      <workItem from="1636145346658" duration="838000" />
     </task>
     <task id="LOCAL-00001" summary="lista login">
       <created>1635975450981</created>
