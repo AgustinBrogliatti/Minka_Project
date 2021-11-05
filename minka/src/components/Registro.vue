@@ -2,6 +2,27 @@
   <div class="login">
     <h1 class="title">Regístrese</h1>
     <form action class="form" @submit.prevent="registro">
+
+      <label class="form-label" for="#email">Nombre:</label>
+      <input
+          v-model="name"
+          class="form-input"
+          type="text"
+          id="nombre"
+          required
+          placeholder="Introduzca su nombre"
+      >
+
+      <label class="form-label" for="#email">Apellido:</label>
+      <input
+          v-model="lastname"
+          class="form-input"
+          type="text"
+          id="apellido"
+          required
+          placeholder="Introduzca su apellido"
+      >
+
       <label class="form-label" for="#email">Email:</label>
       <input
           v-model="email"
@@ -11,6 +32,7 @@
           required
           placeholder="Introduzca su email"
       >
+
       <label class="form-label" for="#username">Nombre de Usuario:</label>
       <input
           v-model="username"
@@ -49,6 +71,8 @@
 export default {
   name: "Registro",
   data: () => ({
+    name: "",
+    lastname: "",
     email: "",
     password: "",
     repeatPassword: "",
@@ -58,6 +82,8 @@ export default {
   }),
   methods: {
     registro() {
+      console.log(this.name);
+      console.log(this.lastname);
       console.log(this.email);
       console.log(this.username);
       console.log(this.password);
@@ -67,20 +93,24 @@ export default {
       this.$router.push('/home');
     },
     mostrarlistaObjetos() {
+      let nombre =this.name
+      let apellido = this.lastname
       let correo = this.email
       let usuario = this.username
       let contraseña = this.password
       let repetir = this.repeatPassword
       let projectObject = {
+        "name": nombre,
+        "lastname": apellido,
         "email": correo,
         "user": usuario,
         "password": contraseña,
-        "repeat": repetir
+        "repeat_pw": repetir
       }
       this.objectsList.push(projectObject)
     }
 
-    }
+  }
 }
 
 </script>
