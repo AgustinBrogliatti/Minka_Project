@@ -1,0 +1,35 @@
+[
+    {
+        "adminID": "JMulet28",
+        "password": "curuchet23",
+        "name": "Jose",
+        "lastname": "Mulet",
+        "email": "jose.mulet@gmail.com",
+        "tel": "",
+        "adress": "",
+        "proyectos": [],
+        "clientes": []
+    },
+    {
+        "adminID": "VSantos95",
+        "password": "VSMarq123",
+        "name": "Victor",
+        "lastname": "Santos",
+        "email": "victor.santos@gmail.com",
+        "tel": "",
+        "adress": "",
+        "proyectos": [],
+        "clientes": []
+    },
+    {
+        "adminID": "MUnzue92",
+        "password": "Salchichon123",
+        "name": "Miguel",
+        "lastname": "Unzue",
+        "email": "miguel.unzue@gmail.com",
+        "tel": "+54 9 3364379499",
+        "adress": "",
+        "proyectos": [],
+        "clientes": []
+    }
+]
