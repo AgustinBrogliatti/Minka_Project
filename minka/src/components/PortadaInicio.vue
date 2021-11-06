@@ -23,8 +23,8 @@
               placeholder="Introduzca su contraseña"
           >
           <p v-if="error" class="error">Has introducido mal el email o la contraseña.</p>
-          <input class="form-submit" type="submit" value="Login" @click="goClientView()">
-          <input class="form-submit" type="submit" value="Iniciar Sesión como Arquitecto" @click="goLogin()">
+          <router-link to="/clientview"> <input class="form-submit" type="submit" value="Login" @click="goClientView()"> </router-link>
+          <router-link to="/admin/login"> <input class="form-submit" type="submit" value="Iniciar Sesión como Arquitecto" > </router-link>
           <button @click="viewLogin()">Boton</button>
           {{listadeObjetos}}
         </form>
@@ -76,7 +76,7 @@ export default {
     this.$router.push('/clientview');
   },
     goLogin(){
-      this.$router.push('/loginArq')
+      this.$router.push('admin/login')
     },
     viewLogin(){
       let email = this.email

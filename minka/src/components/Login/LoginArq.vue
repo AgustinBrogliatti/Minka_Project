@@ -20,8 +20,8 @@
           placeholder="Introduzca su contraseña"
       >
       <p v-if="error" class="error">Has introducido mal el email o la contraseña.</p>
-      <input class="form-submit" type="submit" value="Login" @click="goHome()">
-      <p2>¿Todavía no tenes cuenta?</p2><input class="form-submit" type="submit" value="Registrarse" @click="goRegistro()">
+      <router-link to="/admin/home"> <input class="form-submit" type="submit" value="Login"> </router-link>
+      <p2>¿Todavía no tenes cuenta?</p2><router-link to="/admin/registro"> <input class="form-submit" type="submit" value="Registrarse"> </router-link>
       <button @click= "loginArq()" > LOGIN ARQ </button>
       {{listaObjetos}}
     </form>

@@ -57,7 +57,7 @@
           id="repeatPassword"
           placeholder="Repita su contraseña"
       >
-      <input class="form-submit" type="submit" value="Registrarse" @click="goHome()">
+      <router-link> <input class="form-submit" type="submit" value="Registrarse"> </router-link>
 
       <button @click="mostrarlistaObjetos()"> MOSTRAR LISTA </button>
       <br>
