@@ -1,0 +1,101 @@
+Index: minka/src/components/Banner.vue
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><template>\r\n  <div id=\"content-banner\">\r\n    <img  src=\"../assets/img/miravalles.jpeg\" >\r\n    <img  src=\"../assets/img/miravalles.jpeg\" >\r\n    <img  src=\"../assets/img/miravalles.jpeg\" >\r\n  </div>\r\n</template>\r\n\r\n<script>\r\nexport default {\r\n  name: \"Banner\"\r\n}\r\n</script>\r\n\r\n<style scoped>\r\n  #content-banner   {\r\n    border: 1px solid red;\r\n    width: 150px;\r\n    height: 300px;\r\n    margin: 25px;\r\n  }\r\n  img{\r\n    width: 100%;\r\n  }\r\n</style>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/minka/src/components/Banner.vue b/minka/src/components/Banner.vue
+--- a/minka/src/components/Banner.vue	(revision 6c70cf4b91609a65d19e5e503b8db456a7787ee1)
++++ b/minka/src/components/Banner.vue	(date 1635884530960)
+@@ -1,8 +1,5 @@
+ <template>
+   <div id="content-banner">
+-    <img  src="../assets/img/miravalles.jpeg" >
+-    <img  src="../assets/img/miravalles.jpeg" >
+-    <img  src="../assets/img/miravalles.jpeg" >
+   </div>
+ </template>
+ 
+@@ -18,8 +15,29 @@
+     width: 150px;
+     height: 300px;
+     margin: 25px;
++    animation: banner 10s infinite;
+   }
+   img{
+     width: 100%;
+   }
++  @keyframes banner {
++    0%, 30%{
++      background-image: url("https://presanweb.com/wp-content/uploads/2021/05/logo-de-pamesa-pavimentos-y-azulejos-presan.jpg") ;
++      opacity: 1;
++    }
++    31%, 34%{
++      opacity: 0.1;
++    }
++  35%, 65%{
++    background-image: url("https://www.mrgsl.com/wp-content/uploads/2021/02/Anjasora-Logo.png");
++    opacity: 1;
++  }
++    66%, 69%{
++      opacity: 0.1;
++    }
++    70%, 100%{
++      background-image: url("https://pbs.twimg.com/profile_images/1316327156381896708/k9TfQrF_.jpg");
++      opacity: 1;
++    }
++  }
+ </style>
+\ No newline at end of file
+Index: minka/src/components/Footer.vue
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><template>\r\n  <div id=\"content-footer\">\r\n  </div>\r\n</template>\r\n\r\n<script>\r\nexport default {\r\n  name: \"Footer\"\r\n}\r\n</script>\r\n\r\n<style scoped>\r\n  #content-footer   {\r\n    width: 100%;\r\n    height: 300px;\r\n    background-color: #212529;\r\n  }\r\n</style>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/minka/src/components/Footer.vue b/minka/src/components/Footer.vue
+--- a/minka/src/components/Footer.vue	(revision 6c70cf4b91609a65d19e5e503b8db456a7787ee1)
++++ b/minka/src/components/Footer.vue	(date 1635881701134)
+@@ -12,7 +12,7 @@
+ <style scoped>
+   #content-footer   {
+     width: 100%;
+-    height: 300px;
++    height: 200px;
+     background-color: #212529;
+   }
+ </style>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"451d0026-20fa-4379-bc54-58dc2715cbf4\" name=\"Changes\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/minka/src/components/PortadaInicio.vue\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/minka/src/components/PortadaInicio.vue\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Vue Single File Component\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitSEFilterConfiguration\">\r\n    <file-type-list>\r\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\r\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\r\n      <filtered-out-file-type name=\"TAG\" />\r\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\r\n    </file-type-list>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1zn5dvuwlOtiRvHKPzLixwqIuf5\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"1\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"ASKED_ADD_EXTERNAL_FILES\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"node.js.detected.package.eslint\" value=\"true\" />\r\n    <property name=\"node.js.detected.package.tslint\" value=\"true\" />\r\n    <property name=\"node.js.selected.package.eslint\" value=\"(autodetect)\" />\r\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\r\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"editing.templates\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"serve\" type=\"js.build_tools.npm\" nameIsGenerated=\"true\">\r\n      <package-json value=\"$PROJECT_DIR$/minka/package.json\" />\r\n      <command value=\"run\" />\r\n      <scripts>\r\n        <script value=\"serve\" />\r\n      </scripts>\r\n      <node-interpreter value=\"project\" />\r\n      <envs />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"451d0026-20fa-4379-bc54-58dc2715cbf4\" name=\"Changes\" comment=\"\" />\r\n      <created>1634771103899</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1634771103899</updated>\r\n      <workItem from=\"1634771107232\" duration=\"45000\" />\r\n      <workItem from=\"1635276147360\" duration=\"27000\" />\r\n      <workItem from=\"1635379830128\" duration=\"460000\" />\r\n      <workItem from=\"1635518759327\" duration=\"4050000\" />\r\n      <workItem from=\"1635529205965\" duration=\"492000\" />\r\n      <workItem from=\"1635534051436\" duration=\"1114000\" />\r\n      <workItem from=\"1635616136817\" duration=\"5837000\" />\r\n      <workItem from=\"1635719659226\" duration=\"3524000\" />\r\n      <workItem from=\"1635791765115\" duration=\"5609000\" />\r\n      <workItem from=\"1635806937520\" duration=\"863000\" />\r\n      <workItem from=\"1635817010112\" duration=\"3231000\" />\r\n      <workItem from=\"1635852598643\" duration=\"361000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 6c70cf4b91609a65d19e5e503b8db456a7787ee1)
++++ b/.idea/workspace.xml	(date 1635950316777)
+@@ -4,9 +4,10 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="451d0026-20fa-4379-bc54-58dc2715cbf4" name="Changes" comment="">
++    <list default="true" id="451d0026-20fa-4379-bc54-58dc2715cbf4" name="Changes" comment="css">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/minka/src/components/PortadaInicio.vue" beforeDir="false" afterPath="$PROJECT_DIR$/minka/src/components/PortadaInicio.vue" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/minka/src/components/Banner.vue" beforeDir="false" afterPath="$PROJECT_DIR$/minka/src/components/Banner.vue" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/minka/src/components/Footer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/minka/src/components/Footer.vue" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -84,6 +85,7 @@
+       <workItem from="1635806937520" duration="863000" />
+       <workItem from="1635817010112" duration="3231000" />
+       <workItem from="1635852598643" duration="361000" />
++      <workItem from="1635882124577" duration="1633000" />
+     </task>
+     <servers />
+   </component>
