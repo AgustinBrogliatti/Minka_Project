@@ -1,38 +1,47 @@
 <template>
-  <div class="login">
-    <h1 class="title">Inicie sesión</h1>
-    <form action class="form" @submit.prevent="login">
-      <label class="form-label" for="#email">Email:</label>
-      <input
-          v-model="email"
-          class="form-input"
-          type="email"
-          id="email"
-          required
-          placeholder="Introduzca su email"
-      >
-      <label class="form-label" for="#password">Contraseña:</label>
-      <input
-          v-model="password"
-          class="form-input"
-          type="password"
-          id="password"
-          placeholder="Introduzca su contraseña"
-      >
-      <p v-if="error" class="error">Has introducido mal el email o la contraseña.</p>
-      <router-link to="/admin/home"> <input class="form-submit" type="submit" value="Login"> </router-link>
-      <p2>¿Todavía no tenes cuenta?</p2><router-link to="/admin/registro"> <input class="form-submit" type="submit" value="Registrarse"> </router-link>
-      <button @click= "loginArq()" > LOGIN ARQ </button>
-      {{listaObjetos}}
-    </form>
+  <div class="login-arq">
+    <HeaderPortada/>
+    <div class="login">
+      <h1 class="title">Inicie sesión como arquitecto</h1>
+      <form action class="form" @submit.prevent="login">
+        <label class="form-label" for="#email">Email:</label>
+        <input
+            v-model="email"
+            class="form-input"
+            type="email"
+            id="email"
+            required
+            placeholder="Introduzca su email"
+        >
+        <label class="form-label" for="#password">Contraseña:</label>
+        <input
+            v-model="password"
+            class="form-input"
+            type="password"
+            id="password"
+            placeholder="Introduzca su contraseña"
+        >
+        <p v-if="error" class="error">Has introducido mal el email o la contraseña.</p>
+        <router-link to="/admin/home" class="enter-button"> <input class="form-submit" type="submit" value="Login"> </router-link>
+        <h4>¿Todavía no tenes cuenta?</h4>
+        <router-link to="/admin/registro" class="enter-button"> <input class="form-submit" type="submit" value="Registrarse"> </router-link>
+        <button @click= "loginArq()" > LOGIN ARQ </button>
+        {{listaObjetos}}
+      </form>
 
+    </div>
   </div>
 </template>
 
 <script>
 
+import HeaderPortada from "../HeaderPortada";
+
 export default {
   name: "Login",
+  components:{
+    HeaderPortada
+  },
   data: () => ({
       email: "",
       password: "",
@@ -43,12 +52,6 @@ export default {
       login() {
         console.log(this.email);
         console.log(this.password);
-      },
-      goHome(){
-        this.$router.push('/home');
-      },
-      goRegistro(){
-        this.$router.push('/registro')
       },
       loginArq(){
         let email = this.email
@@ -64,8 +67,11 @@ export default {
 </script>
 
 <style scoped>
+@import "../../assets/CSS/main layout.css";
+@import "../../assets/CSS/normalize.css";
+
 .login {
-  padding: 5rem;
+  padding: 2%;
   background-image: url("https://images.unsplash.com/photo-1558346648-9757f2fa4474?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80") ;
   background-size: cover;
 }
@@ -96,8 +102,6 @@ export default {
 
 .form-input {
   padding: 10px 15px;
-  background: none;
-  background-image: none;
   border: 1px solid white;
   color: white;
 }
@@ -111,20 +115,23 @@ export default {
   background: #1ab188;
   border: none;
   color: white;
-  margin-top: 3rem;
-  padding: 1rem 0;
+  padding: 5%;
   cursor: pointer;
   transition: background 0.2s;
-  margin-bottom: 10px;
+  margin-top: 8%;
+  margin-bottom: 10%;
+  width: 50%;
+  border-radius: 8px;
 }
-&:hover {
-   background: #0b9185;
+
+ h4{
+   text-align: center;
+   color: white;
  }
 
- p2{
-   padding-top: 40px;
-   padding-bottom: -40px;
-   align-self: center;
+
+ .enter-button{
+   text-align: center;
  }
 
 </style>

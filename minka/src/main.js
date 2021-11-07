@@ -14,6 +14,7 @@ import ErrorPage from "./components/ErrorPage";
 
 //npm install --save @fortawesome/fontawesome-free
 import '@fortawesome/fontawesome-free/js/all'
+import QuienesSomos from "./components/QuienesSomos";
 
 Vue.use(VueRouter)
 Vue.config.productionTip = false
@@ -32,6 +33,7 @@ const routes = [
   {path: '/admin/miperfil', name:"MiPerfil", component: MiPerfil},
   {path: '/contacto', name:"Contacto", component: Contacto},
   {path: '/admin/contacto', name:"Contacto", component: Contacto},
+  {path: '/quienessomos', name:"QuienesSomos", component: QuienesSomos},
   {path: '/*', name:"ErrorPage", component: ErrorPage}
 ]
 
