@@ -1,12 +1,14 @@
 <template>
   <div id="app">
-
+      <h1>Files</h1>
       <div>
+
         <label>File
           <input type="file" id="file" ref="file" v-on:change="handleFileUpload()"/>
           <textarea name="" id="" cols="30" rows="2" maxlength="300" v-model="message"></textarea>
         </label>
         <button @click="submitFile()">Submit</button>
+
       </div>
 
 
@@ -16,20 +18,41 @@
         <button @click="downloadFile(file.name)">Descargar</button>
         <button @click="deleteFile(file)">Delete</button>
       </div>
-    <input type="text" placeholder="Name" v-model="name">
-    <input type="text" placeholder="Lastname" v-model="lastName" @focusout="userCreate()">
-    <input type="text" placeholder="User" v-model="adminID">
-    <input type="text" placeholder="Mail" v-model="email">
-    <input type="password" placeholder="pass" v-model="password">
-    <input type="password" placeholder="repeat pass" v-model="passwordRepeat">
 
+
+    <hr>
+    <h1>Register Admin</h1>
+    <form>
+    <input type="text" placeholder="Name" required v-model="name">
+    <input type="text" placeholder="Lastname" required v-model="lastName" @focusout="userIDCreate()">
+    <input type="text" placeholder="User" required v-model="adminID">
+    <input type="email" placeholder="Mail" required v-model="email">
+    <input type="password" placeholder="pass" required v-model="password">
+    <input type="password" placeholder="repeat pass" required v-model="passwordRepeat">
     <button @click="registrarse()">Register</button>
-    <br>
+    </form>
 
+    <br><hr>
+    <h1>Login Admin</h1>
     <input type="text" placeholder="User" v-model="adminID">
     <input type="password" placeholder="pass" v-model="password">
     <button @click="login()">Login</button>
-    {{adminData}}
+
+    <br><hr>
+    <h1>Client Created</h1>
+
+    <input type="text" placeholder="name" required v-model="clientName">
+    <input type="text" placeholder="lastname" required v-model="clientLastname" @focusout="userIDCreate()">
+    <input type="text" placeholder="clientID" required v-model="clientID">
+    <input type="text" placeholder="email" required v-model="clientEmail">
+    <button @click="registerUser()">Registrar Usuario</button>
+    <br>
+    Generated password: {{clientPassword}}
+
+    <h1>Login Client</h1>
+    <input type="text" placeholder="User" v-model="clientID">
+    <input type="password" placeholder="pass" v-model="clientPassword">
+    <button @click="loginClient()">Login</button>
 
 
 
@@ -48,9 +71,9 @@ export default {
   data () {
     return {
       file:'',
+      message: '',
       files: [],
 
-      message: '',
       adminID: '',
       password: '',
       passwordRepeat: '',
@@ -59,11 +82,21 @@ export default {
       email: '',
       adminData: {},
 
+      clientID: '',
+      clientName: '',
+      clientLastname: '',
+      clientPassword: '',
+      clientEmail: '',
+      clientData: {},
+
+      proyect: "Vicario",
+      section: "legajo",
+
     }
   },
   mounted() {
     document.addEventListener("DOMContentLoaded", () => {
-      axios.get('http://127.0.0.1:4000/api/v1/uploads/files-view')
+      axios.get('http://127.0.0.1:4000/api/v1/uploads/files-view/' + this.proyect +"/" + this.section)
         .then(response => {
           this.files = response.data["files_list"]
           console.log(response.data.message)
@@ -72,7 +105,7 @@ export default {
           console.log(err)
           console.log("INTERNAL SERVER ERROR 500")
         })
-      axios.get('http://127.0.0.1:4000/api/v1/database-admins')
+      axios.get('http://127.0.0.1:4000/api/v1/admins')
           .then(response => {
             this.adminData = response.data["admins_list"]
             console.log(response.data.message)
@@ -84,14 +117,58 @@ export default {
     })
   },
   methods: {
-    userCreate() {
-      if (this.name != "" && this.lastName != "") {
-        let name = this.name
-        let newName = name.match(/^[a-z]/ig) + this.lastName + Math.floor(Math.random() * (99 - 10) + 10);
-        this.adminID = newName
+
+    userIDCreate() {
+      let name = this.clientName
+      let lastname = this.clientLastname
+      if (name != "" && lastname != "") {
+        let newName = name.match(/^[a-z]/ig) + lastname + Math.floor(Math.random() * (99 - 10) + 10);
+        this.clientID = newName
 
       }
     },
+    registerUser(){
+      let password = Math.random().toString(36).substring(2, 10)
+      this.clientPassword = password
+
+      let clientData = {
+        "clientID": this.clientID,
+        "password": this.clientPassword,
+        "name": this.clientName,
+        "lastname": this.clientLastname,
+        "email": this.clientEmail,
+        "tel": '',
+        "adress": '',
+        "proyectos": [],
+        "admins": [],
+
+      };
+
+      axios.post('http://127.0.0.1:4000/api/v1/clients', clientData)
+          .then(response => {
+            console.log(response.data.message)
+          })
+          .catch(err => {
+            console.log(err)
+            console.log("INTERNAL SERVER ERROR 500")
+          })
+
+  },
+    loginClient() {
+      axios.get('http://127.0.0.1:4000/api/v1/clients' + this.clientID)
+          .then(response => {
+
+            if(response.data.client.clientID == this.clientID && response.data.client.password == this.clientPassword){
+              console.log('PASASTE LA PRUEBA CAPO')
+            } else {console.log("Usuario o contrase;a incorrectos")}
+
+          })
+          .catch(err => {
+            console.log(err)
+            console.log("INTERNAL SERVER ERROR 500")
+          })
+    },
+
     registrarse() {
       if (this.password == this.passwordRepeat) {
 
@@ -108,7 +185,7 @@ export default {
 
         };
 
-        axios.post('http://127.0.0.1:4000/api/v1/database-admins', adminData)
+        axios.post('http://127.0.0.1:4000/api/v1/admins', adminData)
             .then(response => {
               console.log(response.data.message)
             })
@@ -119,19 +196,18 @@ export default {
       } else {console.log("The passwords are not the same")}
 
     },
-    login() {
-      axios.get('http://127.0.0.1:4000/api/v1/database-admins')
-          .then(response => {
-            let adminList = response.data["admins_list"]
 
-            if(adminList.some(admin => admin.adminID === this.adminID && admin.password === this.password)){
+    login() {
+      axios.get('http://127.0.0.1:4000/api/v1/admins/' + this.adminID)
+          .then(response => {
+            if(response.data.admin.adminID == this.adminID && response.data.admin.password == this.password){
               console.log('PASASTE LA PRUEBA CAPO')
             } else {console.log("Usuario o contrase;a incorrectos")}
 
           })
           .catch(err => {
             console.log(err)
-            console.log("INTERNAL SERVER ERROR 500")
+            console.log("NOT FOUND 404")
           })
     },
     handleFileUpload() {
@@ -149,7 +225,7 @@ export default {
       fileName = fileName.replace(/[_]+/gi, "_");
 
 
-      axios.get('http://127.0.0.1:4000/api/v1/uploads/files-view')
+      axios.get('http://127.0.0.1:4000/api/v1/uploads/files-view/' + this.proyect +"/" + this.section)
           .then(response => {
 
             let fileList = response.data["files_list"]
@@ -159,8 +235,8 @@ export default {
 
             } else {
 
-                axios.post('http://127.0.0.1:4000/api/v1/upload-file', formData,
-                    {headers: {'Content-Type': 'multipart/form-data'}
+                axios.post('http://127.0.0.1:4000/api/v1/upload-file/' + this.proyect +"/" + this.section, formData,
+                    {headers: {'Content-Type': 'multipart/form-data'},
                     }
                 )
                   .then(response => {
@@ -176,10 +252,10 @@ export default {
                       } else if (file.name.split(".").reverse()[0] == ("dwg" || "dxf")) {
                         file.url = "https://gisresources.com/wp-content/uploads/2016/09/dwg-icon.png";
                       } else {
-                        file.url = 'http://127.0.0.1:4000/api/v1/uploads/' + file.name;
+                        file.url = 'http://127.0.0.1:4000/api/v1/uploads/' + this.proyect + "/" + this.section + "/"  + file.name;
                       }
 
-                      axios.post('http://127.0.0.1:4000/api/v1/uploads/files-view', file)
+                      axios.post('http://127.0.0.1:4000/api/v1/uploads/files-view/' + this.proyect + "/" + this.section , file)
                           .then(response => {
                             console.log(response.data.message)
                             location.reload()
@@ -211,7 +287,7 @@ export default {
       fileName = fileName.replace(/[()]/gi, "");
       fileName = fileName.replace(/[_]+/gi, "_");
 
-      axios.get('http://127.0.0.1:4000/api/v1/uploads/' + fileName, {responseType: 'blob'})
+      axios.get('http://127.0.0.1:4000/api/v1/uploads/' + this.proyect + "/" + this.section + "/" + fileName, {responseType: 'blob'})
           .then(response => {
             const url = window.URL.createObjectURL(new Blob([response.data]));
             const link = document.createElement('a');
@@ -224,18 +300,18 @@ export default {
           })
           .catch(error => {
             console.log(error)
-            console.log("INTERNAL SERVER ERROR 500")
+            console.log("NOT FOUND ERROR 404")
           })
     },
     deleteFile(file) {
-      axios.delete('http://127.0.0.1:4000/api/v1/uploads/'+ file.name)
+      axios.delete('http://127.0.0.1:4000/api/v1/uploads/' + this.proyect + "/" + this.section + "/" + file.name)
           .then(response => {
             console.log(response.data.message)
             location.reload()
           })
           .catch(error => {
             console.log(error)
-            console.log("INTERNAL SERVER ERROR 500")
+            console.log("NOT FOUND ERROR 404")
           })
 
     },

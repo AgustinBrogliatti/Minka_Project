@@ -1,0 +1,22 @@
+[
+    {
+        "name": "escalera.jpg",
+        "url": "http://127.0.0.1:4000/api/v1/uploads/Manfredi/ideas/escalera.jpg",
+        "message": ""
+    },
+    {
+        "name": "proyecto_final_2004.dwg",
+        "url": "https://gisresources.com/wp-content/uploads/2016/09/dwg-icon.png",
+        "message": ""
+    },
+    {
+        "name": "Vogel.pdf",
+        "url": "https://cdn-icons-png.flaticon.com/512/337/337946.png",
+        "message": ""
+    },
+    {
+        "name": "presidentes.jpeg",
+        "url": "http://127.0.0.1:4000/api/v1/uploads/Manfredi/ideas/presidentes.jpeg",
+        "message": ""
+    }
+]

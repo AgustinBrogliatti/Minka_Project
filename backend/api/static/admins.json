@@ -31,5 +31,16 @@
         "adress": "",
         "proyectos": [],
         "clientes": []
+    },
+    {
+        "adminID": "JLeon67",
+        "password": "Salchichon123",
+        "name": "Jose",
+        "lastname": "Leon",
+        "email": "jleon@gmail.com",
+        "tel": "",
+        "adress": "",
+        "proyectos": [],
+        "clientes": []
     }
 ]

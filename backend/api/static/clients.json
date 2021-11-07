@@ -1,13 +1,35 @@
 [
     {
-        "clientID": "Manfredi",
-        "password": "Salchichon123",
+        "clientID": "GVicario21",
+        "password": "jidz1115",
         "name": "Guillermo",
-        "lastname": "Manfredi",
-        "email": "docmanfr3edi@gmail.com",
-        "tel": "+54 9 3364379499",
+        "lastname": "Vicario",
+        "email": "vicario@gmailcom",
+        "tel": "",
         "adress": "",
         "proyectos": [],
-        "clientes": []
+        "admins": []
+    },
+    {
+        "clientID": "GVicario33",
+        "password": "grx2l7zy",
+        "name": "Guillermo",
+        "lastname": "Vicario",
+        "email": "vic2ario@gmailcom",
+        "tel": "",
+        "adress": "",
+        "proyectos": [],
+        "admins": []
+    },
+    {
+        "clientID": "",
+        "password": "jrje38jj",
+        "name": "",
+        "lastname": "",
+        "email": "",
+        "tel": "",
+        "adress": "",
+        "proyectos": [],
+        "admins": []
     }
 ]
