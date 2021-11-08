@@ -8,7 +8,9 @@
       <div id="content-login__tagName">
         <p @click="goToProfile()">{{userName}}</p>
       </div>
-      <div id="content-login__photo" @click="goToProfile()"></div>
+      <div id="content-login__photo" @click="goToProfile()">
+        {{ initials }}
+      </div>
     </div>
 
   </div>
@@ -20,6 +22,7 @@ export default {
   data() {
     return {
       userName: 'Agustin Brogliatti',
+      initials = 'A B',
       logoImage: '../assets/img/logo.png',
     }
   }, methods: {
@@ -27,7 +30,14 @@ export default {
       this.$router.push('/miperfil');
     }, goToHome(){
       this.$router.push('/home');
-    }
+    },
+     createProfileImage() {
+      let inName = this.name.match(/^(\w)/g)
+      let inLname = this.lastname.match(/^(\w)/g)
+      let acronym = inName + " " + inLname
+      this.initials = acronym
+
+      }
   }
 }
 </script>
@@ -75,8 +85,12 @@ export default {
     border-radius: 100%;
     width: 22%;
     height: 80%;
-    background-image: url("../assets/img/login.png");
-    background-position: center;
+    background: #337ab7;
+    font-size: 35px;
+    color: #fff;
+    text-align: center;
+    line-height: 150px;
+    margin: 0 auto;
     background-size: cover;
   }
 
