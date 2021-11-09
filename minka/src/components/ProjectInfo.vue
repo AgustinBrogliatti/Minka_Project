@@ -66,6 +66,7 @@ export default {
         "descripcion": description
       }
       this.listaObjetos.push(projectObject)
+
     }
   }
 }

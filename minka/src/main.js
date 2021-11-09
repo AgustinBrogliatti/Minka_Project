@@ -11,6 +11,7 @@ import NewProject from "./components/AddProject"
 import MiPerfil from "./components/MiPerfil";
 import Contacto from "./components/Contacto";
 import ErrorPage from "./components/ErrorPage";
+import Anteproyecto from "./components/MiEstudio/Anteproyecto";
 
 //npm install --save @fortawesome/fontawesome-free
 import '@fortawesome/fontawesome-free/js/all'
@@ -36,7 +37,8 @@ const routes = [
   {path: '/admin/contacto', name:"Contacto", component: ContactoArqui},
   {path: '/quienessomos', name:"QuienesSomos", component: QuienesSomos},
   {path: '/admin/quienessomos', name:"QuienesSomos", component: QuienesSomos},
-  {path: '/*', name:"ErrorPage", component: ErrorPage}
+  {path: '/*', name:"ErrorPage", component: ErrorPage},
+  {path: '/miestudio/anteproyecto', name:"Anteproyecto", component: Anteproyecto},
 ]
 
 
