@@ -29,7 +29,7 @@ export default {
   background: #484E52;
   width: 100%;
   text-align: center;
-  padding: 55px 50px;
+  padding: 30px;
   display: inline-block;
 }
 

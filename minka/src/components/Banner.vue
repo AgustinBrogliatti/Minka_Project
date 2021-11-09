@@ -1,5 +1,7 @@
 <template>
-  <div id="content-banner">
+  <div id="container">
+    <div id="content-banner">
+    </div>
   </div>
 </template>
 
@@ -13,10 +15,15 @@ export default {
   #content-banner {
     border: 1px solid steelblue;
     width: 150px;
-    height: 300px;
+    height: 500px;
     margin: 25px;
     background-size: 100% 100%;
     animation: banner 20s infinite;
+  }
+
+  #container{
+    padding: 0.5%;
+    margin-top: 2.5%;
   }
   /*@keyframes banner {
     0%,11.666%{

@@ -41,7 +41,6 @@ export default {
   border-radius: 10px 10px;
 }
 
-
 .body li{
   transition: 1s all;
   font-family: sans-serif;

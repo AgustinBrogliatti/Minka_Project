@@ -24,7 +24,7 @@
               placeholder="Introduzca su contraseña"
           >
           <p v-if="error" class="error">Has introducido mal el email o la contraseña.</p>
-          <router-link to="/home" class="enter-button"> <input class="form-submit" type="submit" value="Login"> </router-link>
+          <router-link to="/home" class="enter-button"> <input class="form-submit" type="submit" value="Iniciar sesión"> </router-link>
           <h4>¿Sos arquitecto?</h4>
           <router-link to="/admin/login" class="enter-button"> <input class="form-submit" type="submit" value="Iniciar Sesión como Arquitecto" > </router-link>
           <button @click="viewLogin()">Boton</button>

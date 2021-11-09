@@ -18,15 +18,10 @@ import Article from "@/components/Article";
 
 export default {
   name: "Home",
-  components:   {
+  components: {
     Article,
-  },
-    /*methods: {
-      goHome(){
-        this.$router.push('/projects');
-      }
-    }*/
   }
+}
 </script>
 
 <style scoped>

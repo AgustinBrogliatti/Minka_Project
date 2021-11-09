@@ -44,9 +44,7 @@ export default {
 
 <style scoped>
   *   {
-
     box-sizing: border-box;
-
   }
 
   #header   {
