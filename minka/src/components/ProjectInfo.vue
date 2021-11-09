@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <div class="container">
+  <div class="content-home">
       <form>
         <legend> <h1> Datos del proyecto </h1> </legend>
         <hr>
@@ -32,23 +31,15 @@
         {{listaObjetos}}
       </form>
     </div>
-  </div>
+
 </template>
 
 <script>
-import NavBar from "@/components/NavBar";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import Banner from "@/components/Banner";
 
 
 
 export default {
   name: "ProjectInfo",
-  components:  Header,
-  Footer,
-  NavBar,
-  Banner,
   data() {
     return {
       listaObjetos: [],
@@ -83,18 +74,21 @@ export default {
 </script>
 
 <style scoped>
+
+@import "../assets/CSS/main layout.css";
+
+
 input[type=text], select, textarea {
-  width: 100%; /* Full width */
-  padding: 12px; /* Some padding */
-  border: 1px solid #ccc; /* Gray border */
-  border-radius: 4px; /* Rounded borders */
-  box-sizing: border-box; /* Make sure that padding and width stays in place */
-  margin-top: 6px; /* Add a top margin */
-  margin-bottom: 16px; /* Bottom margin */
-  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical
 }
 
-/* Style the submit button with a specific background color etc */
 input[type=submit] {
   background-color: #04AA6D;
   color: white;
@@ -110,13 +104,12 @@ input[type=submit]:hover {
 }
 
 /* Add a background color and some padding around the form */
-.container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-}
+
 
 textarea {
   height:200px
 }
+
+
+
 </style>

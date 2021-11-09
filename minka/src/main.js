@@ -7,7 +7,7 @@ import LoginArq from "./components/Login/LoginArq";
 import MiEstudio from "./components/MiEstudio";
 import Registro from "./components/Registro";
 import PortadaInicio from "./components/PortadaInicio";
-import ProjectInfo from "./components/ProjectInfo"
+import NewProject from "./components/AddProject"
 import MiPerfil from "./components/MiPerfil";
 import Contacto from "./components/Contacto";
 import ErrorPage from "./components/ErrorPage";
@@ -21,13 +21,13 @@ Vue.config.productionTip = false
 
 const routes = [
   {path: '/', name:"PortadaInicio", component: PortadaInicio},
-  {path:'/admin/home', name:"HomePageArq", component:HomePageArq},
-  {path:'/home', name:"HomePage", component:HomePage},
   {path:'/admin/login', name:"LoginArq", component:LoginArq},
+  {path:'/home', name:"HomePage", component:HomePage},
+  {path:'/admin/home', name:"HomePageArq", component:HomePageArq},
   {path:'/miestudio', name:"MiEstudio", component: MiEstudio},
   {path:'/admin/miestudio', name:"MiEstudio", component: MiEstudio},
   {path:'/admin/registro', name:"Registro", component: Registro},
-  {path: '/admin/projectinfo', name:"ProjectInfo", component: ProjectInfo},
+  {path: '/admin/addproject', name:"NewProject", component: NewProject},
   {path: '/miperfil', name:"MiPerfil", component: MiPerfil},
   {path: '/admin/miperfil', name:"MiPerfil", component: MiPerfil},
   {path: '/contacto', name:"Contacto", component: Contacto},

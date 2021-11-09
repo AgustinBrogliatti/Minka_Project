@@ -30,17 +30,21 @@
       </form>
 
     </div>
+    <Footer/>
   </div>
 </template>
 
 <script>
 
 import HeaderPortada from "../HeaderPortada";
+import Footer from "../Footer";
+
 
 export default {
   name: "Login",
   components:{
-    HeaderPortada
+    HeaderPortada,
+    Footer
   },
   data: () => ({
       email: "",

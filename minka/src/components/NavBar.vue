@@ -11,10 +11,10 @@
               <li>Olivos</li>
             </ul>
           </li>
-          <router-link to="/admin/ProjectInfo"> <li>  <i class="fas fa-plus"></i>  Añadir proyecto </li> </router-link>
+          <router-link to="/admin/addproject"> <li>  <i class="fas fa-plus"></i>  Añadir proyecto </li> </router-link>
           <li> <i class="fas fa-user-plus"></i>  Añadir cliente </li>
           <router-link to="/miperfil"><li><i class="fas fa-user-circle"></i>  Mi Perfil</li></router-link>
-          <router-link to="/contacto"><li><i class="fas fa-address-card"></i>  Contacto</li></router-link>
+          <router-link to="admin/contacto"><li><i class="fas fa-address-card"></i>  Contacto</li></router-link>
           <router-link to="/"><li><i class="fas fa-sign-out-alt"></i>  Cerrar Sesión</li></router-link>
         </ul>
       </div>

@@ -1,4 +1,5 @@
 <template>
+
   <div id="home_page">
     <HeaderPortada/>
     <div id="content-body2">
@@ -23,7 +24,7 @@
               placeholder="Introduzca su contraseña"
           >
           <p v-if="error" class="error">Has introducido mal el email o la contraseña.</p>
-          <router-link to="/clientview" class="enter-button"> <input class="form-submit" type="submit" value="Login" @click="goClientView()"> </router-link>
+          <router-link to="/home" class="enter-button"> <input class="form-submit" type="submit" value="Login"> </router-link>
           <h4>¿Sos arquitecto?</h4>
           <router-link to="/admin/login" class="enter-button"> <input class="form-submit" type="submit" value="Iniciar Sesión como Arquitecto" > </router-link>
           <button @click="viewLogin()">Boton</button>
@@ -33,16 +34,20 @@
       <br>
       <br>
     </div>
+    <Footer></Footer>
+
   </div>
 </template>
 
 <script>
 import HeaderPortada from "./HeaderPortada";
+import Footer from "./Footer";
 
 export default {
   name: "HomePage",
   components:{
-    HeaderPortada
+    HeaderPortada,
+    Footer
   },
 
   data: () => ({

@@ -1,5 +1,7 @@
 <template>
-    <div class="login">
+  <div id="registro">
+    <HeaderPortada></HeaderPortada>
+  <div class="login">
       <h1 class="title">Regístrese</h1>
       <form action class="form" @submit.prevent="registro">
 
@@ -69,14 +71,16 @@
         {{ objectsList }}
       </form>
   </div>
+  </div>
+
 
 </template>
 
 <script>
-import Header from "./Header";
+import HeaderPortada from "./HeaderPortada";
 export default {
   name: "Registro",
-  components: Header,
+  components: HeaderPortada,
   data: () => ({
     name: "",
     lastname: "",
@@ -123,6 +127,9 @@ export default {
 </script>
 
 <style scoped>
+@import "../assets/CSS/main layout.css";
+@import "../assets/CSS/normalize.css";
+
 .login {
   padding: 5rem;
   background-image: url("https://images.unsplash.com/photo-1558346648-9757f2fa4474?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80") ;

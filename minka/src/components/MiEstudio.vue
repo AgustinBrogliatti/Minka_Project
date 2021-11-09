@@ -27,7 +27,7 @@
 import Header from "./Header";
 import Footer from "./Footer";
 import Banner from "./Banner";
-import NewProject from "./NewProject";
+import NewProject from "./AddProject";
 import NavBarEstudio from "./NavBarEstudio";
 
 export default {
