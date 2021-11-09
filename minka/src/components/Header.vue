@@ -27,9 +27,9 @@ export default {
     }
   }, methods: {
     goToProfile(){
-      this.$router.push('/miperfil');
+      this.$router.push('miperfil');
     }, goToHome(){
-      this.$router.push('/home');
+      this.$router.push('home');
     },
      createProfileImage() {
       let inName = this.name.match(/^(\w)/g)
