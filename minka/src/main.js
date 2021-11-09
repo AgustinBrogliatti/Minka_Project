@@ -6,7 +6,7 @@ import HomePageArq from "./components/HomePageArq";
 import LoginArq from "./components/Login/LoginArq";
 import MiEstudio from "./components/MiEstudio";
 import Registro from "./components/Registro";
-import PortadaInicio from "./components/PortadaInicio";
+import LogInClient from "./components/LogInClient";
 import NewProject from "./components/AddProject"
 import MiPerfil from "./components/MiPerfil";
 import Contacto from "./components/Contacto";
@@ -22,7 +22,7 @@ Vue.use(VueRouter)
 Vue.config.productionTip = false
 
 const routes = [
-  {path: '/', name:"PortadaInicio", component: PortadaInicio},
+  {path: '/', name:"LogInClient", component: LogInClient},
   {path:'/admin/login', name:"LoginArq", component:LoginArq},
   {path:'/home', name:"HomePage", component:HomePage},
   {path:'/admin/home', name:"HomePageArq", component:HomePageArq},

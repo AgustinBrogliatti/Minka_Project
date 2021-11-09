@@ -5,16 +5,16 @@
         <hr>
 
         <label>Nombre del proyecto</label>
-        <input type="text" id="project_name" v-model="nombre_proyecto">
+        <input type="text" id="project_name" v-model="nombre_proyecto" required>
 
         <label>Nombre del cliente</label>
-        <input type="text" id="fname" name="firstname" v-model="nombre">
+        <input type="text" id="fname" name="firstname" v-model="nombre" required>
 
         <label for="lname">Apellido del cliente</label>
-        <input type="text" id="lname" name="lastname" v-model="apellido">
+        <input type="text" id="lname" name="lastname" v-model="apellido" required>
 
         <label>Localidad</label>
-        <select id="city" v-model="ciudad">
+        <select id="city" v-model="ciudad" required>
           <option value="buenos aires">CABA</option>
           <option value="cba">Córdoba</option>
           <option value="ros">Rosario</option>
@@ -22,10 +22,10 @@
 
         <label> Fecha </label>
         <br> <br>
-        <input type="date" v-model="fecha">
+        <input type="date" v-model="fecha" required>
         <br><br>
         <label>Breve descripción del proyecto </label>
-        <textarea id="description" v-model="descripcion" ></textarea>
+        <textarea id="description" v-model="descripcion" required></textarea>
 
         <button @click= "crearProyecto()" > CREAR PROYECTO </button>
         {{listaObjetos}}
@@ -35,8 +35,6 @@
 </template>
 
 <script>
-
-
 
 export default {
   name: "ProjectInfo",

@@ -22,6 +22,7 @@
               type="password"
               id="password"
               placeholder="Introduzca su contraseña"
+              required
           >
           <p v-if="error" class="error">Has introducido mal el email o la contraseña.</p>
           <router-link to="/home" class="enter-button"> <input class="form-submit" type="submit" value="Iniciar Sesión"> </router-link>
