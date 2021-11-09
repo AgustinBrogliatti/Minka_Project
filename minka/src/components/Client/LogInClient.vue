@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import HeaderPortada from "./HeaderPortada";
+import HeaderPortada from "../HeaderPortada";
 
 export default {
   name: "HomePage",
@@ -76,8 +76,8 @@ export default {
 </script>
 
 <style scoped>
-@import "../assets/CSS/main layout.css";
-@import "../assets/CSS/normalize.css";
+@import "../../assets/CSS/main layout.css";
+@import "../../assets/CSS/normalize.css";
 
 .form-submit {
   background: #1ab188;

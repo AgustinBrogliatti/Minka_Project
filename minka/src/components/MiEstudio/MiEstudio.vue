@@ -24,10 +24,10 @@
 <script>
 
 
-import Header from "./Header";
-import Footer from "./Footer";
-import Banner from "./Banner";
-import NewProject from "./AddProject";
+import Header from "../Header";
+import Footer from "../Footer";
+import Banner from "../Banner";
+import NewProject from "../Architect/AddProject";
 import NavBarEstudio from "./NavBarEstudio";
 
 export default {
@@ -59,7 +59,7 @@ export default {
 </script>
 
 <style scoped>
-@import "../assets/CSS/main layout.css";
+@import "../../assets/CSS/main layout.css";
 
 #content-project  {
   width: 100%;

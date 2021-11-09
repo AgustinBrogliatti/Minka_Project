@@ -2,22 +2,22 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
 import HomePage from "./components/HomePage";
-import HomePageArq from "./components/HomePageArq";
-import LoginArq from "./components/Login/LoginArq";
-import MiEstudio from "./components/MiEstudio";
-import Registro from "./components/Registro";
-import LogInClient from "./components/LogInClient";
-import NewProject from "./components/AddProject"
-import MiPerfil from "./components/MiPerfil";
-import Contacto from "./components/Contacto";
+import HomePageArq from "./components/Architect/HomePageArq";
+import LoginArq from "./components/Architect/LoginArq";
+import MiEstudio from "./components/MiEstudio/MiEstudio";
+import Registro from "./components/Architect/Registro";
+import LogInClient from "./components/Client/LogInClient";
+import NewProject from "./components/Architect/AddProject"
+import MiPerfil from "./components/Client/MiPerfil";
+import Contacto from "./components/Client/Contacto";
 import ErrorPage from "./components/ErrorPage";
 import Anteproyecto from "./components/MiEstudio/Anteproyecto";
 
 //npm install --save @fortawesome/fontawesome-free
 import '@fortawesome/fontawesome-free/js/all'
 import QuienesSomos from "./components/QuienesSomos";
-import ContactoArqui from "./components/ContactoArqui";
-import MiPerfilArq from "./components/MiPerfilArq";
+import ContactoArqui from "./components/Architect/ContactoArqui";
+import MiPerfilArq from "./components/Architect/MiPerfilArq";
 
 Vue.use(VueRouter)
 Vue.config.productionTip = false

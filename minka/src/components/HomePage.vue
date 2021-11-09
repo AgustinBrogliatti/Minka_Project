@@ -12,7 +12,7 @@
 
 <script>
 import Header from "./Header";
-import NavBarCli from "./NavBarCli";
+import NavBarCli from "./Client/NavBarCli";
 import Home from "./Home";
 import Banner from "./Banner";
 import Footer from "./Footer";

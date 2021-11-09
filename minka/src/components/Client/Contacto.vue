@@ -2,7 +2,7 @@
   <div id="home_page">
     <Header></Header>
     <div id="content-body">
-      <NavBar></NavBar>
+      <NavBarCli></NavBarCli>
       <div class="content-home container_auxiliar">
         <h2> Nombre arquitecto: </h2>
         <p> {{nombre}} </p>
@@ -15,17 +15,17 @@
 
 <script>
 
-import Header from "./Header";
-import Footer from "./Footer";
-import NavBar from "./NavBar";
-import Banner from "./Banner";
+import Header from "../Header";
+import Footer from "../Footer";
+import NavBarCli from "./NavBarCli";
+import Banner from "../Banner";
 
 export default {
-  name: "ContactoArqui",
+  name: "Contacto",
   components: {
     Header,
     Footer,
-    NavBar,
+    NavBarCli,
     Banner,
   },
   data() {
@@ -37,8 +37,8 @@ export default {
 </script>
 
 <style scoped>
-@import "../assets/CSS/main layout.css";
-@import "../assets/CSS/normalize.css";
+@import "../../assets/CSS/main layout.css";
+@import "../../assets/CSS/normalize.css";
 
 .container_auxiliar {
   border: 1px solid steelblue;

@@ -7,7 +7,7 @@
        <div class="content-home">
          <div id="content-project">
           <div id="content-project__img">
-            <img src="../assets/img/miravalles.jpeg">
+            <img src="../../assets/img/miravalles.jpeg">
           </div>
           <div id = "content-project__description">
             <p>{{title}}</p>
@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import NavBar from "@/components/NavBar";
+import NavBar from "@/components/Architect/NavBar";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Banner from "@/components/Banner";
@@ -53,7 +53,7 @@ export default {
 </script>
 
 <style scoped>
-@import "../assets/CSS/main layout.css";
+@import "../../assets/CSS/main layout.css";
 
 #content-project  {
   width: 100%;

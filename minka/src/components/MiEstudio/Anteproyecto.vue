@@ -14,7 +14,7 @@
 import Header from "../Header";
 import Footer from "../Footer";
 import Banner from "../Banner";
-import NavBarEstudio from "../NavBarEstudio";
+import NavBarEstudio from "./NavBarEstudio";
 
 export default {
   name: "Anteproyecto",

@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import ProjectInfo from "@/components/ProjectInfo";
-import NavBar from "@/components/NavBar";
+import ProjectInfo from "@/components/Architect/ProjectInfo";
+import NavBar from "@/components/Architect/NavBar";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Banner from "@/components/Banner";
@@ -36,7 +36,7 @@ export default {
 
 <style scoped>
 
-@import "../assets/CSS/main layout.css";
+@import "../../assets/CSS/main layout.css";
 
 
 </style>

@@ -11,11 +11,11 @@
 </template>
 
 <script>
-import Header from "./Header";
+import Header from "../Header";
 import NavBar from "./NavBar";
-import Home from "./Home";
-import Banner from "./Banner";
-import Footer from "./Footer";
+import Home from "../Home";
+import Banner from "../Banner";
+import Footer from "../Footer";
 
 export default {
   name: "HomePage",
@@ -30,6 +30,6 @@ export default {
 </script>
 
 <style>
-@import "../assets/CSS/main layout.css";
+@import "../../assets/CSS/main layout.css";
 
 </style>

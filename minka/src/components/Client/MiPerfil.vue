@@ -19,10 +19,10 @@
 </template>
 
 <script>
-import Header from "./Header";
-import Footer from "./Footer";
+import Header from "../Header";
+import Footer from "../Footer";
 import NavBarCli from "./NavBarCli";
-import Banner from "./Banner";
+import Banner from "../Banner";
 
 export default {
   name: "MiPerfil",
