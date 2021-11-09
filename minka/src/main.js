@@ -33,6 +33,7 @@ const routes = [
   {path: '/contacto', name:"Contacto", component: Contacto},
   {path: '/admin/contacto', name:"Contacto", component: Contacto},
   {path: '/quienessomos', name:"QuienesSomos", component: QuienesSomos},
+  {path: '/admin/quienessomos', name:"QuienesSomos", component: QuienesSomos},
   {path: '/*', name:"ErrorPage", component: ErrorPage}
 ]
 

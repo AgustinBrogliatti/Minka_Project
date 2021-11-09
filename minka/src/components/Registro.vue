@@ -101,7 +101,7 @@ export default {
       console.log(this.repeatPassword)
     },
     goHome(){
-      this.$router.push('/home');
+      this.$router.push('/admin/home');
     },
     mostrarlistaObjetos() {
       let nombre =this.name

@@ -2,7 +2,7 @@
   <div id="home_page">
     <Header></Header>
     <div id="content-body">
-      <NavBar></NavBar>
+      <NavBarCli></NavBarCli>
       <div class="content-home">
         <h2> Nombre arquitecto: </h2>
         <p> {{nombre}} </p>
@@ -17,7 +17,7 @@
 
 import Header from "./Header";
 import Footer from "./Footer";
-import NavBar from "./NavBar";
+import NavBarCli from "./NavBarCli";
 import Banner from "./Banner";
 
 export default {
@@ -25,7 +25,7 @@ export default {
   components: {
     Header,
     Footer,
-    NavBar,
+    NavBarCli,
     Banner,
   },
   data() {
