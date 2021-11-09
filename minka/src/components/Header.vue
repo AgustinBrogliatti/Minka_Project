@@ -22,7 +22,7 @@ export default {
   data() {
     return {
       userName: 'Agustin Brogliatti',
-      initials = 'A B',
+      initials: 'A B',
       logoImage: '../assets/img/logo.png',
     }
   }, methods: {
@@ -55,14 +55,11 @@ export default {
     background-color: var(--main-color);
     display: flex;
     justify-content: space-between;
-
-
   }
 
   #content-logo   {
     width: auto;
     margin-left: 1.5%;
-
   }
 
   #content-logo__logo   {
@@ -83,21 +80,28 @@ export default {
 
   #content-login__photo   {
     border-radius: 100%;
-    width: 22%;
-    height: 80%;
-    background: #337ab7;
+    width: 25%;
+    height: 65%;
+    background: #d23b64;
     font-size: 35px;
+    font-family: 'Titillium Web', sans-serif;
     color: #fff;
     text-align: center;
     line-height: 150px;
     margin: 0 auto;
     background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   #content-login__tagName   {
     font-size: 1.2em;
   }
+
   #content-login__photo, #content-logo__logo, #content-login__tagName:hover{
     cursor: pointer;
   }
+
+
 </style>

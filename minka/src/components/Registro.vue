@@ -1,75 +1,82 @@
 <template>
-  <div class="login">
-    <h1 class="title">Regístrese</h1>
-    <form action class="form" @submit.prevent="registro">
+    <div class="login">
+      <h1 class="title">Regístrese</h1>
+      <form action class="form" @submit.prevent="registro">
 
-      <label class="form-label" for="#email">Nombre:</label>
-      <input
-          v-model="name"
-          class="form-input"
-          type="text"
-          id="nombre"
-          required
-          placeholder="Introduzca su nombre"
-      >
+        <label class="form-label" for="#email">Nombre:</label>
+        <input
+            v-model="name"
+            class="form-input"
+            type="text"
+            id="nombre"
+            required
+            placeholder="Introduzca su nombre"
+        >
 
-      <label class="form-label" for="#email">Apellido:</label>
-      <input
-          v-model="lastname"
-          class="form-input"
-          type="text"
-          id="apellido"
-          required
-          placeholder="Introduzca su apellido"
-      >
+        <label class="form-label" for="#email">Apellido:</label>
+        <input
+            v-model="lastname"
+            class="form-input"
+            type="text"
+            id="apellido"
+            required
+            placeholder="Introduzca su apellido"
+        >
 
-      <label class="form-label" for="#email">Email:</label>
-      <input
-          v-model="email"
-          class="form-input"
-          type="email"
-          id="email"
-          required
-          placeholder="Introduzca su email"
-      >
+        <label class="form-label" for="#email">Email:</label>
+        <input
+            v-model="email"
+            class="form-input"
+            type="email"
+            id="email"
+            required
+            placeholder="Introduzca su email"
+        >
 
-      <label class="form-label" for="#username">Nombre de Usuario:</label>
-      <input
-          v-model="username"
-          class="form-input"
-          type="username"
-          id="username"
-          placeholder="Cree un Nombre de Usuario"
-      >
-      <label class="form-label" for="#password">Contraseña:</label>
-      <input
-          v-model="password"
-          class="form-input"
-          type="password"
-          id="password"
-          placeholder="Introduzca su contraseña"
-      >
-      <label class="form-label" for="#repeatPassword">Repita su contraseña:</label>
-      <input
-          v-model="repeatPassword"
-          class="form-input"
-          type="password"
-          id="repeatPassword"
-          placeholder="Repita su contraseña"
-      >
-      <router-link> <input class="form-submit" type="submit" value="Registrarse"> </router-link>
+        <label class="form-label" for="#username">Nombre de Usuario:</label>
+        <input
+            v-model="username"
+            class="form-input"
+            type="username"
+            id="username"
+            placeholder="Cree un Nombre de Usuario"
+        >
+        <label class="form-label" for="#password">Contraseña:</label>
+        <input
+            v-model="password"
+            class="form-input"
+            type="password"
+            id="password"
+            placeholder="Introduzca su contraseña"
+        >
+        <label class="form-label" for="#repeatPassword">Repita su contraseña:</label>
+        <input
+            v-model="repeatPassword"
+            class="form-input"
+            type="password"
+            id="repeatPassword"
+            placeholder="Repita su contraseña"
+        >
 
-      <button @click="mostrarlistaObjetos()"> MOSTRAR LISTA </button>
-      <br>
-      {{ objectsList }}
-    </form>
 
+        <input class="form-submit" @click="goHome"  type="submit" value="Registrarse">
+
+
+
+
+        <button @click="mostrarlistaObjetos()"> MOSTRAR LISTA </button>
+        <br>
+        {{ objectsList }}
+      </form>
   </div>
+
 </template>
 
 <script>
+import Header from "./Header";
 export default {
   name: "Registro",
+  components: Header,
   data: () => ({
     name: "",
     lastname: "",
