@@ -4,12 +4,16 @@
       <div class="body">
         <ul>
           <router-link to="/home"><li><i class="fas fa-house-user"></i> Home</li></router-link>
-          <li><i class="far fa-lightbulb"></i> Ideas</li>
-          <li><i class="fas fa-file"></i> Documentación</li>
-          <li><i class="fas fa-folder-open"></i> Anteproyecto</li>
-          <li><i class="fas fa-rocket"></i> Avances</li>
-          <li><i class="fas fa-archive"></i> Legajo</li>
-          <li><i class="fas fa-hard-hat"></i> Obra</li>
+          <li><i class="fas fa-tasks"></i> Proyectos
+            <ul>
+              <li>Miravalles</li>
+              <li>Vicario</li>
+              <li>Olivos</li>
+            </ul>
+          </li>
+          <router-link to="/miperfil"><li><i class="fas fa-user-circle"></i> Mi Perfil</li></router-link>
+          <router-link to="/contacto"><li><i class="fas fa-address-card"></i> Contacto</li></router-link>
+          <router-link to="/"><li><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</li></router-link>
         </ul>
       </div>
     </div>
@@ -18,7 +22,7 @@
 
 <script>
 export default {
-  name: "NavBarProyecto"
+  name: "NavBar",
 }
 </script>
 
@@ -30,10 +34,11 @@ export default {
 
 .navbar{
   width: 200px;
-  height: 350px;
+  height: 250px;
   background-color: var(--main-color);
   border-radius: 10px 10px;
 }
+
 
 .body li{
   transition: 1s all;
@@ -55,6 +60,10 @@ li:hover{
   cursor: pointer;
 }
 
+.body > li{
+  float: left;
+}
+
 .body li ul{
   background: #1E2B32;
   margin-left: 190px;
@@ -62,6 +71,11 @@ li:hover{
   display: none;
   position: absolute;
   border-radius: 10px 10px;
+}
+
+.body li:hover > ul{
+  display: block;
+  cursor: pointer;
 }
 
 a {

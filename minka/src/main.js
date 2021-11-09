@@ -2,8 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
 import HomePage from "./components/HomePage";
+import HomePageArq from "./components/HomePageArq";
 import LoginArq from "./components/Login/LoginArq";
-import ClientView from "./components/ClientView";
 import MiEstudio from "./components/MiEstudio";
 import Registro from "./components/Registro";
 import PortadaInicio from "./components/PortadaInicio";
@@ -21,10 +21,9 @@ Vue.config.productionTip = false
 
 const routes = [
   {path: '/', name:"PortadaInicio", component: PortadaInicio},
-  {path:'/admin/home', name:"HomePage", component:HomePage},
+  {path:'/admin/home', name:"HomePageArq", component:HomePageArq},
   {path:'/home', name:"HomePage", component:HomePage},
   {path:'/admin/login', name:"LoginArq", component:LoginArq},
-  {path:'/clientview', name:"ClientView", component: ClientView},
   {path:'/miestudio', name:"MiEstudio", component: MiEstudio},
   {path:'/admin/miestudio', name:"MiEstudio", component: MiEstudio},
   {path:'/admin/registro', name:"Registro", component: Registro},

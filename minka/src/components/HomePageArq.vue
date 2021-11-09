@@ -1,18 +1,18 @@
 <template>
-<div id="home_page">
-  <Header></Header>
-  <div id="content-body">
-    <NavBarCli></NavBarCli>
-    <Home></Home>
-    <Banner></Banner>
+  <div id="home_page">
+    <Header></Header>
+    <div id="content-body">
+      <NavBar></NavBar>
+      <Home></Home>
+      <Banner></Banner>
+    </div>
+    <Footer></Footer>
   </div>
-  <Footer></Footer>
-</div>
 </template>
 
 <script>
 import Header from "./Header";
-import NavBarCli from "./NavBarCli";
+import NavBar from "./NavBar";
 import Home from "./Home";
 import Banner from "./Banner";
 import Footer from "./Footer";
@@ -21,7 +21,7 @@ export default {
   name: "HomePage",
   components:{
     Header,
-    NavBarCli,
+    NavBar,
     Home,
     Banner,
     Footer
