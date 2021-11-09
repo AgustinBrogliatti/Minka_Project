@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="451d0026-20fa-4379-bc54-58dc2715cbf4" name="Changes" comment="perfil vista(base)">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_11_2021_16_32_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_11_2021_16_32__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/minka/src/components/Footer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/minka/src/components/Footer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/minka/src/components/HeaderPortada.vue" beforeDir="false" afterPath="$PROJECT_DIR$/minka/src/components/HeaderPortada.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/minka/src/components/Login/LoginArq.vue" beforeDir="false" afterPath="$PROJECT_DIR$/minka/src/components/Login/LoginArq.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/minka/src/components/PortadaInicio.vue" beforeDir="false" afterPath="$PROJECT_DIR$/minka/src/components/PortadaInicio.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/minka/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/minka/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/minka/src/components/QuienesSomos.vue" beforeDir="false" afterPath="$PROJECT_DIR$/minka/src/components/QuienesSomos.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,6 +104,8 @@
       <workItem from="1636056104550" duration="2824000" />
       <workItem from="1636314142841" duration="121000" />
       <workItem from="1636315858003" duration="2773000" />
+      <workItem from="1636456018491" duration="110000" />
+      <workItem from="1636484740326" duration="707000" />
     </task>
     <task id="LOCAL-00001" summary="lista login">
       <created>1635975450981</created>

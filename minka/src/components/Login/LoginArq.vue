@@ -2,7 +2,7 @@
   <div class="login-arq">
     <HeaderPortada/>
     <div class="login">
-      <h1 class="title">Inicie sesión como arquitecto</h1>
+      <h1 class="title">Iniciar sesión como arquitecto</h1>
       <form action class="form" @submit.prevent="login">
         <label class="form-label" for="#email">Email:</label>
         <input
@@ -30,21 +30,18 @@
       </form>
 
     </div>
-    <Footer/>
   </div>
 </template>
 
 <script>
 
 import HeaderPortada from "../HeaderPortada";
-import Footer from "../Footer";
 
 
 export default {
   name: "Login",
   components:{
-    HeaderPortada,
-    Footer
+    HeaderPortada
   },
   data: () => ({
       email: "",

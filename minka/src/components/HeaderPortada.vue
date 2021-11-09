@@ -1,19 +1,14 @@
 <template>
   <div id="header">
     <div id="content-logo">
-      <img id="content-logo__logo" alt="minkaLogo" @click="goToHome()" src="../assets/img/logo_minka.png">
+      <img id="content-logo__logo" alt="minkaLogo" src="../assets/img/logo_minka.png">
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "HeaderPortada",
-  methods: {
-    goToHome() {
-      this.$router.push('/home');
-    }
-  }
+  name: "HeaderPortada"
 }
 </script>
 
@@ -68,7 +63,7 @@ export default {
 #content-login__tagName   {
   font-size: 1.2em;
 }
-img:hover {
+/*img:hover {
   cursor: pointer;
-}
+}*/
 </style>

@@ -4,7 +4,7 @@
     <HeaderPortada/>
     <div id="content-body2">
       <div class="login">
-        <h1 class="title">Inicie sesión</h1>
+        <h1 class="title">Iniciar sesión</h1>
         <form action class="form" @submit.prevent="login">
           <label class="form-label" for="#email">Email:</label>
           <input
@@ -34,20 +34,17 @@
       <br>
       <br>
     </div>
-    <Footer></Footer>
 
   </div>
 </template>
 
 <script>
 import HeaderPortada from "./HeaderPortada";
-import Footer from "./Footer";
 
 export default {
   name: "HomePage",
   components:{
-    HeaderPortada,
-    Footer
+    HeaderPortada
   },
 
   data: () => ({
