@@ -1,6 +1,6 @@
 <template>
   <div id="home_page">
-    <HeaderArq></HeaderArq>
+    <Header></Header>
     <div id="content-body">
       <NavBar></NavBar>
       <Home></Home>
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import HeaderArq from "./HeaderArq";
+import Header from "./Header";
 import NavBar from "./NavBar";
 import Home from "./Home";
 import Banner from "./Banner";
@@ -20,7 +20,7 @@ import Footer from "./Footer";
 export default {
   name: "HomePage",
   components:{
-    HeaderArq,
+    Header,
     NavBar,
     Home,
     Banner,
