@@ -1,76 +1,71 @@
 <template>
   <div id="registro">
-    <HeaderPortada></HeaderPortada>
-  <div class="login">
-      <h1 class="title">Regístrese</h1>
-      <form action class="form" @submit.prevent="registro">
+    <HeaderPortada/>
+    <div class="login">
+        <h1 class="title">Registre a su cliente</h1>
+        <form action class="form" @submit.prevent="registro">
 
-        <label class="form-label" for="#email">Nombre:</label>
-        <input
-            v-model="name"
-            class="form-input"
-            type="text"
-            id="nombre"
-            required
-            placeholder="Introduzca su nombre"
-        >
+          <label class="form-label" for="#email">Nombre:</label>
+          <input
+              v-model="name"
+              class="form-input"
+              type="text"
+              id="nombre"
+              required
+              placeholder="Introduzca su nombre"
+          >
 
-        <label class="form-label" for="#email">Apellido:</label>
-        <input
-            v-model="lastname"
-            class="form-input"
-            type="text"
-            id="apellido"
-            required
-            placeholder="Introduzca su apellido"
-        >
+          <label class="form-label" for="#email">Apellido:</label>
+          <input
+              v-model="lastname"
+              class="form-input"
+              type="text"
+              id="apellido"
+              required
+              placeholder="Introduzca su apellido"
+          >
 
-        <label class="form-label" for="#email">Email:</label>
-        <input
-            v-model="email"
-            class="form-input"
-            type="email"
-            id="email"
-            required
-            placeholder="Introduzca su email"
-        >
+          <label class="form-label" for="#email">Email:</label>
+          <input
+              v-model="email"
+              class="form-input"
+              type="email"
+              id="email"
+              required
+              placeholder="Introduzca su email"
+          >
 
-        <label class="form-label" for="#username">Nombre de Usuario:</label>
-        <input
-            v-model="username"
-            class="form-input"
-            type="username"
-            id="username"
-            placeholder="Cree un Nombre de Usuario"
-        >
-        <label class="form-label" for="#password">Contraseña:</label>
-        <input
-            v-model="password"
-            class="form-input"
-            type="password"
-            id="password"
-            placeholder="Introduzca su contraseña"
-        >
-        <label class="form-label" for="#repeatPassword">Repita su contraseña:</label>
-        <input
-            v-model="repeatPassword"
-            class="form-input"
-            type="password"
-            id="repeatPassword"
-            placeholder="Repita su contraseña"
-        >
+          <label class="form-label" for="#username">Nombre de Usuario:</label>
+          <input
+              v-model="username"
+              class="form-input"
+              type="username"
+              id="username"
+              placeholder="Cree un Nombre de Usuario"
+          >
+          <label class="form-label" for="#password">Contraseña:</label>
+          <input
+              v-model="password"
+              class="form-input"
+              type="password"
+              id="password"
+              placeholder="Introduzca su contraseña"
+          >
+          <label class="form-label" for="#repeatPassword">Repita su contraseña:</label>
+          <input
+              v-model="repeatPassword"
+              class="form-input"
+              type="password"
+              id="repeatPassword"
+              placeholder="Repita su contraseña"
+          >
 
-
-        <input class="form-submit" @click="goHome"  type="submit" value="Registrarse">
-
-
-
-
-        <button @click="mostrarlistaObjetos()"> MOSTRAR LISTA </button>
-        <br>
-        {{ objectsList }}
-      </form>
-  </div>
+          <router-link to="/home" class="enter-button"> <input class="form-submit" type="submit" value="Registrar"> </router-link>
+          <button @click="mostrarlistaObjetos()"> MOSTRAR LISTA </button>
+          <br>
+          {{ objectsList }}
+        </form>
+    </div>
   </div>
 
 
@@ -78,9 +73,12 @@
 
 <script>
 import HeaderPortada from "./HeaderPortada";
+
 export default {
   name: "Registro",
-  components: HeaderPortada,
+  components: {
+    HeaderPortada
+  },
   data: () => ({
     name: "",
     lastname: "",
@@ -131,7 +129,7 @@ export default {
 @import "../assets/CSS/normalize.css";
 
 .login {
-  padding: 5rem;
+  padding: 2%;
   background-image: url("https://images.unsplash.com/photo-1558346648-9757f2fa4474?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80") ;
   background-size: cover;
 }
@@ -162,8 +160,6 @@ export default {
 
 .form-input {
   padding: 10px 15px;
-  background: none;
-  background-image: none;
   border: 1px solid white;
   color: white;
 }
@@ -177,12 +173,17 @@ export default {
   background: #1ab188;
   border: none;
   color: white;
-  margin-top: 3rem;
-  padding: 1rem 0;
+  padding: 5%;
   cursor: pointer;
   transition: background 0.2s;
+  margin-top: 8%;
+  margin-bottom: 10%;
+  width: 50%;
+  border-radius: 8px;
 }
-&:hover {
-   background: #0b9185;
- }
+
+.enter-button{
+  text-align: center;
+}
+
 </style>

@@ -22,7 +22,7 @@ export default {
   data() {
     return {
       userName: 'Agustin Brogliatti',
-      initials: 'A B',
+      initials: 'AB',
       logoImage: '../assets/img/logo.png',
     }
   }, methods: {
@@ -80,10 +80,10 @@ export default {
 
   #content-login__photo   {
     border-radius: 100%;
-    width: 25%;
-    height: 65%;
+    width: 50px;
+    height: 50px;
     background: #d23b64;
-    font-size: 35px;
+    font-size: 25px;
     font-family: 'Titillium Web', sans-serif;
     color: #fff;
     text-align: center;
