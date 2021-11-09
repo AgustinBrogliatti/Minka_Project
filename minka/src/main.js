@@ -16,6 +16,7 @@ import ErrorPage from "./components/ErrorPage";
 import '@fortawesome/fontawesome-free/js/all'
 import QuienesSomos from "./components/QuienesSomos";
 import ContactoArqui from "./components/ContactoArqui";
+import MiPerfilArq from "./components/MiPerfilArq";
 
 Vue.use(VueRouter)
 Vue.config.productionTip = false
@@ -30,7 +31,7 @@ const routes = [
   {path:'/admin/registro', name:"Registro", component: Registro},
   {path: '/admin/addproject', name:"NewProject", component: NewProject},
   {path: '/miperfil', name:"MiPerfil", component: MiPerfil},
-  {path: '/admin/miperfil', name:"MiPerfil", component: MiPerfil},
+  {path: '/admin/miperfil', name:"MiPerfil", component: MiPerfilArq},
   {path: '/contacto', name:"Contacto", component: Contacto},
   {path: '/admin/contacto', name:"Contacto", component: ContactoArqui},
   {path: '/quienessomos', name:"QuienesSomos", component: QuienesSomos},
