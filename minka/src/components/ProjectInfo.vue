@@ -1,5 +1,5 @@
 <template>
-  <div class="content-home">
+  <div class="content-home container_auxiliar">
       <form>
         <legend> <h1> Datos del proyecto </h1> </legend>
         <hr>
@@ -110,6 +110,9 @@ textarea {
   height:200px
 }
 
-
+.container_auxiliar {
+  border: 1px solid steelblue;
+  padding: 2%;
+}
 
 </style>

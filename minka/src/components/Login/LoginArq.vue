@@ -22,7 +22,7 @@
             placeholder="Introduzca su contraseña"
         >
         <p v-if="error" class="error">Has introducido mal el email o la contraseña.</p>
-        <router-link to="/admin/home" class="enter-button"> <input class="form-submit" type="submit" value="Login"> </router-link>
+        <router-link to="/admin/home" class="enter-button"> <input class="form-submit" type="submit" value="Iniciar Sesión"> </router-link>
         <h4>¿Todavía no tenes cuenta?</h4>
         <router-link to="/admin/registro" class="enter-button"> <input class="form-submit" type="submit" value="Registrarse"> </router-link>
         <button @click= "loginArq()" > LOGIN ARQ </button>

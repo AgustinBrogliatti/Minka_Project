@@ -3,7 +3,7 @@
     <Header/>
     <div id="content-body">
       <NavBarCli></NavBarCli>
-      <div class="content-home">
+      <div class="content-home container_auxiliar">
         <h1>{{nombre}}</h1>
         <h2>Datos:</h2>
         <p>Usuario: {{usuario}}</p>
@@ -68,4 +68,7 @@ export default {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
+.container_auxiliar {
+  border: 1px solid steelblue;
+}
 </style>

@@ -3,7 +3,7 @@
     <Header></Header>
     <div id="content-body">
       <NavBarCli></NavBarCli>
-      <div class="content-home">
+      <div class="content-home container_auxiliar">
         <h2> Nombre arquitecto: </h2>
         <p> {{nombre}} </p>
       </div>
@@ -39,4 +39,8 @@ export default {
 <style scoped>
 @import "../assets/CSS/main layout.css";
 @import "../assets/CSS/normalize.css";
+
+.container_auxiliar {
+  border: 1px solid steelblue;
+}
 </style>
