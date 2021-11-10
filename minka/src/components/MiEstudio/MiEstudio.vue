@@ -13,7 +13,7 @@
 
 
         </div>
-        <router-link to="/home">Volver atrás</router-link>
+        <router-link to="home">Volver atrás</router-link>
       </div>
       <Banner></Banner>
     </div>

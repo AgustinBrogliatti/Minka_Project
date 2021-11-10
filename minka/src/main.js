@@ -18,6 +18,11 @@ import '@fortawesome/fontawesome-free/js/all'
 import QuienesSomos from "./components/QuienesSomos";
 import ContactoArqui from "./components/Architect/ContactoArqui";
 import MiPerfilArq from "./components/Architect/MiPerfilArq";
+import Ideas from "./components/MiEstudio/Ideas";
+import Documentacion from "./components/MiEstudio/Documentacion";
+import Avances from "./components/MiEstudio/Avances";
+import Legajo from "./components/MiEstudio/Legajo";
+import Obra from "./components/MiEstudio/Obra";
 
 Vue.use(VueRouter)
 Vue.config.productionTip = false
@@ -27,8 +32,6 @@ const routes = [
   {path:'/admin/login', name:"LoginArq", component:LoginArq},
   {path:'/home', name:"HomePage", component:HomePage},
   {path:'/admin/home', name:"HomePageArq", component:HomePageArq},
-  {path:'/miestudio', name:"MiEstudio", component: MiEstudio},
-  {path:'/admin/miestudio', name:"MiEstudio", component: MiEstudio},
   {path:'/admin/registro', name:"Registro", component: Registro},
   {path: '/admin/addproject', name:"NewProject", component: NewProject},
   {path: '/miperfil', name:"MiPerfil", component: MiPerfil},
@@ -37,8 +40,21 @@ const routes = [
   {path: '/admin/contacto', name:"Contacto", component: ContactoArqui},
   {path: '/quienessomos', name:"QuienesSomos", component: QuienesSomos},
   {path: '/admin/quienessomos', name:"QuienesSomos", component: QuienesSomos},
-  {path: '/*', name:"ErrorPage", component: ErrorPage},
+  {path:'/miestudio/inicio', name:"MiEstudio", component: MiEstudio},
+  {path:'/admin/miestudio/inicio', name:"MiEstudio", component: MiEstudio},
+  {path: '/miestudio/ideas', name:"Ideas", component: Ideas},
+  {path: '/miestudio/documentacion', name:"Documentacion", component: Documentacion},
   {path: '/miestudio/anteproyecto', name:"Anteproyecto", component: Anteproyecto},
+  {path: '/miestudio/avances', name:"Avances", component: Avances},
+  {path: '/miestudio/legajo', name:"Legajo", component: Legajo},
+  {path: '/miestudio/obra', name:"Obra", component: Obra},
+  {path: '/admin/miestudio/ideas', name:"Ideas", component: Ideas},
+  {path: '/admin/miestudio/documentacion', name:"Documentacion", component: Documentacion},
+  {path: '/admin/miestudio/anteproyecto', name:"Anteproyecto", component: Anteproyecto},
+  {path: '/admin/miestudio/avances', name:"Avances", component: Avances},
+  {path: '/admin/miestudio/legajo', name:"Legajo", component: Legajo},
+  {path: '/admin/miestudio/obra', name:"Obra", component: Obra},
+  {path: '/*', name:"ErrorPage", component: ErrorPage},
 ]
 
 

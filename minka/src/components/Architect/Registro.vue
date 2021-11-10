@@ -60,7 +60,7 @@
               placeholder="Repita su contraseña"
           >
 
-          <router-link to="/home" class="enter-button"> <input class="form-submit" type="submit" value="Registrar"> </router-link>
+          <router-link to="home" class="enter-button"> <input class="form-submit" type="submit" value="Registrar"> </router-link>
           <button @click="mostrarlistaObjetos()"> MOSTRAR LISTA </button>
           <br>
           {{ objectsList }}

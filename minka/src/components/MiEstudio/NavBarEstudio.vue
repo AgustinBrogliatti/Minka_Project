@@ -3,13 +3,13 @@
   <div class="navbar">
     <div class="body">
       <ul>
-        <router-link to="/home"><li><i class="fas fa-house-user"></i> Home</li></router-link>
-        <li><i class="far fa-lightbulb"></i> Ideas</li>
-        <li><i class="fas fa-file"></i> Documentación</li>
-        <li><i class="fas fa-folder-open"></i> Anteproyecto</li>
-        <li><i class="fas fa-rocket"></i> Avances</li>
-        <li><i class="fas fa-archive"></i> Legajo</li>
-        <li><i class="fas fa-hard-hat"></i> Obra</li>
+        <router-link to="../home"><li><i class="fas fa-house-user"></i> Home</li></router-link>
+        <router-link to="ideas"><li><i class="far fa-lightbulb"></i> Ideas</li></router-link>
+        <router-link to="documentacion"><li><i class="fas fa-file"></i> Documentación</li></router-link>
+        <router-link to="anteproyecto"><li><i class="fas fa-folder-open"></i> Anteproyecto</li></router-link>
+        <router-link to="avances"><li><i class="fas fa-rocket"></i> Avances</li></router-link>
+        <router-link to="legajo"><li><i class="fas fa-archive"></i> Legajo</li></router-link>
+        <router-link to="obra"><li><i class="fas fa-hard-hat"></i> Obra</li></router-link>
       </ul>
     </div>
   </div>
