@@ -1,18 +1,18 @@
 <template>
   <div id="home_page">
-    <Header></Header>
+    <HeaderEstudio></HeaderEstudio>
     <div id="content-body">
       <NavBarEstudio></NavBarEstudio>
       <Banner></Banner>
     </div>
-    <Footer></Footer>
+    <FooterEstudio></FooterEstudio>
   </div>
 </template>
 
 <script>
 
-import Header from "../Header";
-import Footer from "../Footer";
+import HeaderEstudio from "../HeaderEstudio";
+import FooterEstudio from "../FooterEstudio";
 import Banner from "../Banner";
 import NavBarEstudio from "./NavBarEstudio";
 
@@ -20,8 +20,8 @@ export default {
   name: "Documentacion",
   components: {
     NavBarEstudio,
-    Header,
-    Footer,
+    HeaderEstudio,
+    FooterEstudio,
     Banner,
   },
 }
