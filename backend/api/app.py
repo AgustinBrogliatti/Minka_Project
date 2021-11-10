@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request, send_from_directory, abort
-import os, json
+import os, json, shutil
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
 
@@ -41,7 +41,7 @@ def admins_database():
     if request.method == "GET":
 
         if not os.path.exists(path):
-            return jsonify({"admins_list": [], "message": "Admins database empity", "status": "200 OK"})
+            return jsonify({"admins_list": [], "message": "Admins database empity", "status": "204 NO CONTENT"})
 
         else:
             with open(path, "r") as file:
@@ -90,7 +90,7 @@ def edit_admins(adminID):
     if request.method == "GET":
 
         if not os.path.exists(path):
-                return jsonify({"admins_list": [], "message": "Admins database empity", "status": "200 OK"}) 
+                return jsonify({"admins_list": [], "message": "Admins database empity", "status": "204 NO CONTENT"}) 
 
         else:
             with open(path, "r") as file:
@@ -103,13 +103,13 @@ def edit_admins(adminID):
                             return jsonify({"admin": admin, "message": "Admin loaded successfully", "status": "200 OK"})
 
                 else:
-                    return jsonify({"admin": adminID, "message": "The admin not exists", "status": "200 OK"})
+                    return jsonify({"admin": adminID, "message": "The admin not exists", "status": "204 NO CONTENT"})
                     
 
     if request.method == "PUT":
         
             if not os.path.exists(path):
-                return jsonify({"admins_list": [], "message": "Admin database empity", "status": "200 OK"})
+                return jsonify({"admins_list": [], "message": "Admin database empity", "status": "204 NO CONTENT"})
                 
             else:
                 with open(path, "r+") as file:
@@ -144,7 +144,7 @@ def clients_database():
     if request.method == "GET":
 
         if not os.path.exists(path):
-            return jsonify({"clients_list": [], "message": "Clients database empity", "status": "200 OK"})
+            return jsonify({"clients_list": [], "message": "Clients database empity", "status": "204 NO CONTENT"})
 
         else:
             with open(path, "r") as file:
@@ -170,16 +170,16 @@ def clients_database():
                 clients_list = json.load(file)
 
                 if any(client["clientID"] == body["clientID"] for client in clients_list):
-                    return jsonify({"client": body["clientID"], "message": "The clientID already exists", "status": "200 OK"})
+                    return jsonify({"client": body["clientID"], "message": "The clientID already exists", "status": "304 NOT MODIFED"})
 
                 elif any(client['email'] == body['email'] for client in clients_list):
-                    return jsonify({"email": body['email'], "message": "This email is in use", "status": "200 OK"}) 
+                    return jsonify({"email": body['email'], "message": "This email is in use", "status": "304 NOT MODIFED"}) 
 
                 else:  
                     clients_list.append(body)  
                     file.seek(0)
                     json.dump(clients_list, file, indent = 4)
-                    return jsonify({"client": body, "message": "Client successfully registered", "status": "200 OK"})
+                    return jsonify({"client": body, "message": "Client successfully registered", "status": "201 CREATED"})
 
 
 
@@ -195,7 +195,7 @@ def edit_clients(clientID):
     if request.method == "GET":
 
         if not os.path.exists(path):
-                return jsonify({"clients_list": [], "message": "Clients database empity", "status": "200 OK"}) 
+                return jsonify({"clients_list": [], "message": "Clients database empity", "status": "204 NO CONTENT"}) 
 
         else:
             with open(path, "r") as file:
@@ -208,14 +208,14 @@ def edit_clients(clientID):
                             return jsonify({"client": client, "message": "Client loaded successfully", "status": "200 OK"})
 
                 else:
-                    return jsonify({"client": clientID, "message": "The clientID not exists", "status": "200 OK"})
+                    return jsonify({"client": clientID, "message": "The clientID not exists", "status": "204 NO CONTENT"})
 
 
 
     if request.method == "PUT":
   
         if not os.path.exists(path):
-            return jsonify({"clients_list": [], "message": "Clients database empity", "status": "200 OK"})
+            return jsonify({"clients_list": [], "message": "Clients database empity", "status": "204 NO CONTENT"})
 
         else:
             with open(path, "r+") as file:
@@ -232,7 +232,7 @@ def edit_clients(clientID):
                                 file.write(json.dumps(clients_list, indent = 4))
                                 return jsonify({"client": body, "message": "Client data updated", "status": "200 OK"})
 
-                return jsonify({"client": clientID, "message": "The clientID not exists", "status": "200 OK"})
+                return jsonify({"client": clientID, "message": "The clientID not exists", "status": "304 NOT MODIFED"})
 
 
 
@@ -243,7 +243,7 @@ def edit_clients(clientID):
             with open(path, "r+") as file:
 
                 clients_list = json.load(file)
-
+              
                 for client in clients_list:
                     if client['clientID'] == clientID:
 
@@ -254,9 +254,9 @@ def edit_clients(clientID):
                             file.write(json.dumps(clients_list, indent = 4))
                             return jsonify({"client": clientID, "message": "Client deleted successfully", "status": "200 OK"})
 
-                    return jsonify({"client": clientID, "message": "The clientID not exists", "status": "200 OK"})
+                return jsonify({"client": clientID, "message": "The clientID not exists", "status": "304 NOT MODIFED"})
 
-        return jsonify({"clients_list": [], "message": "Clients database empity", "status": "200 OK"})
+        return jsonify({"clients_list": [], "message": "Clients database empity", "status": "204 NO CONTENT"})
 
 
 
@@ -265,49 +265,64 @@ def edit_clients(clientID):
 @app.route("/api/v1/proyects", methods=["GET", "POST"])
 def database_proyects():
 
+
     path = os.path.join('static', 'proyects')
-
-    #/api/v1/proyects?admin=<adminID>
-    adminID = request.args.get('admin')
-
+    json_path = os.path.join('static', 'proyects.json')
+    
     if request.method == "GET":
-        if adminID == None:
+        if request.args.get('client') is None and request.args.get('admin') is None:
 
             if not os.path.exists(path):
 
-                return jsonify({"proyects_list": [], "message": "Proyects database empity", "status": "200 OK"})
+                return jsonify({"proyects_list": [], "message": "Proyects database empity", "status": "204 NO CONTENT"})
 
             else:
-                path = os.path.join('static', 'proyects.json')
-                if os.path.exists(path):
-                    with open(path, "r") as file:
+                
+                if os.path.exists(json_path):
+                    with open(json_path, "r") as file:
                         proyects_list = json.load(file)
 
                         return jsonify({"proyects_list": proyects_list, "message": "Proyects database loaded sucessfully", "status": "200 OK"})
 
-                return jsonify({"proyects_list": [], "message": "Proyects database empity", "status": "200 OK"})
+                return jsonify({"proyects_list": [], "message": "Proyects database empity", "status": "204 NO CONTENT"})
 
         else:
 
-            path = os.path.join('static', 'proyects.json')
+            #/api/v1/proyects?admin=<adminID>
+            adminID = request.args.get('admin')
+            clientID = request.args.get('client')
 
-            if os.path.exists(path):
-                admin_proyects_list = []
+            if os.path.exists(json_path):
+                new_proyects_list = []
 
-                with open(path, "r") as file:
+                with open(json_path, "r") as file:
                     proyects_list = json.load(file)
+                    
+                    if adminID is not None:
 
-                    if any(proyect["admin"] == adminID for proyect in proyects_list):
+                        if any(proyect["admin"] == adminID for proyect in proyects_list):
 
-                        for proyect in proyects_list:
-                            if proyect['admin'] == adminID:
-                                admin_proyects_list.append(proyect)
+                            for proyect in proyects_list:
+                                if proyect['admin'] == adminID:
+                                    new_proyects_list.append(proyect)
 
-                        return jsonify({"proyects_list": admin_proyects_list, "admin": adminID, "message": "Proyects database loaded sucessfully", "status": "200 OK"})
+                            return jsonify({"proyects_list": new_proyects_list, "admin": adminID, "message": "Proyects database loaded sucessfully", "status": "200 OK"})
 
-                    return jsonify({"admin": adminID, "message": "The adminID not exists", "status": "200 OK"})
+                        return jsonify({"admin": adminID, "message": "This admin has no projects", "status": "204 NO CONTENT"})
 
-            return jsonify({"proyects_list": [], "message": "Proyects database empity", "status": "200 OK"})
+
+                    elif clientID is not None:
+                        if any(proyect["client"] == clientID for proyect in proyects_list):
+
+                            for proyect in proyects_list:
+                                if proyect['client'] == clientID:
+                                    new_proyects_list.append(proyect)
+
+                            return jsonify({"proyects_list": new_proyects_list, "client": clientID, "message": "Proyects database loaded sucessfully", "status": "200 OK"})
+
+                        return jsonify({"admin": clientID, "message": "This client has no projects", "status": "204 NO CONTENT"})
+
+            return jsonify({"proyects_list": [], "message": "Proyects database empity", "status": "204 NO CONTENT"})
 
 
 
@@ -329,10 +344,10 @@ def database_proyects():
                 os.mkdir(os.path.join(path, 'legajo'))
                 os.mkdir(os.path.join(path, 'obra'))
 
-                path = os.path.join('static', 'proyects.json')
+                json_path = os.path.join('static', 'proyects.json')
                 if not os.path.exists(path):
 
-                    with open(path, "w") as file:
+                    with open(json_path, "w") as file:
 
                         proyects_list = []
                         proyects_list.append(body)
@@ -340,7 +355,7 @@ def database_proyects():
                         return jsonify({"proyect": body, "message": "Proyect successfully saved", "status": "201 CREATED"})
 
                 else:
-                    with open(path, "r+") as file:
+                    with open(json_path, "r+") as file:
                         proyects_list = json.load(file)
 
                         if any(proyect["name"] == body["name"] for proyect in proyects_list):
@@ -368,10 +383,10 @@ def database_proyects():
                 os.mkdir(os.path.join(path, 'legajo'))
                 os.mkdir(os.path.join(path, 'obra'))
 
-                path = os.path.join('static', 'proyects.json')
+                json_path = os.path.join('static', 'proyects.json')
                 if not os.path.exists(path):
 
-                    with open(path, "w") as file:
+                    with open(json_path, "w") as file:
 
                         proyects_list = []
                         proyects_list.append(body)
@@ -379,7 +394,7 @@ def database_proyects():
                         return jsonify({"proyect": body, "message": "Proyect successfully saved", "status": "201 CREATED"})
 
                 else:
-                    with open(path, "r+") as file:
+                    with open(json_path, "r+") as file:
                         proyects_list = json.load(file)
 
                         if any(proyect["name"] == body["name"] for proyect in proyects_list):
@@ -408,7 +423,7 @@ def admin_proyect(proyectID):
     if request.method == "GET":
 
         if not os.path.exists(path):
-                return jsonify({"proyects_list": [], "message": "Proyects database empity", "status": "200 OK"})
+                return jsonify({"proyects_list": [], "message": "Proyects database empity", "status": "204 NO CONTENT"})
 
         else:
             with open(path, "r") as file:
@@ -420,31 +435,40 @@ def admin_proyect(proyectID):
                         if proyect['name'] == proyectID:
                             return jsonify({"proyect": proyect, "message": "Proyect loaded successfully", "status": "200 OK"})
                 else:
-                    return jsonify({"proyect": proyectID, "message": "The proyectID not exists", "status": "200 OK"})
+                    return jsonify({"proyect": proyectID, "message": "The proyect not exists", "status": "204 NO CONTENT"})
 
              
 
     if request.method == "PUT":
   
         if not os.path.exists(path):
-            return jsonify({"proyects_list": [], "message": "Proyects database empity", "status": "200 OK"})
+            return jsonify({"proyects_list": [], "message": "Proyects database empity", "status": "204 NO CONTENT"})
 
         else:
             with open(path, "r+") as file:
                 proyects_list = json.load(file)
 
-                if any(proyect['name'] == body['name'] and proyect['name'] == proyectID  for  proyect in proyects_list):
+                if any(proyect['name'] == proyectID  for  proyect in proyects_list):
 
                     for proyect in proyects_list:
-                        if proyect['name'] == body['name']:
+                        if proyect['name'] == proyectID:
                             proyects_list.remove(proyect)
                             proyects_list.append(body)
 
                             with open(path, "w") as file:
                                 file.write(json.dumps(proyects_list, indent = 4))
-                                return jsonify({"proyect": body, "message": "Proyect data updated", "status": "200 OK"})
 
-                return jsonify({"proyect": proyectID, "message": "The proyectID not exists", "status": "200 OK"})
+                                path = os.path.join('static', 'proyects', proyectID)
+                                if not os.path.exists(path):
+                                    return jsonify({"proyect": proyectID, "message": "The proyectID not exists", "status": "304 NOT MODIFED"})
+
+                                else:
+                                    newName = body['name']
+                                    newPath = os.path.join('static', 'proyects', newName)
+                                    os.rename(path, newPath)
+                                    return jsonify({"proyect": body, "message": "Proyect data updated", "status": "200 OK"})
+
+                return jsonify({"proyect": proyectID, "message": "The proyectID not exists", "status": "304 NOT MODIFED"})
 
 
     if request.method == "DELETE":
@@ -453,18 +477,28 @@ def admin_proyect(proyectID):
             with open(path, "r+") as file:
 
                 proyects_list = json.load(file)
-                for proyect in proyects_list:
-                    if proyect['name'] == proyectID:
+                if any(proyect["name"] == proyectID for proyect in proyects_list):
+                    for proyect in proyects_list:
+                        if proyect["name"] == proyectID:
 
-                        proyects_list.remove(proyect)
-                        with open(path, "w") as file:
+                            proyects_list.remove(proyect)
 
-                            file.write(json.dumps(proyects_list, indent = 4))
-                            return jsonify({"proyect": proyectID, "message": "Proyect deleted successfully", "status": "200 OK"})
+                            with open(path, "w") as file:
 
-                    return jsonify({"proyect": proyectID, "message": "The proyectID not exists", "status": "200 OK"})
+                                file.write(json.dumps(proyects_list, indent = 4))
 
-        return jsonify({"proyects_list": [], "message": "Proyects database empity", "status": "200 OK"})
+                                path = os.path.join('static', 'proyects', proyectID)
+
+                                if not os.path.exists(path):
+                                    return jsonify({"proyect": proyectID, "message": "The proyectID not exists", "status": "304 NOT MODIFED"})
+
+                                else:
+                                    shutil.rmtree(path, ignore_errors=True)
+                                    return jsonify({"proyect": proyectID, "message": "Proyect deleted successfully", "status": "200 OK"})
+
+                    return jsonify({"proyect": proyectID, "message": "The proyectID not exists", "status": "304 NOT MODIFED"})
+
+        return jsonify({"proyects_list": [], "message": "Proyects database empity", "status": "304 NOT MODIFED"})
 
 
 
@@ -479,32 +513,84 @@ def upload_file(proyect, section):
     if request.method == "POST":
 
         path = os.path.join('static', 'proyects', proyect, section)
-        
-        if request.files:
-            file = request.files["file"]
 
-            if file.filename == "":
-                return jsonify({'message': 'Unnamed file', 'status': 'BAD REQUEST 400'})
+        if os.path.exists(path):
+            if request.files:
+                file = request.files["file"]
+                filename = file.filename
 
-            if os.path.exists(path):
-                
-                if allowed_file(file.filename):
-                    filename = secure_filename(file.filename)
+                if filename == "":
+                    return jsonify({'message': 'Unnamed file', 'status': '304 NOT MODIFED'})
+
+                listdir = os.listdir(path)
+                if any(file == filename for file in listdir):
+                    return jsonify({'message': 'The file name already exist', 'status': '304 NOT MODIFED'})
+                    
+                if allowed_file(filename):
+                    filename = secure_filename(filename)
                     file.save(os.path.join(path, filename))
-                    return jsonify({'file': filename, 'path': os.path.join(path, filename), 'message': 'File saved successfully', 'status': '201 CREATED"'})
+                    return jsonify({'file': filename, 'path': os.path.join(path, filename), 'message': 'File saved successfully', 'status': '201 CREATED'})
                 
-                else:
-                    return jsonify({'message': 'That file extension is not allowed', 'status': 'BAD REQUEST	400'})
 
-            else:
-                return jsonify({'message': 'The directory not exist', 'status': 'BAD REQUEST 400'})
-         
+                return jsonify({'message': 'That file extension is not allowed', 'status': 'BAD REQUEST	400'})
 
-        return jsonify({'message': 'No file exists', 'status': 'BAD REQUEST	400'})
+            return jsonify({'message': 'No file was sent', 'status': '304 NOT MODIFED'})
 
-    return jsonify({'message': 'Upload Files Page', 'status': '200 ok'})
+        return jsonify({'message': 'The directory not exist', 'status': '304 NOT MODIFED'})
+
+    return jsonify({'message': 'Upload Files Page', 'status': '200 '})
         
+
+
+
+ #   [F I L E S   L I S T]   [F I L E S   L I S T]   [F I L E S   L I S T]   [F I L E S   L I S T]
+
+@app.route("/api/v1/uploads/files-view/<proyect>/<section>", methods=["GET", "POST"])
+def files_list(proyect, section):
+
+    path = os.path.join("static", "proyects", proyect , section, "files.json")
     
+    if request.method == 'GET':
+        if os.path.exists(path):
+
+            with open(path, "r") as file:
+
+                files = json.load(file)
+                
+                return jsonify({"files_list": files, "message": "Files database loaded", "status": "200 OK"})
+
+        return jsonify({"files_list": [], "message": "Empty database files", "status":"204 NO CONTENT"})
+
+
+    if request.method == 'POST':
+        body = request.json 
+
+        directory_path = os.path.join("static", "proyects", proyect)
+        if os.path.exists(directory_path):
+
+            if not os.path.exists(path):
+                with open(path, "w") as file:
+                    files_list = []
+                    files_list.append(body)
+                    file.write(json.dumps(files_list, indent = 4))
+                    return jsonify({"file": body, "message": "Files database updated", "status": "200 OK"})
+            else:
+                with open(path, "r+") as file:
+                    files = json.load(file)
+
+                    if any(file["name"] == body["name"] for file in files):
+
+                        return jsonify({'message': 'The file name already exist', 'status': '304 NOT MODIFED'})
+
+                    files.append(body)  
+                    file.seek(0)
+                    json.dump(files, file, indent = 4)
+                    return jsonify({"file": body,"message": "Files database updated", "status": "200 OK"})
+
+        return jsonify({'message': 'The proyect not exist', 'status': '304 NOT MODIFED'})
+
+
+
 
  #   [F I L E S   PARAMS]   [F I L E S   PARAMS]   [F I L E S   PARAMS]
 
@@ -522,7 +608,7 @@ def get_file(proyect, section, file_name):
             return send_from_directory(path, file_name, as_attachment=False)
         
         except:
-            return jsonify({"path": os.path.join(path, file_name), "message": "The file not exists", "status": "200 OK"})
+            return jsonify({"path": os.path.join(path, file_name), "message": "The file not exists", "status": "204 NO CONTENT"})
 
 
 
@@ -546,45 +632,11 @@ def get_file(proyect, section, file_name):
                             file.write(json.dumps(files, indent = 4))
                             return jsonify({"path": os.path.join(path, file_name), "message": "File deleted successfully", "status": "200 OK"})            
 
-        return jsonify({"path": path, "message": "The file not exists", "status": "200 OK"})
+        return jsonify({"path": path, "message": "The file not exists", "status": "304 NOT MODIFED"})
 
 
 
- #   [F I L E S   L I S T]   [F I L E S   L I S T]   [F I L E S   L I S T]   [F I L E S   L I S T]
 
-@app.route("/api/v1/uploads/files-view/<proyect>/<section>", methods=["GET", "POST"])
-def files_list(proyect, section):
-
-    path = os.path.join("static", "proyects", proyect , section, "files.json")
-    
-    if request.method == 'GET':
-        if os.path.exists(path):
-
-            with open(path, "r") as file:
-
-                files = json.load(file)
-                
-                return jsonify({"files_list": files, "message": "Files database loaded", "status": "200 OK"})
-
-        return jsonify({"files_list": [], "message": "Empty database files", "status":"200 ok"})
-
-
-    if request.method == 'POST':
-        body = request.json 
-        
-        if not os.path.exists(path):
-            with open(path, "w") as file:
-                files_list = []
-                files_list.append(body)
-                file.write(json.dumps(files_list, indent = 4))
-                return jsonify({"file": body, "message": "Files database updated", "status": "200 OK"})
-        else:
-            with open(path, "r+") as file:
-                files = json.load(file)
-                files.append(body)  
-                file.seek(0)
-                json.dump(files, file, indent = 4)
-                return jsonify({"file": body,"message": "Files database updated", "status": "200 OK"})
 
 
 
