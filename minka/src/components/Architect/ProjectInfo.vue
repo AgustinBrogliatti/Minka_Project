@@ -29,7 +29,6 @@
         <textarea id="description" v-model="descripcion" required></textarea>
 
         <button @click= "crearProyecto()" > CREAR PROYECTO </button>
-        {{listaObjetos}}
       </form>
     </div>
 
@@ -112,8 +111,12 @@ textarea {
 }
 
 .container_auxiliar {
-  border: 1px solid steelblue;
   padding: 2%;
+  background: #f2f2f2;
+}
+.content-home{
+  border: 1px solid gray;
+  text-align: left;
 }
 
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div id="content-body3">
-    <HeaderPortada/>
+    <Header/>
     <br><br><br>
     <div id="content-body4">
       <h1>Quiénes Somos...</h1><br>
@@ -17,14 +17,15 @@
 </template>
 
 <script>
-import HeaderPortada from "./HeaderPortada";
+import Header from "./Header";
 import Footer from "./Footer";
 
 export default {
   name: "QuienesSomos",
   components:{
-    HeaderPortada,
-    Footer
+    Header,
+    Footer,
+
   }
 }
 </script>

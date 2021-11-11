@@ -4,7 +4,7 @@
     <div class="login">
       <h1 class="title">Iniciar sesión como arquitecto</h1>
       <form action class="form" @submit.prevent="login">
-        <label class="form-label" for="#email">Email:</label>
+        <label class="form-label" >Email:</label>
         <input
             v-model="email"
             class="form-input"
@@ -13,7 +13,7 @@
             required
             placeholder="Introduzca su email"
         >
-        <label class="form-label" for="#password">Contraseña:</label>
+        <label class="form-label" >Contraseña:</label>
         <input
             v-model="password"
             class="form-input"
@@ -25,8 +25,6 @@
         <router-link to="/admin/home" class="enter-button"> <input class="form-submit" type="submit" value="Iniciar Sesión"> </router-link>
         <h4>¿Todavía no tenes cuenta?</h4>
         <router-link to="/admin/registro" class="enter-button"> <input class="form-submit" type="submit" value="Registrarse"> </router-link>
-        <button @click= "loginArq()" > LOGIN ARQ </button>
-        {{listaObjetos}}
       </form>
 
     </div>
@@ -119,9 +117,7 @@ export default {
   padding: 5%;
   cursor: pointer;
   transition: background 0.2s;
-  margin-top: 8%;
-  margin-bottom: 10%;
-  width: 50%;
+  width: 100%;
   border-radius: 8px;
 }
 
@@ -133,6 +129,8 @@ export default {
 
  .enter-button{
    text-align: center;
+   margin-top: 8%;
+   margin-bottom: 10%;
  }
 
 </style>

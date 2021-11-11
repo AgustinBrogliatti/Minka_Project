@@ -61,9 +61,6 @@
           >
 
           <router-link to="home" class="enter-button"> <input class="form-submit" type="submit" value="Registrar"> </router-link>
-          <button @click="mostrarlistaObjetos()"> MOSTRAR LISTA </button>
-          <br>
-          {{ objectsList }}
         </form>
     </div>
   </div>
@@ -101,24 +98,6 @@ export default {
     goHome(){
       this.$router.push('/admin/home');
     },
-    mostrarlistaObjetos() {
-      let nombre =this.name
-      let apellido = this.lastname
-      let correo = this.email
-      let usuario = this.username
-      let contraseña = this.password
-      let repetir = this.repeatPassword
-      let projectObject = {
-        "name": nombre,
-        "lastname": apellido,
-        "email": correo,
-        "user": usuario,
-        "password": contraseña,
-        "repeat_pw": repetir
-      }
-      this.objectsList.push(projectObject)
-    }
-
   }
 }
 
@@ -176,14 +155,14 @@ export default {
   padding: 5%;
   cursor: pointer;
   transition: background 0.2s;
-  margin-top: 8%;
-  margin-bottom: 10%;
-  width: 50%;
+  width: 100%;
   border-radius: 8px;
 }
 
 .enter-button{
   text-align: center;
+  margin-top: 8%;
+  margin-bottom: 10%;
 }
 
 </style>

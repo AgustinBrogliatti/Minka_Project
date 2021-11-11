@@ -28,15 +28,18 @@ export default {
   #content-article  {
     width: 31.5%;
     height: auto;
-    border: 1px solid steelblue;
+    border: 1px solid lightgray;
     margin: .9%;
     box-sizing: border-box;
+    background: white;
+  }
+  #content-article:hover {
+    border: 1px solid #777;
   }
 
   #content-article__img  {
     width: 100%;
     height: 80%;
-    border: 1px solid steelblue;
     box-sizing: border-box;
 
 
@@ -50,7 +53,6 @@ export default {
     width: 100%;
     height: 30%;
     padding: 1%;
-    border: 1px solid steelblue;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;

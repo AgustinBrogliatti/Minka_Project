@@ -13,62 +13,37 @@ export default {
 
 <style scoped>
   #content-banner {
-    border: 1px solid steelblue;
-    width: 150px;
+    border: 1px solid gray;
+    width: 180px;
     height: 500px;
     margin: 25px;
     background-size: 100% 100%;
-    animation: banner 20s infinite;
+    animation: banner 30s infinite;
   }
 
   #container{
     padding: 0.5%;
     margin-top: 2.5%;
   }
-  /*@keyframes banner {
-    0%,11.666%{
-      background-image: url("../assets/img/banner/img1.jpg");
+  @keyframes banner {
+    0%,25%{
+      background-image: url("../assets/img/banner/publ1.jpeg");
       opacity: 1;
     }
-    11.667%,16.666%{
-      opacity: 0.1;
-    }
-    16.667%,28.333%{
-      background-image: url("../assets/img/banner/img2.jpg");
+    26%,50%{
+      background-image: url("../assets/img/banner/publ2.jpeg");
       opacity: 1;
     }
-    28.334%,33.333%{
-      opacity: 0.1;
+    51%,75%{
+      background-image: url("../assets/img/banner/publ3.jpeg");
+      opacity: 1;
     }
-    33.334%,45%{
-           background-image: url("");
-           opacity: 1;
-         }
-    45%,50%{
-      opacity: 0.1;
+    76%,100%{
+      background-image: url("../assets/img/banner/publ4.jpg");
+      opacity: 1;
     }
-    50%,61.666%{
-           background-image: url("");
-           opacity: 1;
-         }
-    61.667%,66.666%{
-      opacity: 0.1;
-    }
-    66.667%,78.333%{
-           background-image: url("");
-           opacity: 1;
-         }
-    78.334%,83.333%{
-      opacity: 0.1;
-    }
-    83.334%,95%{
-           background-image: url("");
-           opacity: 1;
-         }
-    95%,100%{
-      opacity: 0.1;
-    }
-  }*/
+  }
+
   img{
     width: 100%;
   }

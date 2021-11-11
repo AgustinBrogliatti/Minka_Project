@@ -8,7 +8,7 @@
 
 .content-home   {
     margin: 5% auto 3% auto;
-    border-style: solid;
+    border: 1px solid gray;
     width: 66%;
     height: auto;
     display: flex;
@@ -16,6 +16,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    background: #f2f2f2;
 }
 
 * {

@@ -28,8 +28,6 @@
           <router-link to="/home" class="enter-button"> <input class="form-submit" type="submit" value="Iniciar Sesión"> </router-link>
           <h4>¿Sos arquitecto?</h4>
           <router-link to="/admin/login" class="enter-button"> <input class="form-submit" type="submit" value="Iniciar Sesión como Arquitecto" > </router-link>
-          <button @click="viewLogin()">Boton</button>
-          {{listadeObjetos}}
         </form>
       </div>
       <br>
@@ -51,7 +49,6 @@ export default {
   data: () => ({
     email: "",
     password: "",
-    listadeObjetos: [],
     error: false
   }),
   methods: {
@@ -59,18 +56,6 @@ export default {
       console.log(this.email);
       console.log(this.password);
   },
-    goClientView(){
-    this.$router.push('/clientview');
-  },
-    viewLogin(){
-      let email = this.email
-      let password = this.password
-      let projectObject = {
-        "email" : email,
-        "password": password
-      }
-      this.listadeObjetos.push(projectObject)
-    }
 }
 }
 </script>
@@ -86,7 +71,6 @@ export default {
   border: none;
   color: white;
   margin-top: 3rem;
-  margin-bottom: 3rem;
   margin-left: 2%;
   padding: 1rem 0;
   cursor: pointer;
@@ -147,14 +131,14 @@ export default {
   padding: 5%;
   cursor: pointer;
   transition: background 0.2s;
-  margin-top: 8%;
-  margin-bottom: 10%;
-  width: 85%;
+  width: 100%;
   border-radius: 8px;
 }
 
 .enter-button{
   text-align: center;
+  margin-top: 8%;
+  margin-bottom: 10%;
 }
 
 h4{

@@ -26,6 +26,10 @@ export default {
 
 <style scoped>
 @import "../assets/CSS/main layout.css";
+.content-home{
+  border: none;
+  background: none;
+}
 
 
 </style>
