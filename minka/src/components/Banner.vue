@@ -27,19 +27,19 @@ export default {
   }
   @keyframes banner {
     0%,25%{
-      background-image: url("../assets/img/banner/publ1.jpeg");
+      background-image: url("../assets/img/banners/publ1.jpeg");
       opacity: 1;
     }
     26%,50%{
-      background-image: url("../assets/img/banner/publ2.jpeg");
+      background-image: url("../assets/img/banners/publ2.jpeg");
       opacity: 1;
     }
     51%,75%{
-      background-image: url("../assets/img/banner/publ3.jpeg");
+      background-image: url("../assets/img/banners/publ3.jpeg");
       opacity: 1;
     }
     76%,100%{
-      background-image: url("../assets/img/banner/publ4.jpg");
+      background-image: url("../assets/img/banners/publ4.jpg");
       opacity: 1;
     }
   }

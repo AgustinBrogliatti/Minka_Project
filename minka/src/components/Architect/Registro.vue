@@ -69,7 +69,7 @@
 </template>
 
 <script>
-import HeaderPortada from "../HeaderPortada";
+import HeaderPortada from "../HeaderLogin";
 
 export default {
   name: "Registro",
