@@ -11,9 +11,7 @@
               <p> Añadir proyecto </p>
             </div>
 
-
         </div>
-        <router-link to="home">Volver atrás</router-link>
       </div>
       <Banner></Banner>
     </div>

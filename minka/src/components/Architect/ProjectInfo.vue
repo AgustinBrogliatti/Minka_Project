@@ -13,12 +13,13 @@
         <label for="lname">Apellido del cliente</label>
         <input type="text" id="lname" name="lastname" v-model="apellido" required>
 
-        <label>Localidad</label>
-        <select id="city" v-model="ciudad" required>
-          <option value="buenos aires">CABA</option>
-          <option value="cba">Córdoba</option>
-          <option value="ros">Rosario</option>
+        <label>Provincia</label>
+        <select id="province" v-model="pcia" required>
+          <option :value="provincia" v-for="(provincia, index) in lista_pcias" :key="index">{{provincia}}</option>
         </select>
+
+        <label for="cdad">Ciudad</label>
+        <input type="text" id="cdad" name="ciudad" v-model="ciudad" required>
 
         <label> Fecha </label>
         <br> <br>
@@ -46,7 +47,8 @@ export default {
       apellido: "",
       ciudad: "",
       fecha: "",
-      descripcion: ""
+      descripcion: "",
+      lista_pcias: ["Buenos Aires", "CABA", "Catamarca", "Chaco", "Chubut", "Cordoba", "Corrientes", "Entre Rios", "Formosa", "Jujuy", "La Pampa", "La Rioja", "Mendoza", "Misiones", "Neuquen", "Rio Negro", "Salta", "San Juan", "San Luis", "Santa Cruz", "Santa Fe", "Santiago del Estero", "Tierra del Fuego", "Tucuman"],
     }
   },
   methods: {
@@ -66,8 +68,8 @@ export default {
         "descripcion": description
       }
       this.listaObjetos.push(projectObject)
-
     }
+
   }
 }
 </script>

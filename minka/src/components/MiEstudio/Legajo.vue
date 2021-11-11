@@ -41,5 +41,10 @@ export default {
 @import "../../assets/CSS/main layout.css";
 @import "../../assets/CSS/normalize.css";
 
+p {
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
 
 </style>

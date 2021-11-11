@@ -3,12 +3,14 @@
     <Header/>
     <div id="content-body">
       <NavBarCli></NavBarCli>
-      <div class="content-home container_auxiliar">
-        <h1>{{nombre}}</h1>
-        <h2>Datos:</h2>
-        <p>Usuario: {{usuario}}</p>
-        <p>Mail: {{mail}}</p>
-        <button class="logout" @click="goToStart()">Cerrar Sesión</button>
+      <div class="content-home">
+        <div id="content-profile">
+          <h1>{{nombre}}</h1>
+          <h2>Datos:</h2>
+          <p>Usuario: {{usuario}}</p>
+          <p>Mail: {{mail}}</p>
+          <router-link to="/"><button class="logout">Cerrar Sesión</button></router-link>
+        </div>
       </div>
       <Banner></Banner>
 
@@ -49,7 +51,11 @@ export default {
 </script>
 
 <style scoped>
-.content-home{
+
+@import "../../assets/CSS/main layout.css";
+@import "../../assets/CSS/normalize.css";
+
+#content-profile{
   display: flex;
   flex-direction: column;
 }
@@ -68,7 +74,5 @@ export default {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
-.container_auxiliar {
-  border: 1px solid steelblue;
-}
+
 </style>

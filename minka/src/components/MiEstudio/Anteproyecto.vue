@@ -40,4 +40,9 @@ export default {
 @import "../../assets/CSS/normalize.css";
 @import "../../assets/CSS/miestudio-folders.css";
 
+p {
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
 </style>

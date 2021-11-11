@@ -18,7 +18,7 @@
     text-align: center;
 }
 
-h1, p, form {
+* {
     font-family: 'Titillium Web', sans-serif;
 }
 
