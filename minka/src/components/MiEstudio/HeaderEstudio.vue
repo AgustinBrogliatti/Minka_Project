@@ -1,7 +1,7 @@
 <template>
   <div id="header">
     <div id="content-logo">
-     <router-link to="./home"> <img id="content-logo__logo" alt="minkaLogo" src="../../assets/img/logo_minka.png"> </router-link>
+     <router-link to="../home"> <img id="content-logo__logo" alt="minkaLogo" src="../../assets/img/logo_minka.png"> </router-link>
     </div>
 
     <div id="content-login">
@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  name: "Header",
+  name: "HeaderEstudio",
   data() {
     return {
       userName: 'Agustin Brogliatti',
