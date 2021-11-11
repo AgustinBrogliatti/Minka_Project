@@ -2,7 +2,7 @@
  <div>
   <footer class="footer-distributed">
     <div class="footer-left">
-      <router-link to="home"><img id="content-logo__logo" alt="minkaLogo" src="../assets/img/logo_minka.png"></router-link>
+      <router-link to="home"><img id="content-logo__logo" alt="minkaLogo" src="../../assets/img/logo_minka.png"></router-link>
       <p class="footer-links">
         <router-link to="../home">Home </router-link>
         <router-link class="bar" to="../quienessomos">Acerca de nosotros </router-link>

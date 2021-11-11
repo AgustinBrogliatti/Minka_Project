@@ -4,13 +4,15 @@
       <div class="body">
         <ul>
           <router-link to="/admin/home"><li><i class="fas fa-house-user"></i> Home</li></router-link>
-          <li><i class="fas fa-tasks"></i> Proyectos
+          <router-link to = "/admin/miestudio/inicio">
+            <li><i class="fas fa-tasks"></i> Mi Estudio
             <ul>
               <li>Miravalles</li>
               <li>Vicario</li>
               <li>Olivos</li>
             </ul>
-          </li>
+            </li>
+          </router-link>
           <router-link to="addproject"> <li>  <i class="fas fa-plus"></i>  Añadir proyecto </li> </router-link>
           <li> <i class="fas fa-user-plus"></i>  Añadir cliente </li>
           <router-link to="miperfil"><li><i class="fas fa-user-circle"></i>  Mi Perfil</li></router-link>

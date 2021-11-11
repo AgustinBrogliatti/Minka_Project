@@ -24,8 +24,8 @@
 <script>
 
 
-import HeaderEstudio from "../HeaderEstudio";
-import FooterEstudio from "../FooterEstudio";
+import HeaderEstudio from "./HeaderEstudio";
+import FooterEstudio from "./FooterEstudio";
 import Banner from "../Banner";
 import NewProject from "../Architect/AddProject";
 import NavBarEstudio from "./NavBarEstudio";
@@ -38,18 +38,6 @@ export default {
     FooterEstudio,
     Banner,
     NewProject
-  },
-  data() {
-    return {
-    title: "Proyecto Creado",
-    comp: []
-    }
-  },
-
-  methods: {
-    addProject() {
-      this.comp.push(NewProject);
-    }
   }
 
 };

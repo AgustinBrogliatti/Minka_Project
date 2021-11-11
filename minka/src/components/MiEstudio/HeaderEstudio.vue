@@ -1,7 +1,7 @@
 <template>
   <div id="header">
     <div id="content-logo">
-      <img id="content-logo__logo" alt="minkaLogo" @click="goToHome()" src="../assets/img/logo_minka.png">
+     <router-link to="./home"> <img id="content-logo__logo" alt="minkaLogo" src="../../assets/img/logo_minka.png"> </router-link>
     </div>
 
     <div id="content-login">

@@ -1,18 +1,26 @@
 <template>
   <div id="home_page">
-    <Header></Header>
+    <HeaderEstudio></HeaderEstudio>
     <div id="content-body">
       <NavBarEstudio></NavBarEstudio>
+      <div class = "content-home">
+        <div>
+          <h1> IDEAS </h1>
+          <p> En esta carpeta se incluirán todos aquellos archivos que participan del proceso creativo </p>
+          <div id="add-file-image" >
+            <img src="../../assets/img/add-file.png" height="512" width="512"/></div>
+          </div>
+        </div>
       <Banner></Banner>
-    </div>
-    <Footer></Footer>
+      </div>
+    <FooterEstudio></FooterEstudio>
   </div>
 </template>
 
 <script>
 
-import Header from "../Header";
-import Footer from "../Footer";
+import HeaderEstudio from "./HeaderEstudio";
+import FooterEstudio from "./FooterEstudio";
 import Banner from "../Banner";
 import NavBarEstudio from "./NavBarEstudio";
 
@@ -20,14 +28,17 @@ export default {
   name: "Ideas",
   components: {
     NavBarEstudio,
-    Header,
-    Footer,
+    HeaderEstudio,
+    FooterEstudio,
     Banner,
   },
 }
 </script>
 
 <style scoped>
+@import "../../assets/CSS/miestudio-folders.css";
 @import "../../assets/CSS/main layout.css";
 @import "../../assets/CSS/normalize.css";
+
+
 </style>
