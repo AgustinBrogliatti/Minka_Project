@@ -25,7 +25,7 @@ export default {
 </script>
 
 <style scoped>
-@import "../assets/CSS/main layout.css";
+@import "../assets/CSS/main_layout.css";
 .content-home{
   border: none;
   background: none;

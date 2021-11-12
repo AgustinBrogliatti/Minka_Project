@@ -4,10 +4,10 @@ import VueRouter from 'vue-router'
 import App from './App.vue'
 import HomePage from "./components/HomePage";
 import HomePageArq from "./components/Architect/HomePageArq";
-import LoginArq from "./components/Architect/LoginArq";
+import LoginArq from "./components/Login/LoginArq";
 import MisArchivos from "./components/MiEstudio/MisArchivos";
-import Registro from "./components/Architect/Registro";
-import Login from "./components/Login";
+import Registro from "./components/Login/Register";
+import Login from "./components/Login/Login";
 import NewProject from "./components/Architect/AddProject"
 import MiPerfil from "./components/Client/MiPerfil";
 import Contacto from "./components/Client/Contacto";
@@ -34,10 +34,10 @@ const routes = [
 
 
 
-  {path:'/admin/login', name:"LoginArq", component:LoginArq},
+  {path:'/admin/login', name:"loginArq", component:LoginArq},
   {path:'/home', name:"HomePage", component:HomePage},
   {path:'/admin/home', name:"HomePageArq", component:HomePageArq},
-  {path:'/admin/registro', name:"Registro", component: Registro},
+  {path:'/admin/register', name:"Registro", component: Registro},
   {path: '/admin/addproject', name:"NewProject", component: NewProject},
   {path: '/miperfil', name:"MiPerfil", component: MiPerfil},
   {path: '/admin/miperfil', name:"MiPerfil", component: MiPerfilArq},

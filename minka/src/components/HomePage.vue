@@ -30,6 +30,6 @@ export default {
 </script>
 
 <style>
-@import "../assets/CSS/main layout.css";
+@import "../assets/CSS/main_layout.css";
 
 </style>

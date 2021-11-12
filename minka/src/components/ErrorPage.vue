@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import HeaderPortada from "./HeaderLogin";
+import HeaderPortada from "./Login/HeaderLogin";
 
 export default {
   name: "ErrorPage",
@@ -23,7 +23,7 @@ export default {
 </script>
 
 <style scoped>
-@import "../assets/CSS/main layout.css";
+@import "../assets/CSS/main_layout.css";
 @import "../assets/CSS/normalize.css";
 
 .container{

@@ -52,7 +52,7 @@ export default {
 
 <style scoped>
 
-@import "../../assets/CSS/main layout.css";
+@import "../../assets/CSS/main_layout.css";
 @import "../../assets/CSS/normalize.css";
 
 #content-profile{
