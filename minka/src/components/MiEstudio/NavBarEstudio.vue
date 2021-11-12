@@ -10,6 +10,7 @@
         <router-link to="avances"><li><i class="fas fa-rocket"></i> Avances</li></router-link>
         <router-link to="legajo"><li><i class="fas fa-archive"></i> Legajo</li></router-link>
         <router-link to="obra"><li><i class="fas fa-hard-hat"></i> Obra</li></router-link>
+        <router-link to="/miestudio/inicio"><li><i class="far fa-folder-open"></i> Mis archivos</li></router-link>
       </ul>
     </div>
   </div>
@@ -30,7 +31,7 @@ export default {
 
 .navbar{
   width: 200px;
-  height: 350px;
+  height: 400px;
   background-color: var(--main-color);
   border-radius: 10px 10px;
 }

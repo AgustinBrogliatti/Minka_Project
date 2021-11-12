@@ -5,7 +5,7 @@ import App from './App.vue'
 import HomePage from "./components/HomePage";
 import HomePageArq from "./components/Architect/HomePageArq";
 import LoginArq from "./components/Architect/LoginArq";
-import MiEstudio from "./components/MiEstudio/MiEstudio";
+import MisArchivos from "./components/MiEstudio/MisArchivos";
 import Registro from "./components/Architect/Registro";
 import Login from "./components/Login";
 import NewProject from "./components/Architect/AddProject"
@@ -45,8 +45,8 @@ const routes = [
   {path: '/admin/contacto', name:"Contacto", component: ContactoArqui},
   {path: '/quienessomos', name:"QuienesSomos", component: QuienesSomos},
   {path: '/admin/quienessomos', name:"QuienesSomos", component: QuienesSomos},
-  {path:'/miestudio/inicio', name:"MiEstudio", component: MiEstudio},
-  {path:'/admin/miestudio/inicio', name:"MiEstudio", component: MiEstudio},
+  {path:'/miestudio/inicio', name:"MiEstudio", component: MisArchivos},
+  {path:'/admin/miestudio/inicio', name:"MiEstudio", component: MisArchivos},
   {path: '/miestudio/ideas', name:"Ideas", component: Ideas},
   {path: '/miestudio/documentacion', name:"Documentacion", component: Documentacion},
   {path: '/miestudio/anteproyecto', name:"Anteproyecto", component: Anteproyecto},
