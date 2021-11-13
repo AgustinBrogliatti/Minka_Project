@@ -1,8 +1,8 @@
 <template>
   <div id="home_page">
-    <HeaderEstudio/>
+    <Header></Header>
     <div id="content-body">
-      <NavBarEstudio/>
+      <NavBarEstudio></NavBarEstudio>
 
       <div class ="body-page">
         <div class="file-container">
@@ -42,10 +42,10 @@
           </div>
         </div>
       </div>
-      <Banner/>
+      <Banner></Banner>
 
     </div>
-    <FooterEstudio/>
+    <Footer></Footer>
   </div>
 
 </template>
@@ -53,19 +53,18 @@
 <script>
 
 
-import HeaderEstudio from "./HeaderEstudio";
-import FooterEstudio from "./FooterEstudio";
-import Banner from "../Banner";
+import Header from "@/components/Header";
 import NavBarEstudio from "./NavBarEstudio";
-
+import Banner from "@/components/Banner";
+import Footer from "@/components/Footer";
 
 export default {
   name: "MiEstudio",
   components: {
     NavBarEstudio,
-    HeaderEstudio,
-    FooterEstudio,
-    Banner
+    Header,
+    Banner,
+    Footer,
   },
   data() {
     return{

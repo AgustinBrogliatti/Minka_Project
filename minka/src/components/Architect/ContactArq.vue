@@ -1,12 +1,9 @@
 <template>
   <div id="home_page">
-    <Header></Header>
+    <Header  v-bind:userData="{name: this.adminData.name, lastname: this.adminData.lastname}"></Header>
     <div id="content-body">
       <NavBar></NavBar>
-      <div class="body-page">
-        <h2> Nombre arquitecto: </h2>
-        <p> {{nombre}} </p>
-      </div>
+      <AddClient></AddClient>
       <Banner></Banner>
     </div>
     <Footer></Footer>
@@ -19,19 +16,30 @@ import Header from "../Header";
 import Footer from "../Footer";
 import NavBar from "./NavBarArq";
 import Banner from "../Banner";
+import AddClient from "@/components/Architect/AddClient";
+import axios from "axios";
 
 export default {
-  name: "ContactoArqui",
+  name: "ContactoArq",
   components: {
     Header,
     Footer,
     NavBar,
     Banner,
+    AddClient
   },
   data() {
     return {
-      nombre: "Raul Pedro García"
+      adminData: ""
     }
+  },
+  beforeMount() {
+    axios.get("http://localhost:4000/api/v1/admins/" + this.$route.params.id)
+        .then(response => {
+          this.adminData = response.data.admin
+          console.log(response.data.message)
+        })
+
   }
 }
 </script>

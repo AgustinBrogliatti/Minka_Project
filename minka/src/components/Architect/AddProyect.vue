@@ -53,7 +53,8 @@ export default {
           name: title,
           client: client,
           admin: this.$route.params.id,
-          date: date
+          date: date,
+          endpoint: "Actualidad"
         }
         axios.post("http://localhost:4000/api/v1/proyects", newProyect)
           .then(response => {

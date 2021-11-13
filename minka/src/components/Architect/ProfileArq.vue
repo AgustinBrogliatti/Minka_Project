@@ -1,6 +1,6 @@
 <template>
   <div id="profile">
-    <Header/>
+    <Header v-bind:userData="{name: this.adminData.name, lastname: this.adminData.lastname}"></Header>
     <div id="content-body">
       <NavBar></NavBar>
       <div class="body-page">
@@ -25,6 +25,7 @@ import Header from "../Header";
 import Footer from "../Footer";
 import NavBar from "./NavBarArq";
 import Banner from "../Banner";
+import axios from "axios";
 
 export default {
   name: "MiPerfil",
@@ -34,19 +35,23 @@ export default {
     NavBar,
     Banner
   },
-  methods: {
-    goToStart() {
-      this.$router.push('/');
-    },
-  },
-    data() {
-      return {
-        nombre: "Agustin Brogliati",
-        usuario: "agusbrogliatti",
-        mail: "agustinbrogliatti@gmail.com"
+  data() {
+    return {
+      nombre: "Agustin Brogliati",
+      usuario: "agusbrogliatti",
+      mail: "agustinbrogliatti@gmail.com",
+      adminData: ""
 
-      }
     }
+  },
+  beforeMount() {
+    axios.get("http://localhost:4000/api/v1/admins/" + this.$route.params.id)
+        .then(response => {
+          this.adminData = response.data.admin
+          console.log(response.data.message)
+        })
+
+  }
 }
 </script>
 

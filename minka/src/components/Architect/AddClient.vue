@@ -159,6 +159,7 @@ textarea {
 .container_auxiliar {
   padding: 2%;
   background: #f2f2f2;
+  margin-top: 4.4%;
 }
 .body-page{
   border: 1px solid gray;

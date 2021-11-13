@@ -1,6 +1,6 @@
 <template>
   <div id="home_page">
-    <HeaderEstudio></HeaderEstudio>
+    <Header></Header>
     <div id="content-body">
       <NavBarEstudio></NavBarEstudio>
       <div class = "body-page">
@@ -13,25 +13,25 @@
       </div>
       <Banner></Banner>
     </div>
-    <FooterEstudio></FooterEstudio>
+    <Footer></Footer>
   </div>
 
 </template>
 
 <script>
 
-import HeaderEstudio from "./HeaderEstudio";
-import FooterEstudio from "./FooterEstudio";
-import Banner from "../Banner";
+import Header from "@/components/Header";
 import NavBarEstudio from "./NavBarEstudio";
+import Banner from "@/components/Banner";
+import Footer from "@/components/Footer";
 
 export default {
   name: "Legajo",
   components: {
     NavBarEstudio,
-    HeaderEstudio,
-    FooterEstudio,
+    Header,
     Banner,
+    Footer,
   },
 }
 </script>

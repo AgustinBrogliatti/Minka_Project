@@ -1,8 +1,9 @@
 <template>
   <div id="home_page">
-    <HeaderEstudio></HeaderEstudio>
+    <Header></Header>
+    <NavBarEstudio></NavBarEstudio>
     <div id="content-body">
-      <NavBarEstudio></NavBarEstudio>
+
       <div class = "body-page">
         <div>
           <h1> IDEAS </h1>
@@ -13,24 +14,25 @@
         </div>
       <Banner></Banner>
       </div>
-    <FooterEstudio></FooterEstudio>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
 
-import HeaderEstudio from "./HeaderEstudio";
-import FooterEstudio from "./FooterEstudio";
-import Banner from "../Banner";
-import NavBarEstudio from "./NavBarEstudio";
+import Header from "@/components/Header";
+
+import Banner from "@/components/Banner";
+import Footer from "@/components/Footer";
+import NavBarEstudio from "@/components/MiEstudio/NavBarEstudio";
 
 export default {
   name: "Ideas",
   components: {
+    Header,
     NavBarEstudio,
-    HeaderEstudio,
-    FooterEstudio,
     Banner,
+    Footer,
   },
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div id="header">
-
+    <router-link :to="toHome">
     <div class="content-logo">
       <div>
         <img class="content-logo__logo" alt="minkaLogo" @click="goToHome()" src="../assets/img/minkaLogo.png">
@@ -8,6 +8,7 @@
       </div>
       <h5 class="slogan">Build for the people</h5>
     </div>
+    </router-link>
 
     <div id="content-user">
       <div id="content-login__tagName">
@@ -38,6 +39,11 @@ export default {
       required: true,
     }
   },
+  data () {
+    return {
+      toHome: "/admin/home/" + this.$route.params.id,
+    }
+  }
 
 }
 </script>
