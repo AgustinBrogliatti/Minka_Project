@@ -10,7 +10,6 @@ import Home from "./components/Client/Home";
 import HomeArq from "./components/Architect/HomeArq";
 
 import MisArchivos from "./components/MiEstudio/MisArchivos";
-import NewProject from "./components/Architect/AddProjectView"
 import MiPerfil from "./components/Client/MiPerfil";
 import Contacto from "./components/Client/Contacto";
 import Anteproyecto from "./components/MiEstudio/Anteproyecto";
@@ -27,13 +26,14 @@ import Obra from "./components/MiEstudio/Obra";
 
 //npm install --save @fortawesome/fontawesome-free
 import '@fortawesome/fontawesome-free/js/all'
-import addClient from "@/components/Architect/AddClientView";
+import AddClient from "@/components/Architect/AddClientView";
+import AddProject from "@/components/Architect/AddProjectView";
+
 
 Vue.use(VueRouter)
 Vue.config.productionTip = false
 
 const routes = [
-
   {path: '/', redirect: '/login'},
   {path: '/login', name: "login", component: Login},
   {path:'/admin/login', name: "loginArq", component: LoginArq},
@@ -41,9 +41,9 @@ const routes = [
 
   {path:'/home/:id', name: "home", component: Home},
   {path:'/admin/home/:id', name: "homeArq", component: HomeArq},
-  {path: '/admin/home/:id/addclient', name:"addClient", component: addClient},
+  {path: '/admin/home/:id/addclient', name:"addClient", component: AddClient},
+  {path: '/admin/home/:id/addproyect', name:"addProyect", component: AddProject},
 
-  {path: '/admin/:id/addproject', name:"addProyect", component: NewProject},
 
   {path: '/miperfil', name:"MiPerfil", component: MiPerfil},
   {path: '/admin/miperfil', name:"MiPerfil", component: MiPerfilArq},

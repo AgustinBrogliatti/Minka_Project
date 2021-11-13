@@ -37,7 +37,7 @@
 <script>
 
 export default {
-  name: "addProyect",
+  name: "AddProyect",
   data() {
     return {
       listaObjetos: [],
@@ -77,7 +77,6 @@ export default {
 
 @import "../../assets/CSS/main_layout.css";
 
-
 input[type=text], select, textarea {
   width: 100%;
   padding: 12px;
@@ -98,13 +97,9 @@ input[type=submit] {
   cursor: pointer;
 }
 
-/* When moving the mouse over the submit button, add a darker green color */
 input[type=submit]:hover {
   background-color: #45a049;
 }
-
-/* Add a background color and some padding around the form */
-
 
 textarea {
   height:200px
@@ -113,6 +108,7 @@ textarea {
 .container_auxiliar {
   padding: 2%;
   background: #f2f2f2;
+  margin-top: 4.4%;
 }
 .body-page{
   border: 1px solid gray;

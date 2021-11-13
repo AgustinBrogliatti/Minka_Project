@@ -22,7 +22,7 @@ import axios from "axios";
 
 
 export default {
-  name: "addClient",
+  name: "addClientView",
   components: {
     Header,
     NavBarArq,
