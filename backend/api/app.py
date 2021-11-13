@@ -25,7 +25,9 @@ def allowed_file(filename):
 
 
 
-
+@app.route('/')
+def minka_home():
+    return jsonify({"message": "Welcome to Minka Server!!", "status": "200 OK"})
 
 #  [A D M I N S]  [A D M I N S]  [A D M I N S]  [A D M I N S]  [A D M I N S]  [A D M I N S]  [A D M I N S]
 
@@ -77,8 +79,8 @@ def admins_manage():
 
 #  [A D M I N S  -  P A T H   V A R I A B L E]  [A D M I N S  -  P A T H   V A R I A B L E]   [A D M I N S  -  P A T H   V A R I A B L E]   
 
-@app.route("/api/v1/admins/<adminID>", methods=["GET", "PUT"])
-def edit_admins(adminID):
+@app.route("/api/v1/admins/<admiEmailorID>", methods=["GET", "PUT"])
+def edit_admins(admiEmailorID):
 
     path = os.path.join("static", "admins.json")
     body = request.json
@@ -89,13 +91,13 @@ def edit_admins(adminID):
             with open(path, "r") as file:
                 admins_list = json.load(file)
 
-                if any(admin['adminID'] == adminID for admin in admins_list):
+                if any(admin['email'] == admiEmailorID for admin in admins_list) | any(admin['adminID'] == admiEmailorID for admin in admins_list):
                     for admin in admins_list:
 
-                        if admin['adminID'] == adminID:
+                        if (admin['email'] == admiEmailorID) | (admin['adminID'] == admiEmailorID):
                             return jsonify({"admin": admin, "message": "Admin loaded successfully", "status": "200 OK"})
              
-                return jsonify({"admin": adminID, "message": "The admin not exists", "status": "204 NO CONTENT"})
+                return jsonify({"admin": admiEmailorID, "message": "The admin not exists", "status": "204 NO CONTENT"})
 
         return jsonify({"admins_list": [], "message": "Admins database empity", "status": "204 NO CONTENT"}) 
                     
@@ -107,7 +109,7 @@ def edit_admins(adminID):
                 with open(path, "r+") as file:
                     admins = json.load(file)
 
-                    if any(admin["adminID"] == body["adminID"] and admin["adminID"] == adminID for admin in admins):
+                    if any(admin["adminID"] == body["adminID"] and admin["adminID"] == admiEmailorID for admin in admins):
 
                         for admin in admins:
                             if admin["adminID"] == body["adminID"]:
@@ -119,7 +121,7 @@ def edit_admins(adminID):
                                     file.write(json.dumps(admins, indent = 4))
                                     return jsonify({"admin": body, "message": "Admin data updated", "status": "200 OK"})
                  
-                    return jsonify({"admin": adminID, "message": "The admin not exists", "status": "304 NOT MODIFED"})
+                    return jsonify({"admin": admiEmailorID, "message": "The admin not exists", "status": "304 NOT MODIFED"})
 
             return jsonify({"admins_list": [], "message": "Admin database empity", "status": "204 NO CONTENT"})
 
@@ -176,8 +178,8 @@ def clients_manage():
 #  [C L I E N T S - P A T H  V A R I A B L E]  [C L I E N T S - P A T H  V A R I A B L E]  [C L I E N T S - P A T H  V A R I A B L E]
 
 
-@app.route("/api/v1/clients/<clientID>", methods=["GET", "PUT", "DELETE"])
-def edit_clients(clientID):
+@app.route("/api/v1/clients/<clientEmailorID>", methods=["GET", "PUT", "DELETE"])
+def edit_clients(clientEmailorID):
 
     path = os.path.join('static', 'clients.json')
     body = request.json
@@ -188,13 +190,13 @@ def edit_clients(clientID):
             with open(path, "r") as file:
                 clients = json.load(file)
 
-                if any(client['clientID'] == clientID for client in clients):
+                if any(client['email'] == clientEmailorID for client in clients) | any(client['clientID'] == clientEmailorID for client in clients):
 
                     for client in clients:
-                        if client['clientID'] == clientID:
+                        if (client['email'] == clientEmailorID) | (client['clientID'] == clientEmailorID):
                             return jsonify({"client": client, "message": "Client loaded successfully", "status": "200 OK"})
 
-                return jsonify({"client": clientID, "message": "The clientID not exists", "status": "204 NO CONTENT"})
+                return jsonify({"client": clientEmailorID, "message": "The client not exists", "status": "204 NO CONTENT"})
 
         return jsonify({"clients": [], "message": "Clients database empity", "status": "204 NO CONTENT"}) 
 

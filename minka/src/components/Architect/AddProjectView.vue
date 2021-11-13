@@ -3,9 +3,7 @@
     <Header></Header>
     <div id="content-body">
       <NavBar></NavBar>
-
-      <ProjectInfo></ProjectInfo>
-
+      <AddProyect></AddProyect>
       <Banner></Banner>
 
     </div>
@@ -14,21 +12,22 @@
 </template>
 
 <script>
-import ProjectInfo from "@/components/Architect/ProjectInfo";
-import NavBar from "@/components/Architect/NavBarArq";
-import Footer from "@/components/Footer";
+
 import Header from "@/components/Header";
+import NavBar from "@/components/Architect/NavBarArq";
+import AddProyect from "@/components/Architect/AddProyect";
 import Banner from "@/components/Banner";
+import Footer from "@/components/Footer";
 
 
 export default {
-  name: "NewProject",
+  name: "addProyect",
   components: {
-    ProjectInfo,
     Header,
-    Footer,
     NavBar,
-    Banner
+    AddProyect,
+    Banner,
+    Footer,
   }
 }
 

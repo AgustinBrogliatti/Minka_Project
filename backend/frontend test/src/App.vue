@@ -2,12 +2,12 @@
   <div id="app">
       <h1>Files</h1>
       <div>
-        <form @submit="submitFile()">
+        <form>
           <label>File
           <input type="file" id="file" ref="file" v-on:change="handleFileUpload()" required/>
           <textarea name="" id="" cols="30" rows="2" maxlength="300" v-model="message" required></textarea>
         </label>
-        <input type="submit" value="Submit" v-on:click.prevent="submitFile()">
+        <input type="button" value="Submit" @click="submitFile()">
         </form>
       </div>
 
@@ -55,8 +55,6 @@
     <button @click="loginClient()">Login</button>
 
 
-
-
   </div>
 </template>
 
@@ -83,11 +81,11 @@ export default {
       email: '',
       adminData: {},
 
-      clientID: '',
-      clientName: '',
-      clientLastname: '',
-      clientPassword: '',
-      clientEmail: '',
+      clientID: null,
+      clientName: null,
+      clientLastname: null,
+      clientPassword: null,
+      clientEmail: null,
       clientData: {},
 
       proyect: "Alma_Verde",
@@ -100,7 +98,7 @@ export default {
     document.addEventListener("DOMContentLoaded", () => {
       axios.get('http://localhost:4000/api/v1/uploads/files-view/' + this.proyect +"/" + this.section)
         .then(response => {
-          this.files = response.data["files_list"]
+          this.files = response.data["files"]
           console.log(response.data.message)
         })
         .catch (err => {
@@ -122,30 +120,34 @@ export default {
       }
     },
     registerUser(){
-      let password = Math.random().toString(36).substring(2, 10)
-      this.clientPassword = password
+      if (this.clientID != null && this.clientPassword != null && this.clientName != null && this.clientLastname != null && this.clientEmail != null){
+        let password = Math.random().toString(36).substring(2, 10)
+        this.clientPassword = password
 
-      let clientData = {
-        "clientID": this.clientID,
-        "password": this.clientPassword,
-        "name": this.clientName,
-        "lastname": this.clientLastname,
-        "email": this.clientEmail,
-        "tel": '',
-        "adress": '',
-        "proyectos": [],
-        "admins": [],
+        let clientData = {
+          "clientID": this.clientID,
+          "password": this.clientPassword,
+          "name": this.clientName,
+          "lastname": this.clientLastname,
+          "email": this.clientEmail,
+          "tel": '',
+          "adress": '',
+          "proyectos": [],
+          "admins": [],
 
-      };
+        };
 
-      axios.post('http://localhost:4000/api/v1/clients', clientData)
-          .then(response => {
-            console.log(response.data.message)
-          })
-          .catch(err => {
-            console.log(err)
-            console.log("INTERNAL SERVER ERROR 500")
-          })
+        axios.post('http://localhost:4000/api/v1/clients', clientData)
+            .then(response => {
+              console.log(response.data.message)
+            })
+            .catch(err => {
+              console.log(err)
+              console.log("INTERNAL SERVER ERROR 500")
+            })
+      } else {console.log("NO llenaste todos los campos maestro")}
+
+
 
   },
     loginClient() {

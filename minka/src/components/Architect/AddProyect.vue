@@ -37,7 +37,7 @@
 <script>
 
 export default {
-  name: "ProjectInfo",
+  name: "addProyect",
   data() {
     return {
       listaObjetos: [],

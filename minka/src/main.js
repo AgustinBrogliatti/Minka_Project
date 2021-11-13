@@ -10,7 +10,7 @@ import Home from "./components/Client/Home";
 import HomeArq from "./components/Architect/HomeArq";
 
 import MisArchivos from "./components/MiEstudio/MisArchivos";
-import NewProject from "./components/Architect/AddProject"
+import NewProject from "./components/Architect/AddProjectView"
 import MiPerfil from "./components/Client/MiPerfil";
 import Contacto from "./components/Client/Contacto";
 import Anteproyecto from "./components/MiEstudio/Anteproyecto";
@@ -43,7 +43,8 @@ const routes = [
   {path:'/admin/home/:id', name: "homeArq", component: HomeArq},
   {path: '/admin/home/:id/addclient', name:"addClient", component: addClient},
 
-  {path: '/admin/addproject', name:"NewProject", component: NewProject},
+  {path: '/admin/:id/addproject', name:"addProyect", component: NewProject},
+
   {path: '/miperfil', name:"MiPerfil", component: MiPerfil},
   {path: '/admin/miperfil', name:"MiPerfil", component: MiPerfilArq},
   {path: '/contacto', name:"Contacto", component: Contacto},
