@@ -1,33 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;400&display=swap');
 
-#content-body{
-    background-image: url("../img/backgrounds/marmol_texture.jpg") ;
-    background-size: cover;
-}
 
 * {
     font-family: 'Titillium Web', sans-serif;
     box-sizing: border-box;
 }
 
-.content-home   {
-    margin: 5% auto 3% auto;
-    border: 1px solid gray;
+#content-body{
+    background-image: url("../img/backgrounds/marmol_texture.jpg") ;
+    background-size: cover;
+    display: flex;
+    justify-content: space-around;
+}
+
+.body-page   {
+    margin: 3.7% 0 3% 0;
     width: 66%;
     height: auto;
     display: flex;
     flex-flow: row wrap;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     text-align: center;
-    background: #f2f2f2;
-}
-
-#content-body {
-    display: flex;
-    justify-content: space-between;
-    background-color: #f2f2f2;
+    border: none;
+    background: none;
 }
 
 :root {
@@ -35,7 +32,6 @@
     --alert-color: #7C2020;
     --alert-background-color: #E9BEBE;
     --button-light-color: #1ab188;
-
 }
 
 

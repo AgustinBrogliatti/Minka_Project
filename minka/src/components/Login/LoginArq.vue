@@ -14,6 +14,8 @@
             required
             v-model="email"
             tabindex="1"
+            autofocus
+            ref="email"
         >
         <label class="login-form__label" >Contraseña:</label>
         <input
@@ -24,11 +26,13 @@
             required
             v-model="password"
             tabindex="20"
+            @keyup.enter="login()"
         >
         <p v-if="error" class="login-error">Has introducido mal el email o la contraseña.</p>
         <input class="form-submit" type="button" value="Iniciar Sesión"  tabindex="30" @click="login()">
         <h3 id="login-subtitle">¿Todavía no estas registrado?</h3>
         <router-link to="/admin/register"> <input  class="btn-routerLink" type="button" value="Registrarse" tabindex="40"> </router-link>
+        <router-link to="/login"> <input id="form-submit-tologin" type="button" value="Volver a Iniciar sesión como cliente" tabindex="80"> </router-link>
       </form>
 
     </div>
@@ -42,7 +46,7 @@ import axios from "axios";
 
 
 export default {
-  name: "Login",
+  name: "LoginArq",
   components: {
     HeaderLogin
   },
@@ -58,14 +62,20 @@ export default {
             .then(response => {
               console.log(response.data.message)
               if (response.data.admin['email'] == this.email && response.data.admin['password'] == this.password) {
-                this.$router.push('/admin/home')
-              } else {this.error = true}
+                this.$router.push('/admin/home/' + response.data.admin.adminID)
+              } else {
+                this.error = true
+                this.$refs.email.focus()
+              }
 
             })
             .catch(response => {
               console.log(response.data.message)
             })
-      } else {this.error = true}
+      } else {
+        this.error = true
+        this.$refs.email.focus()
+      }
     }
   }
 }
@@ -74,7 +84,7 @@ export default {
 <style scoped>
 @import "../../assets/CSS/main_layout.css";
 @import "../../assets/CSS/normalize.css";
-@import "../../assets/CSS/login_form.css";
+@import "../../assets/CSS/Login/login_form.css";
 
 
 

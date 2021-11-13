@@ -15,7 +15,7 @@
 
 <script>
 import ProjectInfo from "@/components/Architect/ProjectInfo";
-import NavBar from "@/components/Architect/NavBar";
+import NavBar from "@/components/Architect/NavBarArq";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Banner from "@/components/Banner";

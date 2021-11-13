@@ -1,0 +1,39 @@
+#headerLogin  {
+    width: 100%;
+    height: 80px;
+    background-color: var(--main-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.content-logo {
+    width: auto;
+    margin: auto;
+    margin-top: 8px;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.content-logo__logo   {
+    height: 45px;
+}
+
+.text-logo {
+    display: inline-block;
+    margin: 0;
+    margin-left: 8px;
+    font-size: 35px;
+    color: white;
+    font-family: "Arial";
+    letter-spacing: 5px;
+}
+
+.slogan {
+    margin-left: 50px;
+    font-family: Helvetica;
+    margin: 0 auto 4px;
+    color: white;
+}

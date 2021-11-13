@@ -14,35 +14,35 @@
 
 @keyframes background {
     0%, 12.5%{
-        background-image: url("../img/backgrounds/background_1.jpg");
+        background-image: url("../../img/backgrounds/background_1.jpg");
         opacity: 1;
     }
     13.55%, 25%{
-        background-image: url("../img/backgrounds/background_3.jpg");
+        background-image: url("../../img/backgrounds/background_3.jpg");
         opacity: 1;
     }
     25.05%,37.5%{
-        background-image: url("../img/backgrounds/background_5.jpg");
+        background-image: url("../../img/backgrounds/background_5.jpg");
         opacity: 1;
     }
     38.5%,50%{
-        background-image: url("../img/backgrounds/background_8.jpg");
+        background-image: url("../../img/backgrounds/background_8.jpg");
         opacity: 1;
     }
     51%,62.5%{
-        background-image: url("../img/backgrounds/background_9.jpg");
+        background-image: url("../../img/backgrounds/background_9.jpg");
         opacity: 1;
     }
     63.5%,75%{
-        background-image: url("../img/backgrounds/background_10.jpg");
+        background-image: url("../../img/backgrounds/background_10.jpg");
         opacity: 1;
     }
     76%,87.5%{
-        background-image: url("../img/backgrounds/background_11.jpg");
+        background-image: url("../../img/backgrounds/background_11.jpg");
         opacity: 1;
     }
     88.5%,100%{
-        background-image: url("../img/backgrounds/background_12.jpg");
+        background-image: url("../../img/backgrounds/background_12.jpg");
         opacity: 1;
     }
 }
@@ -84,7 +84,8 @@
 }
 
 .login-form__input {
-    padding: 10px 15px;
+    height: 35px;
+    padding: 0 15px;
     border: 2.5px solid white;
     color: black;
 }
@@ -97,7 +98,6 @@
     margin-bottom: 35px;
 }
 
-
 .login-error {
     color: var(--alert-color);
     background: var(--alert-background-color);
@@ -107,7 +107,7 @@
     margin-bottom: 30px;
 }
 
-.form-submit {
+.form-submit, #form-submit-toregister, #form-submit-tologin{
     background: var(--button-light-color);
     border: none;
     color: white;
@@ -117,6 +117,16 @@
     width: 100%;
     border-radius: 8px;
     margin-bottom: 50px;
+}
+
+#form-submit-toregister {
+    margin-bottom: 60px;
+}
+
+#form-submit-tologin {
+    margin: 0;
+    margin-top: 20px;
+
 }
 
 #login-subtitle{
@@ -142,9 +152,10 @@
     border-color: var(--button-light-color);
 }
 
-.form-submit:active, .form-submit:hover, .form-submit:focus {
+.form-submit:active, .form-submit:focus, .form-submit:hover,
+#form-submit-toregister:active, #form-submit-toregister:focus, #form-submit-toregister:hover,
+#form-submit-tologin:hover, #form-submit-tologin:focus, #form-submit-tologin:active{
     background-color: #218067;
-
 }
 
 .btn-routerLink:focus, .btn-routerLink:hover {

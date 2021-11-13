@@ -1,24 +1,27 @@
 <template>
   <div id="content-article">
     <div id="content-article__img">
-      <img  src="../assets/img/miravalles.jpeg">
+      <img  src="../../assets/img/miravalles.jpeg">
     </div>
     <div id="content-article__description">
-      <p>{{title}}</p>
-      <p>{{name}}</p>
-      <p>{{date}}</p>
+      <p>{{this.proyect.name}}</p>
+      <p>{{this.proyect.clientName}} {{this.proyect.clientLastname}}</p>
+      <p>{{this.proyect.date}} - {{this.proyect.endpoint}}</p>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Article",
+  name: "Proyect",
   data () {
     return {
-      title: "Miravalles - Alma Verde",
-      name: "Eugenio Miravalles",
-      date: "22/05/2021"
+    }
+  },
+  props: {
+    proyect: {
+      type: Object,
+      required: true,
     }
   }
   }
@@ -41,8 +44,6 @@ export default {
     width: 100%;
     height: 80%;
     box-sizing: border-box;
-
-
   }
 
   #content-article__img  img{
@@ -57,7 +58,6 @@ export default {
     display: flex;
     flex-direction: column;
     font-size: .8 em;
-
   }
 
   #content-article__description p {

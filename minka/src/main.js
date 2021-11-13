@@ -1,43 +1,48 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-
 import App from './App.vue'
-import HomePage from "./components/HomePage";
-import HomePageArq from "./components/Architect/HomePageArq";
-import LoginArq from "./components/Login/LoginArq";
-import MisArchivos from "./components/MiEstudio/MisArchivos";
-import Registro from "./components/Login/Register";
+
 import Login from "./components/Login/Login";
+import LoginArq from "./components/Login/LoginArq";
+import Register from "./components/Login/Register";
+
+import Home from "./components/Client/Home";
+import HomeArq from "./components/Architect/HomeArq";
+
+import MisArchivos from "./components/MiEstudio/MisArchivos";
 import NewProject from "./components/Architect/AddProject"
 import MiPerfil from "./components/Client/MiPerfil";
 import Contacto from "./components/Client/Contacto";
-import ErrorPage from "./components/ErrorPage";
 import Anteproyecto from "./components/MiEstudio/Anteproyecto";
-
-//npm install --save @fortawesome/fontawesome-free
-import '@fortawesome/fontawesome-free/js/all'
+import ErrorPage from "./components/ErrorPage";
 import QuienesSomos from "./components/QuienesSomos";
-import ContactoArqui from "./components/Architect/ContactoArqui";
+import ContactoArqui from "./components/Architect/ContactoArq";
 import MiPerfilArq from "./components/Architect/MiPerfilArq";
+
 import Ideas from "./components/MiEstudio/Ideas";
 import Documentacion from "./components/MiEstudio/Documentacion";
 import Avances from "./components/MiEstudio/Avances";
 import Legajo from "./components/MiEstudio/Legajo";
 import Obra from "./components/MiEstudio/Obra";
 
+//npm install --save @fortawesome/fontawesome-free
+import '@fortawesome/fontawesome-free/js/all'
+import addClient from "@/components/Architect/AddClientView";
+
 Vue.use(VueRouter)
 Vue.config.productionTip = false
 
 const routes = [
-  {path: '/login', name:"login", component: Login},
+
   {path: '/', redirect: '/login'},
+  {path: '/login', name: "login", component: Login},
+  {path:'/admin/login', name: "loginArq", component: LoginArq},
+  {path:'/admin/register', name: "register", component: Register},
 
+  {path:'/home/:id', name: "home", component: Home},
+  {path:'/admin/home/:id', name: "homeArq", component: HomeArq},
+  {path: '/admin/home/:id/addclient', name:"addClient", component: addClient},
 
-
-  {path:'/admin/login', name:"loginArq", component:LoginArq},
-  {path:'/home', name:"HomePage", component:HomePage},
-  {path:'/admin/home', name:"HomePageArq", component:HomePageArq},
-  {path:'/admin/register', name:"Registro", component: Registro},
   {path: '/admin/addproject', name:"NewProject", component: NewProject},
   {path: '/miperfil', name:"MiPerfil", component: MiPerfil},
   {path: '/admin/miperfil', name:"MiPerfil", component: MiPerfilArq},

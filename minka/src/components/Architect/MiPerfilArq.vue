@@ -3,7 +3,7 @@
     <Header/>
     <div id="content-body">
       <NavBar></NavBar>
-      <div class="content-home">
+      <div class="body-page">
         <div id="content-profile">
           <h1>{{nombre}}</h1>
           <h2>Datos:</h2>
@@ -23,7 +23,7 @@
 <script>
 import Header from "../Header";
 import Footer from "../Footer";
-import NavBar from "./NavBar";
+import NavBar from "./NavBarArq";
 import Banner from "../Banner";
 
 export default {

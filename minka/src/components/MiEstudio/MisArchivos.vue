@@ -4,7 +4,7 @@
     <div id="content-body">
       <NavBarEstudio/>
 
-      <div class ="content-home">
+      <div class ="body-page">
         <div class="file-container">
           <div class="file-container__img">
           </div>

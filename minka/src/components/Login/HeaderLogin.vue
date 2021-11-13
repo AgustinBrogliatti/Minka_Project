@@ -1,12 +1,11 @@
 <template>
 
   <div id="headerLogin">
-    <div id="content-logo">
-      <img id="content-logo__logo" alt="minkaLogo" src="../../assets/img/minkaLogo.png">
-      <p id="text-logo">INKA</p>
-      <h1 id="slogan">Build for the people</h1>
+    <div class="content-logo">
+      <img class="content-logo__logo" alt="minkaLogo" src="../../assets/img/minkaLogo.png">
+      <p class="text-logo">INKA</p>
     </div>
-
+    <h5 class="slogan">Build for the people</h5>
   </div>
 
 </template>
@@ -14,47 +13,48 @@
 <script>
 export default {
   name: "HeaderLogin",
-
 }
 </script>
 
 <style scoped>
-
+@import "../../assets/CSS/Login/header_login.css";
 #headerLogin  {
   width: 100%;
-  height: 70px;
+  height: 80px;
   background-color: var(--main-color);
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
 }
 
-#content-logo {
+.content-logo {
   width: auto;
   margin: auto;
-  margin-top: 7px;
+  margin-top: 8px;
+  margin-bottom: 0;
   display: flex;
+  flex-direction: row;
   align-items: baseline;
 }
 
-#content-logo__logo   {
+.content-logo__logo   {
   height: 45px;
-  margin-bottom: 20px;
 }
 
-#text-logo {
+.text-logo {
   display: inline-block;
-  margin: auto;
+  margin: 0;
+  margin-left: 8px;
   font-size: 35px;
   color: white;
   font-family: "Arial";
   letter-spacing: 5px;
-  margin-left: 8px;
 }
 
-#slogan {
+.slogan {
   margin-left: 50px;
   font-family: Helvetica;
-
+  margin: 0 auto 4px;
+  color: white;
 }
-
 </style>

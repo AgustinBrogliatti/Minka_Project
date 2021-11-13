@@ -15,6 +15,8 @@
               required
               v-model="email"
               tabindex="1"
+              autofocus
+              ref="email"
           >
           <label class="login-form__label" >Contraseña:</label>
           <input
@@ -25,6 +27,7 @@
               required
               v-model="password"
               tabindex="20"
+              @keyup.enter="login()"
           >
 
           <p v-if="error" class="login-error">Has introducido mal el email o la contraseña.</p>
@@ -43,7 +46,7 @@ import HeaderLogin from "./HeaderLogin";
 import axios from 'axios';
 
 export default {
-  name: "HomePage",
+  name: "Login",
   components: {
     HeaderLogin
   },
@@ -60,14 +63,21 @@ export default {
           .then(response => {
             console.log(response.data.message)
             if (response.data.client['email'] == this.email && response.data.client['password'] == this.password) {
-              this.$router.push('/home')
-            } else {this.error = true}
+              this.$router.push('/home/' + response.data.client.clientID)
+
+            } else {
+              this.error = true
+              this.$refs.email.focus()
+            }
 
           })
           .catch(response => {
             console.log(response.data.message)
           })
-      } else {this.error = true}
+      } else {
+        this.error = true
+        this.$refs.email.focus()
+      }
     }
   }
 
@@ -77,7 +87,7 @@ export default {
 <style scoped>
 @import "../../assets/CSS/main_layout.css";
 @import "../../assets/CSS/normalize.css";
-@import "../../assets/CSS/login_form.css";
+@import "../../assets/CSS/Login/login_form.css";
 
 
 </style>

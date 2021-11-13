@@ -14,6 +14,8 @@
               required
               v-model="name"
               tabindex="1"
+              autofocus
+              ref="name"
           >
 
           <label class="login-form__label">Apellido:</label>
@@ -58,6 +60,7 @@
               required
               v-model="password"
               tabindex="50"
+              ref="password"
           >
           <label class="login-form__label">Repita su contraseña:</label>
           <input
@@ -68,11 +71,12 @@
               required
               v-model="repeatPassword"
               tabindex="60"
+              @keyup.enter="register()"
           >
           <p v-if="error" class="login-error">Debes completar todos los campos</p>
-          <p v-if="errorPass" class="login-error" :style="styleMessage">{{errorMessage}}</p>
-          <input class="form-submit" type="button" value="Registrarse" tabindex="70" @click="register()">
-          <router-link to="/admin/login"> <input class="btn-routerLink" type="submit" value="Volver a Iniciar Sesión" tabindex="80"> </router-link>
+          <p v-if="errorPass" class="login-error" :style="styleMessage">{{message}}</p>
+          <input id="form-submit-toregister" type="button" value="Registrarse" tabindex="70" @click="register()">
+          <router-link to="/admin/login"> <input class="btn-routerLink" type="button" value="Volver a Iniciar Sesión" tabindex="80"  ref="toLogin"></router-link>
 
         </form>
     </div>
@@ -86,7 +90,7 @@ import HeaderLogin from "./HeaderLogin";
 import axios from "axios";
 
 export default {
-  name: "Registro",
+  name: "Register",
   components: {
     HeaderLogin
   },
@@ -109,9 +113,9 @@ export default {
       if (name != "" && lastname != "") {
         let newName = name.match(/^[a-z]/ig) + lastname + Math.floor(Math.random() * (99 - 10) + 10);
         this.username = newName
-
       }
     },
+
     register() {
       if (this.name != null && this.lastname != null &&
           this.email != null && this.password != null &&
@@ -136,26 +140,41 @@ export default {
 
                 if (response.data.status == "201 CREATED") {
                   this.styleMessage = {color: 'green', backgroundColor: '#CCFFCC'}
+                  this.$refs.toLogin.focus()
                 }
 
                 if (this.error == true) {
                   this.error = false
                   this.errorPass = true
-                } else {this.errorPass = true}
+                  this.$refs.name.focus()
+
+                } else {
+                  this.errorPass = true
+                  this.$refs.name.focus()
+                }
               })
               .catch(err => {
                 console.log(err)
                 console.log("INTERNAL SERVER ERROR 500")
               })
+
         } else {
           this.message = "The passwords are different"
           if (this.error == true) {
             this.error = false
             this.errorPass = true
-          } else {this.errorPass = true}
+            this.$refs.password.focus()
+
+          } else {
+            this.errorPass = true
+            this.$refs.password.focus()
+          }
 
         }
-      } else{this.error = true}
+      } else{
+        this.error = true
+        this.$refs.name.focus()
+      }
 
 
 
@@ -169,7 +188,7 @@ export default {
 <style scoped>
 @import "../../assets/CSS/main_layout.css";
 @import "../../assets/CSS/normalize.css";
-@import "../../assets/CSS/login_form.css";
+@import "../../assets/CSS/Login/login_form.css";
 
 
 </style>

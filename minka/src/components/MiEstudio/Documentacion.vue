@@ -3,7 +3,7 @@
     <HeaderEstudio></HeaderEstudio>
     <div id="content-body">
       <NavBarEstudio></NavBarEstudio>
-      <div class = "content-home">
+      <div class = "body-page">
         <div>
           <h1> DOCUMENTACIÓN </h1>
           <p> Añadir descripción </p>
@@ -38,7 +38,7 @@ export default {
 
 <style scoped>
 
-@import "../../assets/CSS/miestudio-folders.css";
+
 @import "../../assets/CSS/main_layout.css";
 @import "../../assets/CSS/normalize.css";
 </style>

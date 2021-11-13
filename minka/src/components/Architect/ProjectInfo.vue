@@ -1,5 +1,5 @@
 <template>
-  <div class="content-home container_auxiliar">
+  <div class="body-page container_auxiliar">
       <form>
         <legend> <h1> Datos del proyecto </h1> </legend>
         <hr>
@@ -114,7 +114,7 @@ textarea {
   padding: 2%;
   background: #f2f2f2;
 }
-.content-home{
+.body-page{
   border: 1px solid gray;
   text-align: left;
 }

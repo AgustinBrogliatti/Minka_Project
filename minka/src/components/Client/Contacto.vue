@@ -3,7 +3,7 @@
     <Header></Header>
     <div id="content-body">
       <NavBarCli></NavBarCli>
-      <div class="content-home">
+      <div class="body-page">
         <h2> Nombre arquitecto: </h2>
         <p> {{nombre}} </p>
       </div>
@@ -17,7 +17,7 @@
 
 import Header from "../Header";
 import Footer from "../Footer";
-import NavBarCli from "./NavBarCli";
+import NavBarCli from "./NavBarClient";
 import Banner from "../Banner";
 
 export default {

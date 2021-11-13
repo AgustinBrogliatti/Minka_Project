@@ -3,7 +3,10 @@
     <Header></Header>
     <div id="content-body">
       <NavBar></NavBar>
-      <Home></Home>
+      <div class="body-page">
+        <h2> Nombre arquitecto: </h2>
+        <p> {{nombre}} </p>
+      </div>
       <Banner></Banner>
     </div>
     <Footer></Footer>
@@ -11,25 +14,30 @@
 </template>
 
 <script>
+
 import Header from "../Header";
-import NavBar from "./NavBar";
-import Home from "../Home";
-import Banner from "../Banner";
 import Footer from "../Footer";
+import NavBar from "./NavBarArq";
+import Banner from "../Banner";
 
 export default {
-  name: "HomePage",
-  components:{
+  name: "ContactoArqui",
+  components: {
     Header,
+    Footer,
     NavBar,
-    Home,
     Banner,
-    Footer
+  },
+  data() {
+    return {
+      nombre: "Raul Pedro García"
+    }
   }
 }
 </script>
 
-<style>
+<style scoped>
 @import "../../assets/CSS/main_layout.css";
+@import "../../assets/CSS/normalize.css";
 
 </style>
