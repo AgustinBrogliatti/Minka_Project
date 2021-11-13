@@ -4,31 +4,23 @@
         <legend> <h1> Datos del proyecto </h1> </legend>
         <hr>
 
-        <label>Nombre del proyecto</label>
-        <input type="text" id="project_name" v-model="nombre_proyecto" required>
+        <label for="name">Titulo</label>
+        <input type="text" id="name" v-model="title" required>
 
-        <label>Nombre del cliente</label>
-        <input type="text" id="fname" name="firstname" v-model="nombre" required>
-
-        <label for="lname">Apellido del cliente</label>
-        <input type="text" id="lname" name="lastname" v-model="apellido" required>
-
-        <label>Provincia</label>
-        <select id="province" v-model="pcia" required>
-          <option :value="provincia" v-for="(provincia, index) in lista_pcias" :key="index">{{provincia}}</option>
+        <label>Cliente</label>
+        <select id="client" v-model="client" required>
+          <option :value="client.clientID" v-for="(client, index) in clients" :key="index">{{client.name}} {{client.lastname}}</option>
         </select>
 
-        <label for="cdad">Ciudad</label>
-        <input type="text" id="cdad" name="ciudad" v-model="ciudad" required>
-
-        <label> Fecha </label>
+        <label> Fecha de Inicio </label>
         <br> <br>
-        <input type="date" v-model="fecha" required>
+        <input type="date" v-model="date" required>
         <br><br>
-        <label>Breve descripción del proyecto </label>
-        <textarea id="description" v-model="descripcion" required></textarea>
 
-        <button @click= "crearProyecto()" > CREAR PROYECTO </button>
+        <input type="button" @click="createProyect()" value="CREAR PROYECTO">
+
+        <p class="message" v-if="alertPost">{{message}}</p>
+
       </form>
     </div>
 
@@ -36,39 +28,48 @@
 
 <script>
 
+import axios from "axios";
+
 export default {
   name: "AddProyect",
   data() {
     return {
-      listaObjetos: [],
-      nombre_proyecto: "",
-      nombre: "",
-      apellido: "",
-      ciudad: "",
-      fecha: "",
-      descripcion: "",
-      lista_pcias: ["Buenos Aires", "CABA", "Catamarca", "Chaco", "Chubut", "Cordoba", "Corrientes", "Entre Rios", "Formosa", "Jujuy", "La Pampa", "La Rioja", "Mendoza", "Misiones", "Neuquen", "Rio Negro", "Salta", "San Juan", "San Luis", "Santa Cruz", "Santa Fe", "Santiago del Estero", "Tierra del Fuego", "Tucuman"],
+      title: null,
+      client: null,
+      date: null,
+      clients: null,
+      alertPost: false,
+      message: null,
     }
   },
   methods: {
-    crearProyecto() {
-      let p_name = this.nombre_proyecto
-      let name = this.nombre
-      let lastname = this.apellido
-      let city = this.ciudad
-      let date = this.fecha
-      let description = this.descripcion
-      let projectObject = {
-        "nombre del proyecto": p_name,
-        "nombre del cliente": name,
-        "apellido": lastname,
-        "ciudad": city,
-        "fecha": date,
-        "descripcion": description
+    createProyect() {
+      if (this.title != null && this.client != null && this.date != null) {
+        let title = this.title;
+        let client = this.client;
+        let date = this.date;
+
+        let newProyect = {
+          name: title,
+          client: client,
+          admin: this.$route.params.id,
+          date: date
+        }
+        axios.post("http://localhost:4000/api/v1/proyects", newProyect)
+          .then(response => {
+            console.log(response.data.message);
+            this.message = response.data.message
+            this.alertPost = true;
+          })
       }
-      this.listaObjetos.push(projectObject)
     }
 
+  },
+  beforeMount() {
+    axios.get("http://localhost:4000/api/v1/clients?admin=" + this.$route.params.id)
+      .then(response => {
+        this.clients = response.data.clients
+      })
   }
 }
 </script>
@@ -113,6 +114,15 @@ textarea {
 .body-page{
   border: 1px solid gray;
   text-align: left;
+}
+
+.message {
+  color: green;
+  background: #CCFFCC;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 0;
+  margin-bottom: 30px;
 }
 
 </style>

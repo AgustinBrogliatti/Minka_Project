@@ -45,6 +45,7 @@ const routes = [
   {path: '/admin/home/:id/addproyect', name:"addProyect", component: AddProject},
 
 
+
   {path: '/miperfil', name:"MiPerfil", component: MiPerfil},
   {path: '/admin/miperfil', name:"MiPerfil", component: MiPerfilArq},
   {path: '/contacto', name:"Contacto", component: Contacto},

@@ -135,15 +135,30 @@ def clients_manage():
 
     path = os.path.join('static', 'clients.json')
     body = request.json
+    adminID = request.args.get('admin')
 
     if request.method == "GET":
 
         if os.path.exists(path):
             with open(path, "r") as file:
                 clients = json.load(file)
+
+                if adminID is not None:
+
+                    new_clients_list = []
+                    if any(client["adminID"] == adminID for client in clients):
+
+                        for client in clients:
+                            if client["adminID"] == adminID:
+                                new_clients_list.append(client)
+
+                                return jsonify({"clients": new_clients_list, "admin": adminID, "message": "Clients database loaded sucessfully", "status": "200 OK"})
+
                 return jsonify({"clients": clients, "message": "Clients database loaded successfully", "status": "200 OK"})
 
         return jsonify({"clients": [], "message": "Clients database empity", "status": "204 NO CONTENT"})
+
+
 
 
 
@@ -325,7 +340,7 @@ def proyects_manage():
                 os.mkdir(os.path.join(path, 'obra'))
 
                 json_path = os.path.join('static', 'proyects.json')
-                if not os.path.exists(path):
+                if not os.path.exists(json_path):
 
                     with open(json_path, "w") as file:
                         proyects = []
