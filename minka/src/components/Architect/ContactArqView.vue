@@ -2,8 +2,8 @@
   <div id="home_page">
     <Header  v-bind:userData="{name: this.adminData.name, lastname: this.adminData.lastname}"></Header>
     <div id="content-body">
-      <NavBarArq></NavBarArq>
-      <ProyectsArq></ProyectsArq>
+      <NavBar></NavBar>
+      <ContactArq></ContactArq>
       <Banner></Banner>
     </div>
     <Footer></Footer>
@@ -11,23 +11,24 @@
 </template>
 
 <script>
-import Header from "@/components/Header";
-import NavBarArq from "@/components/Architect/NavBarArq";
-import ProyectsArq from "@/components/Architect/ProyectsArq";
-import Banner from "@/components/Banner";
-import Footer from "@/components/Footer";
-import axios from 'axios';
+
+import Header from "../Header";
+import Footer from "../Footer";
+import NavBar from "./NavBarArq";
+import Banner from "../Banner";
+import ContactArq from "@/components/Architect/ContactArq";
+import axios from "axios";
 
 export default {
-  name: "HomeArq",
-  components:{
+  name: "ContactoArqView",
+  components: {
     Header,
-    NavBarArq,
-    ProyectsArq,
+    Footer,
+    NavBar,
     Banner,
-    Footer
+    ContactArq
   },
-  data () {
+  data() {
     return {
       adminData: ""
     }
@@ -43,7 +44,8 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 @import "../../assets/CSS/main_layout.css";
+@import "../../assets/CSS/normalize.css";
 
 </style>

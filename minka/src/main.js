@@ -7,19 +7,14 @@ import LoginArq from "./components/Login/LoginArq";
 import Register from "./components/Login/Register";
 
 import Home from "./components/Client/Home";
+import MiPerfil from "./components/Client/MiPerfil";
+import Contacto from "./components/Client/Contacto";
 
 import HomeArq from "./components/Architect/HomeArq";
 import AddClient from "@/components/Architect/AddClientView";
 import AddProject from "@/components/Architect/AddProjectView";
-import ProfileArq from "./components/Architect/ProfileArq";
-import ContactArq from "./components/Architect/ContactArq";
-
-
-import MiPerfil from "./components/Client/MiPerfil";
-import Contacto from "./components/Client/Contacto";
-import QuienesSomos from "./components/AboutUs";
-import ErrorPage from "./components/ErrorPage";
-
+import ProfileArq from "./components/Architect/ProfileArqView";
+import ContactArq from "./components/Architect/ContactArqView";
 
 import MisArchivos from "./components/MiEstudio/MisArchivos";
 import Ideas from "./components/MiEstudio/Ideas";
@@ -28,6 +23,9 @@ import Anteproyecto from "./components/MiEstudio/Anteproyecto";
 import Avances from "./components/MiEstudio/Avances";
 import Legajo from "./components/MiEstudio/Legajo";
 import Obra from "./components/MiEstudio/Obra";
+
+import QuienesSomos from "./components/AboutUs";
+import ErrorPage from "./components/ErrorPage";
 
 //npm install --save @fortawesome/fontawesome-free
 import '@fortawesome/fontawesome-free/js/all'
@@ -43,21 +41,11 @@ const routes = [
   {path: '/admin/login', name: "loginArq", component: LoginArq},
   {path: '/admin/register', name: "register", component: Register},
 
+
   {path: '/:id/home', name: "home", component: Home},
-  {path: '/admin/:id/home', name: "homeArq", component: HomeArq},
-  {path:'/admin/:id/miestudio/:proyect/misarchivos', name: "misArchivos", component: MisArchivos},
-  {path: '/admin/:id/addclient', name:"addClient", component: AddClient},
-  {path: '/admin/:id/addproyect', name:"addProyect", component: AddProject},
-  {path: '/admin/:id/miperfil', name:"profileArq", component: ProfileArq},
-  {path: '/admin/:id/contact', name:"contact", component: ContactArq},
-
-
-
-
-  {path: '/miperfil', name:"MiPerfil", component: MiPerfil},
-  {path: '/contacto', name:"Contacto", component: Contacto},
+  {path: '/profile', name:"MiPerfil", component: MiPerfil},
+  {path: '/contact', name:"Contacto", component: Contacto},
   {path: '/quienessomos', name:"QuienesSomos", component: QuienesSomos},
-
 
   {path:'/miestudio/inicio', name:"MiEstudio", component: MisArchivos},
   {path: '/miestudio/ideas', name:"Ideas", component: Ideas},
@@ -67,6 +55,13 @@ const routes = [
   {path: '/miestudio/legajo', name:"Legajo", component: Legajo},
   {path: '/miestudio/obra', name:"Obra", component: Obra},
 
+
+  {path: '/admin/:id/home', name: "homeArq", component: HomeArq},
+  {path:'/admin/:id/miestudio/:proyect/misarchivos', name: "misArchivos", component: MisArchivos},
+  {path: '/admin/:id/addclient', name:"addClient", component: AddClient},
+  {path: '/admin/:id/addproyect', name:"addProyect", component: AddProject},
+  {path: '/admin/:id/profile', name:"profileArq", component: ProfileArq},
+  {path: '/admin/:id/contact', name:"contact", component: ContactArq},
   {path: '/admin/quienessomos', name:"QuienesSomos", component: QuienesSomos},
 
   {path: '/admin/:id/miestudio/:proyect/ideas', name:"Ideas", component: Ideas},
