@@ -1,5 +1,5 @@
 <template>
-  <div id="content-article">
+  <div id="content-article" @click="toProyect()">
     <div id="content-article__img">
       <img  src="../../assets/img/miravalles.jpeg">
     </div>
@@ -14,8 +14,9 @@
 <script>
 export default {
   name: "Proyect",
-  data () {
-    return {
+  methods: {
+    toProyect() {
+      this.$router.push("/admin/" + this.$route.params.id + "/miestudio/" + this.proyect.name + "/misarchivos")
     }
   },
   props: {
@@ -35,6 +36,7 @@ export default {
     margin: .9%;
     box-sizing: border-box;
     background: white;
+    cursor: pointer;
   }
   #content-article:hover {
     border: 1px solid #777;

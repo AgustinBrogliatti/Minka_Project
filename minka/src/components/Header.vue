@@ -41,7 +41,7 @@ export default {
   },
   data () {
     return {
-      toHome: "/admin/home/" + this.$route.params.id,
+      toHome: "/admin/" + this.$route.params.id + "/home",
     }
   }
 

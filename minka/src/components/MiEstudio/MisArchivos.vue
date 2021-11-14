@@ -1,47 +1,12 @@
 <template>
   <div id="home_page">
-    <Header></Header>
+    <Header v-bind:userData="{name: this.adminData.name, lastname: this.adminData.lastname}"></Header>
     <div id="content-body">
       <NavBarEstudio></NavBarEstudio>
-
-      <div class ="body-page">
-        <div class="file-container">
-          <div class="file-container__img">
-          </div>
-          <div class="file-container__description">
-          </div>
-        </div>
-        <div class="file-container">
-          <div class="file-container__img">
-          </div>
-          <div class="file-container__description">
-          </div>
-        </div>
-        <div class="file-container">
-          <div class="file-container__img">
-          </div>
-          <div class="file-container__description">
-          </div>
-        </div>
-        <div class="file-container">
-          <div class="file-container__img">
-          </div>
-          <div class="file-container__description">
-          </div>
-        </div>
-        <div class="file-container">
-          <div class="file-container__img">
-          </div>
-          <div class="file-container__description">
-          </div>
-        </div>
-        <div class="file-container">
-          <div class="file-container__img">
-          </div>
-          <div class="file-container__description">
-          </div>
-        </div>
+      <div id="files">
+        <FilesManager v-for="(section, index) in sections" :key="index" :section="section"></FilesManager>
       </div>
+
       <Banner></Banner>
 
     </div>
@@ -57,20 +22,31 @@ import Header from "@/components/Header";
 import NavBarEstudio from "./NavBarEstudio";
 import Banner from "@/components/Banner";
 import Footer from "@/components/Footer";
+import axios from "axios";
+import FilesManager from "@/components/MiEstudio/FilesManager";
 
 export default {
-  name: "MiEstudio",
+  name: "MisArchivos",
   components: {
     NavBarEstudio,
+    FilesManager,
     Header,
     Banner,
     Footer,
+
   },
   data() {
     return{
-      filename: "Mansion Miami.jpeg",
-      project: "Mansion Fort"
+      adminData: "",
+      sections: ["ideas", "documentacion", "anteproyecto", "avances", "legajo", "obra"]
     }
+  },
+  beforeMount() {
+    axios.get("http://localhost:4000/api/v1/admins/" + this.$route.params.id)
+        .then(response => {
+          this.adminData = response.data.admin
+          console.log(response.data.message)
+        })
   }
 
 };
@@ -144,5 +120,8 @@ export default {
   border-radius: 4px;
 }
 
-/*estos estilos los usamos cuando integremos con backend*/
+#files {
+  display: flex;
+  flex-direction: column;
+}
 </style>

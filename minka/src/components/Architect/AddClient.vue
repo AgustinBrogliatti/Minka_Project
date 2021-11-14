@@ -35,7 +35,7 @@
       <label for="ciudad">Ciudad</label>
       <input type="text" id="ciudad" name="ciudad" v-model="city" required>
       <p class="message" v-if="alertPass">Contraseña generada: {{this.password}}</p>
-      <p class="message" v-if="alertPass">Cliente creado exitosamente: {{this.password}}</p>
+      <p class="message" v-if="alertPass">Cliente creado exitosamente</p>
 
       <br><br>
 
@@ -106,6 +106,7 @@ export default {
           city: city,
           clientID: clientID,
           password: password,
+          adminID: this.$route.params.id
         };
 
         axios.post('http://localhost:4000/api/v1/clients', newClient)

@@ -69,6 +69,7 @@ export default {
   beforeMount() {
     axios.get("http://localhost:4000/api/v1/clients?admin=" + this.$route.params.id)
       .then(response => {
+        console.log(response.data.message)
         this.clients = response.data.clients
       })
   }

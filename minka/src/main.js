@@ -13,7 +13,7 @@ import AddClient from "@/components/Architect/AddClientView";
 import AddProject from "@/components/Architect/AddProjectView";
 import ProfileArq from "./components/Architect/ProfileArq";
 import ContactArq from "./components/Architect/ContactArq";
-import MyFiles from "./components/MiEstudio/MyFiles";
+
 
 import MiPerfil from "./components/Client/MiPerfil";
 import Contacto from "./components/Client/Contacto";
@@ -21,10 +21,10 @@ import QuienesSomos from "./components/AboutUs";
 import ErrorPage from "./components/ErrorPage";
 
 
-
-import Anteproyecto from "./components/MiEstudio/Anteproyecto";
+import MisArchivos from "./components/MiEstudio/MisArchivos";
 import Ideas from "./components/MiEstudio/Ideas";
 import Documentacion from "./components/MiEstudio/Documentacion";
+import Anteproyecto from "./components/MiEstudio/Anteproyecto";
 import Avances from "./components/MiEstudio/Avances";
 import Legajo from "./components/MiEstudio/Legajo";
 import Obra from "./components/MiEstudio/Obra";
@@ -40,17 +40,18 @@ Vue.config.productionTip = false
 const routes = [
   {path: '/', redirect: '/login'},
   {path: '/login', name: "login", component: Login},
-  {path:'/admin/login', name: "loginArq", component: LoginArq},
-  {path:'/admin/register', name: "register", component: Register},
+  {path: '/admin/login', name: "loginArq", component: LoginArq},
+  {path: '/admin/register', name: "register", component: Register},
 
-  {path:'/home/:id', name: "home", component: Home},
-  {path:'/admin/home/:id', name: "homeArq", component: HomeArq},
-  {path: '/admin/home/:id/addclient', name:"addClient", component: AddClient},
-  {path: '/admin/home/:id/addproyect', name:"addProyect", component: AddProject},
-  {path: '/admin/home/:id/contact', name:"contact", component: ContactArq},
-  {path: '/admin/home/:id/miperfil', name:"profileArq", component: ProfileArq},
-  {path: '/admin/home/:id/miestudio', redirect: "/admin/home/:id/miestudio/misarchivos"},
-  {path:'/admin/home/:id/miestudio/misarchivos', name:"misArchivos", component: MyFiles},
+  {path: '/:id/home', name: "home", component: Home},
+  {path: '/admin/:id/home', name: "homeArq", component: HomeArq},
+  {path:'/admin/:id/miestudio/:proyect/misarchivos', name: "misArchivos", component: MisArchivos},
+  {path: '/admin/:id/addclient', name:"addClient", component: AddClient},
+  {path: '/admin/:id/addproyect', name:"addProyect", component: AddProject},
+  {path: '/admin/:id/miperfil', name:"profileArq", component: ProfileArq},
+  {path: '/admin/:id/contact', name:"contact", component: ContactArq},
+
+
 
 
   {path: '/miperfil', name:"MiPerfil", component: MiPerfil},
@@ -58,7 +59,7 @@ const routes = [
   {path: '/quienessomos', name:"QuienesSomos", component: QuienesSomos},
 
 
-  {path:'/miestudio/inicio', name:"MiEstudio", component: MyFiles},
+  {path:'/miestudio/inicio', name:"MiEstudio", component: MisArchivos},
   {path: '/miestudio/ideas', name:"Ideas", component: Ideas},
   {path: '/miestudio/documentacion', name:"Documentacion", component: Documentacion},
   {path: '/miestudio/anteproyecto', name:"Anteproyecto", component: Anteproyecto},
@@ -67,12 +68,13 @@ const routes = [
   {path: '/miestudio/obra', name:"Obra", component: Obra},
 
   {path: '/admin/quienessomos', name:"QuienesSomos", component: QuienesSomos},
-  {path: '/admin/miestudio/ideas', name:"Ideas", component: Ideas},
-  {path: '/admin/miestudio/documentacion', name:"Documentacion", component: Documentacion},
-  {path: '/admin/miestudio/anteproyecto', name:"Anteproyecto", component: Anteproyecto},
-  {path: '/admin/miestudio/avances', name:"Avances", component: Avances},
-  {path: '/admin/miestudio/legajo', name:"Legajo", component: Legajo},
-  {path: '/admin/miestudio/obra', name:"Obra", component: Obra},
+
+  {path: '/admin/:id/miestudio/:proyect/ideas', name:"Ideas", component: Ideas},
+  {path: '/admin/:id/miestudio/:proyect/documentacion', name:"Documentacion", component: Documentacion},
+  {path: '/admin/:id/miestudio/:proyect/anteproyecto', name:"Anteproyecto", component: Anteproyecto},
+  {path: '/admin/:id/miestudio/:proyect/avances', name:"Avances", component: Avances},
+  {path: '/admin/:id/miestudio/:proyect/legajo', name:"Legajo", component: Legajo},
+  {path: '/admin/:id/miestudio/:proyect/obra', name:"Obra", component: Obra},
 
   {path: '/*', name:"ErrorPage", component: ErrorPage},
 ]

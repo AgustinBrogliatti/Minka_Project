@@ -1,20 +1,14 @@
 <template>
   <div id="home_page">
-    <Header></Header>
+    <Header v-bind:userData="{name: this.adminData.name, lastname: this.adminData.lastname}"></Header>
     <div id="content-body">
       <NavBarEstudio></NavBarEstudio>
-      <div class = "body-page">
-        <div>
-          <h1> ANTEPROYECTO </h1>
-          <p> En esta carpeta se incluirán el conjunto de planos, maquetas o croquis que explican de manera gráfica la obra. Se trata de una etapa previa basada en un abordaje concreto, medible, exacto y definido. </p>
-          <div id="add-file-image" >
-            <img src="../../assets/img/add-file.png" height="512" width="512"/></div>
-        </div>
-      </div>
+      <FilesManager v-bind:section="this.$route.name"></FilesManager>
       <Banner></Banner>
     </div>
     <Footer></Footer>
   </div>
+
 </template>
 
 <script>
@@ -23,23 +17,41 @@ import Header from "@/components/Header";
 import NavBarEstudio from "./NavBarEstudio";
 import Banner from "@/components/Banner";
 import Footer from "@/components/Footer";
+import axios from "axios";
+import FilesManager from "@/components/MiEstudio/FilesManager";
 
 export default {
   name: "Anteproyecto",
   components: {
-    Header,
     NavBarEstudio,
+    FilesManager,
+    Header,
     Banner,
     Footer,
-
   },
+  data() {
+    return{
+      adminData: "",
+      file:'',
+      message: '',
+      files: [],
+      section: "obra"
+    }
+  },
+  beforeMount() {
+    axios.get("http://localhost:4000/api/v1/admins/" + this.$route.params.id)
+        .then(response => {
+          this.adminData = response.data.admin
+          console.log(response.data.message)
+        })
+  }
 }
 </script>
 
 <style scoped>
+
 @import "../../assets/CSS/main_layout.css";
 @import "../../assets/CSS/normalize.css";
-
 
 p {
   margin-left: 2%;
