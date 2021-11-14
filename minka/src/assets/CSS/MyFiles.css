@@ -1,0 +1,36 @@
+#files-manager_container {
+    border-style: groove;
+    width: 80%;
+    background: white;
+    margin: 4.2%;
+    border-radius: 5px;
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: bold;
+    display: flex;
+    padding: 5px;
+}
+
+
+#submit-file {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    margin-bottom: 2px;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    flex-wrap: wrap;
+    text-indent: initial;
+}
+
+#submit-file:hover {
+    background-color: #CCFFCC;
+    color: black;
+}
+
+

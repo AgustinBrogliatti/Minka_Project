@@ -57,6 +57,8 @@ export default {
 
 <style scoped>
 @import "../../assets/CSS/main_layout.css";
+@import "../../assets/CSS/MyFiles.css";
+
 
 .file-container  {
   width: 100px;

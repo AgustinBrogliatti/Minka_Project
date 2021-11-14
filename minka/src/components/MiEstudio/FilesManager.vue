@@ -1,11 +1,14 @@
 <template>
-  <div id="body">
+  <div id="files-manager_container">
     <form>
-      <label>File
-        <input type="file" id="file" ref="file" v-on:change="handleFileUpload()" required/>
-        <textarea name="" id="" cols="30" rows="2" maxlength="300" v-model="message" required></textarea>
+      <label> Suba su archivo aquí. Formatos compatibles: JPEG, JPG, PNG, GIF, MP4, MP3, WMV, DWG, DXF, XSLX, CSV, PDF
+        <input type="file" value="Elija su archivo"  id="file" ref="file" v-on:change="handleFileUpload()" required/>
+        <label>Añada una breve descripción del archivo </label>
+        <textarea name="description"  cols="30" rows="2" maxlength="140" v-model="message" required></textarea>
       </label>
-      <input type="button" value="Submit" @click="submitFile()">
+
+      <div id="submit-file" @click="submitFile()">    <i class="fas fa-plus"></i>      Añadir archivo  </div>
+
     </form>
 
     <div v-for="(file, index) in files" :key="index" >
@@ -152,10 +155,6 @@ export default {
 <style scoped>
 @import "../../assets/CSS/main_layout.css";
 @import "../../assets/CSS/normalize.css";
+@import "../../assets/CSS/MyFiles.css";
 
-#body {
-  width: 66%;
-  background: white;
-  margin: 4.2%;
-}
 </style>
