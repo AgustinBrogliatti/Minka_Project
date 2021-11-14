@@ -16,12 +16,6 @@
       <label for="email">Email</label>
       <input type="email" id="email" name="lastname" v-model="email" required>
 
-      <label for="address">Dirección</label>
-      <input type="text" id="address" name="address" v-model="address" required>
-
-      <label for="tel">Número de Teléfono</label>
-      <input type="tel" id="tel" name="tel" v-model="tel" required>
-
       <label>País</label>
       <select id="pais" v-model="country" required>
         <option :value="pais" v-for="(pais, index) in paises" :key="index">{{pais}}</option>
@@ -56,8 +50,6 @@ export default {
       name: null,
       lastname: null,
       email: null,
-      address: null,
-      tel: null,
       country: null,
       province: null,
       city: null,
@@ -78,8 +70,7 @@ export default {
       }
     },
     registerClient() {
-      if (this.name != null && this.lastname != null && this.email != null && this.address != null &&
-          this.tel != null && this.country != null && this.province != null && this.city != null && this.clientID != null){
+      if (this.name != null && this.lastname != null && this.email != null && this.country != null && this.province != null && this.city != null && this.clientID != null){
         let passwordCreated = Math.random().toString(36).substring(2, 10)
         this.password = passwordCreated
         this.alertPass = true
@@ -87,8 +78,6 @@ export default {
         let name = this.name
         let lastname = this.lastname
         let email = this.email
-        let address = this.address
-        let tel = this.tel
         let country = this.country
         let province = this.province
         let city = this.city
@@ -99,8 +88,10 @@ export default {
           name: name,
           lastname: lastname,
           email: email,
-          address: address,
-          tel: tel,
+          address: "",
+          tel: "",
+          dni: "",
+          cuit: "",
           country: country,
           province: province,
           city: city,

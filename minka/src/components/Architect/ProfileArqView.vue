@@ -5,10 +5,8 @@
       <NavBar></NavBar>
       <ProfileArq></ProfileArq>
       <Banner></Banner>
-
     </div>
     <Footer/>
-
   </div>
 </template>
 
@@ -40,7 +38,6 @@ export default {
           this.adminData = response.data.admin
           console.log(response.data.message)
         })
-
   }
 }
 </script>

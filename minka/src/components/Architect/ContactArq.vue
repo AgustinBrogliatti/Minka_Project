@@ -1,5 +1,5 @@
 <template>
-  <div class="body-page container_auxiliar">
+  <div class="body-page" id="content-contact">
       <h1>Contactos</h1>
     <div id="contacts">
       <div id="client-contact" v-for="(client, index) in clients" :key="index">

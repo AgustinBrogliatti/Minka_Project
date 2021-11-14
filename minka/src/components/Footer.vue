@@ -3,16 +3,17 @@
   <footer class="footer-distributed">
     <div class="footer-left">
       <div class="content-logo">
+        <router-link :to="toHome">
         <div>
-          <img class="content-logo__logo" alt="minkaLogo" @click="goToHome()" src="../assets/img/minkaLogo.png">
+          <img class="content-logo__logo" alt="minkaLogo" src="../assets/img/minkaLogo.png">
           <p class="text-logo">INKA</p>
         </div>
-
+        </router-link>
       </div>
       <p class="footer-links">
-        <router-link to="home">Home </router-link>
-        <router-link class="bar" to="quienessomos">Acerca de nosotros </router-link>
-        <router-link class="bar" to="contacto">Contacto</router-link>
+        <router-link :to="toHome">Home </router-link>
+        <router-link class="bar" to="aboutus">Acerca de nosotros </router-link>
+        <router-link class="bar" :to="toContact">Contacto</router-link>
       </p>
       <p id="footer-company-name">Minka© 2021. All rights reserved.</p>
     </div>
@@ -22,12 +23,30 @@
 
 <script>
 export default {
-  name: "Footer"
+  name: "Footer",
+  data () {
+    return {
+      toHome: "",
+      toContact: "/admin/" + this.$route.params.id + "/contact",
+    }
+  },
+  beforeMount () {
+    if (this.$route.fullPath.match("admin") != null) {
+      this.toHome = "/admin/" + this.$route.params.id + "/home"
+      this.toContact = "/admin/" + this.$route.params.id + "/contact"
+    } else {
+      this.toHome = "/" + this.$route.params.id + "/home"
+      this.toContact = "/" + this.$route.params.id + "/contact"
+    }
+  }
 }
 </script>
 
 <style scoped>
 
+.content-logo {
+  cursor: pointer;
+}
 .footer-distributed{
   background: #484E52;
   width: 100%;

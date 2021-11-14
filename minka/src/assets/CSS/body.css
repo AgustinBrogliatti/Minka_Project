@@ -18,6 +18,7 @@ input[type=submit] {
     cursor: pointer;
 }
 
+
 input[type=submit]:hover {
     background-color: #45a049;
 }
@@ -28,20 +29,28 @@ textarea {
 
 #contacts {
     display: flex;
-
 }
 
 #client-contact {
     margin: 20px;
 }
 
-.container_auxiliar {
+.container_auxiliar, #content-contact {
     padding: 2%;
     background: #f2f2f2;
     margin-top: 4.4%;
     display: flex;
+}
+
+form {
+    width: 100%;
+}
+
+#content-contact{
+    display: flex;
     flex-direction: column;
 }
+
 .body-page{
     border: 1px solid gray;
     text-align: left;
@@ -57,7 +66,7 @@ textarea {
 }
 
 #add-client_button {
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50;
     border: none;
     color: white;
     padding: 20px;
@@ -72,7 +81,7 @@ textarea {
 }
 
 #add-project_button {
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50;
     border: none;
     color: white;
     padding: 20px;
