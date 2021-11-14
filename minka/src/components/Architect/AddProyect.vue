@@ -17,7 +17,7 @@
         <input type="date" v-model="date" required>
         <br><br>
 
-        <input type="button" @click="createProyect()" value="CREAR PROYECTO">
+        <input id="add-project_button" type="button" @click="createProyect()" value="CREAR PROYECTO">
 
         <p class="message" v-if="alertPost">{{message}}</p>
 
@@ -124,6 +124,21 @@ textarea {
   padding: 10px;
   margin: 0;
   margin-bottom: 30px;
+}
+
+#add-project_button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: bold;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
 }
 
 </style>

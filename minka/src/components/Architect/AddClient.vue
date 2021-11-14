@@ -39,7 +39,7 @@
 
       <br><br>
 
-      <input type="button" @click="registerClient()"  value="CREAR CLIENTE">
+      <input id="add-client_button" type="button" @click="registerClient()"  value="CREAR CLIENTE">
     </form>
   </div>
 
@@ -173,6 +173,21 @@ textarea {
   padding: 10px;
   margin: 0;
   margin-bottom: 30px;
+}
+
+#add-client_button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: bold;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
 }
 
 </style>
