@@ -6,7 +6,7 @@
       <div class="content-login">
         <form class="login-form">
           <h1 class="login-title">Iniciar sesión</h1>
-          <label class="login-form__label" >Email:</label>
+          <label class="login-form__label" >Usuario o Email:</label>
           <input
               type="email"
               class="login-form__input"
@@ -62,8 +62,9 @@ export default {
         axios.get("http://localhost:4000/api/v1/clients/" + this.email)
           .then(response => {
             console.log(response.data.message)
-            if (response.data.client['email'] == this.email && response.data.client['password'] == this.password) {
-              this.$router.push('/home/' + response.data.client.clientID)
+            if ((response.data.client['email'] == this.email || response.data.client['clientID'] == this.email)
+                && response.data.client['password'] == this.password) {
+              this.$router.push('/' + response.data.client.clientID + '/home')
 
             } else {
               this.error = true

@@ -130,7 +130,7 @@ export default {
             "lastname": this.lastname,
             "email": this.email,
             "tel": '',
-            "adress": '',
+            "address": '',
           };
 
           axios.post('http://localhost:4000/api/v1/admins', adminData)

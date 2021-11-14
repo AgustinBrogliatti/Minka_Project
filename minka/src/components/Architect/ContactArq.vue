@@ -1,51 +1,57 @@
 <template>
-  <div id="home_page">
-    <Header  v-bind:userData="{name: this.adminData.name, lastname: this.adminData.lastname}"></Header>
-    <div id="content-body">
-      <NavBar></NavBar>
-      <AddClient></AddClient>
-      <Banner></Banner>
+  <div class="body-page container_auxiliar">
+      <h1>Contactos</h1>
+    <div id="contacts">
+      <div id="client-contact" v-for="(client, index) in clients" :key="index">
+        <p>Nombre: {{client.name}} {{client.lastname}}</p>
+        <p>Email: {{client.email}}</p>
+        <p>Telefono: {{client.tel}}</p>
+        <p>Direccion: {{client.address}}</p>
+        <p>Pais: {{client.country}}</p>
+        <p>Provincia: {{client.province}}</p>
+        <p>Ciudad: {{client.city}}</p>
+        <p>Proyectos:</p>
+      </div>
     </div>
-    <Footer></Footer>
   </div>
 </template>
 
 <script>
-
-import Header from "../Header";
-import Footer from "../Footer";
-import NavBar from "./NavBarArq";
-import Banner from "../Banner";
-import AddClient from "@/components/Architect/AddClient";
 import axios from "axios";
 
 export default {
-  name: "ContactoArq",
-  components: {
-    Header,
-    Footer,
-    NavBar,
-    Banner,
-    AddClient
-  },
-  data() {
+  name: "ContactArq",
+  data () {
     return {
-      adminData: ""
+      clients: null,
+      proyects: [],
     }
   },
   beforeMount() {
-    axios.get("http://localhost:4000/api/v1/admins/" + this.$route.params.id)
-        .then(response => {
-          this.adminData = response.data.admin
-          console.log(response.data.message)
-        })
-
+    axios.get("http://localhost:4000/api/v1/clients?admin=" + this.$route.params.id)
+      .then(response => {
+        this.clients = response.data.clients
+      })
+  },
+  methods: {
+    // getClientProyects(clientID) {
+    //
+    //   axios.get("http://localhost:4000/api/v1/proyects?client=" + clientID)
+    //       .then(response => {
+    //         let proyects = response.data.proyects
+    //         var names = []
+    //         for (const proyect of proyects) {
+    //           names.push(proyect.name)
+    //         }
+    //         console.log(names)
+    //         return this.proyects.push(names)
+    //       })
+    // }
   }
 }
 </script>
 
 <style scoped>
 @import "../../assets/CSS/main_layout.css";
-@import "../../assets/CSS/normalize.css";
-
+@import "../../assets/CSS/body.css";
 </style>

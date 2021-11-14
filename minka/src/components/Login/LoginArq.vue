@@ -5,7 +5,7 @@
     <div class="content-login">
       <form class="login-form">
         <h1 class="login-title">Iniciar sesión como arquitecto</h1>
-        <label class="login-form__label" >Email:</label>
+        <label class="login-form__label" >Usuario o Email:</label>
         <input
             type="email"
             class="login-form__input"
@@ -61,8 +61,9 @@ export default {
         axios.get("http://localhost:4000/api/v1/admins/" + this.email)
             .then(response => {
               console.log(response.data.message)
-              if (response.data.admin['email'] == this.email && response.data.admin['password'] == this.password) {
-                this.$router.push('/admin/home/' + response.data.admin.adminID)
+              if ((response.data.admin['email'] == this.email || response.data.client['adminID'] == this.email)
+                  && response.data.admin['password'] == this.password) {
+                this.$router.push('/admin/' + response.data.admin.adminID + "/home")
               } else {
                 this.error = true
                 this.$refs.email.focus()

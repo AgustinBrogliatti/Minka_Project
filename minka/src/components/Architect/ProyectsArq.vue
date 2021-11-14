@@ -11,7 +11,7 @@ import Proyect from "@/components/Architect/Proyect";
 import axios from "axios";
 
 export default {
-  name: "CatalogueArq",
+  name: "ProyectsArq",
   components: {
     Proyect
   },
