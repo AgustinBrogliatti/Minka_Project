@@ -1,0 +1,12 @@
+[
+    {
+        "name": "escalera.jpg",
+        "url": "http://localhost:4000/api/v1/uploads/Alma Verde/obra/escalera.jpg",
+        "message": ""
+    },
+    {
+        "name": "presidentes.jpeg",
+        "url": "http://localhost:4000/api/v1/uploads/Alma Verde/obra/presidentes.jpeg",
+        "message": ""
+    }
+]

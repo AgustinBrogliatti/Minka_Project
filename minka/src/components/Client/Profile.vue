@@ -7,6 +7,8 @@
         <label>Nombre:</label><input type="text" v-model="name">
         <label>Apellido:</label><input type="text" v-model="lastname">
         <label>Email:</label><input type="text" v-model="email">
+        <label>Dni:</label><input type="text" v-model="dni">
+        <label>Cuit:</label><input type="text" v-model="cuit">
         <label>Telefono:</label><input type="tel" v-model="tel">
         <label>Direccion:</label><input type="text" v-model="address">
         <label>Contraseña Actual:</label><input type="password" v-model="password">
@@ -31,6 +33,15 @@ export default {
           this.name = this.clientData.name
           this.lastname = this.clientData.lastname
           this.email = this.clientData.email
+          this.adminID = this.clientData.adminID
+          this.country = this.clientData.country
+          this.province = this.clientData.province
+          this.city = this.clientData.city
+          this.dni = this.clientData.dni
+          this.cuit = this.clientData.cuit
+          this.tel = this.clientData.tel
+          this.address = this.clientData.address
+
         })
 
   },
@@ -42,9 +53,15 @@ export default {
       lastname: null,
       email: null,
       tel: null,
+      country: null,
+      province: null,
+      city: null,
+      dni: null,
+      cuit: null,
       address: null,
       password: null,
       newPassword: null,
+      adminID: null,
     }
   },
   methods: {
@@ -58,7 +75,11 @@ export default {
         "tel": this.tel,
         "address": this.address,
         "dni": this.dni,
-        "cuit": this.cuit
+        "cuit": this.cuit,
+        "adminID": this.adminID,
+        "country": this.country,
+        "province": this.province,
+        "city": this.city,
       };
 
       if (this.clientID != null && this.name != null && this.lastname != null

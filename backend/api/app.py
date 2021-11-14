@@ -92,8 +92,8 @@ def edit_admins(admiEmailorID):
                 admins_list = json.load(file)
 
                 if any(admin['email'] == admiEmailorID for admin in admins_list) | any(admin['adminID'] == admiEmailorID for admin in admins_list):
-                    for admin in admins_list:
 
+                    for admin in admins_list:
                         if (admin['email'] == admiEmailorID) | (admin['adminID'] == admiEmailorID):
                             return jsonify({"admin": admin, "message": "Admin loaded successfully", "status": "200 OK"})
              
@@ -151,14 +151,12 @@ def clients_manage():
                         for client in clients:
                             if client["adminID"] == adminID:
                                 new_clients_list.append(client)
-
-                                return jsonify({"clients": new_clients_list, "admin": adminID, "message": "Clients database loaded sucessfully", "status": "200 OK"})
+       
+                        return jsonify({"clients": new_clients_list, "admin": adminID, "message": "Clients database loaded sucessfully", "status": "200 OK"})
 
                 return jsonify({"clients": clients, "message": "Clients database loaded successfully", "status": "200 OK"})
 
         return jsonify({"clients": [], "message": "Clients database empity", "status": "204 NO CONTENT"})
-
-
 
 
 
@@ -205,10 +203,10 @@ def edit_clients(clientEmailorID):
             with open(path, "r") as file:
                 clients = json.load(file)
 
-                if any(client['email'] == clientEmailorID for client in clients) | any(client['clientID'] == clientEmailorID for client in clients):
+                if (any(client['email'] == clientEmailorID for client in clients) or any(client['clientID'] == clientEmailorID for client in clients)):
 
                     for client in clients:
-                        if (client['email'] == clientEmailorID) | (client['clientID'] == clientEmailorID):
+                        if ((client['email'] == clientEmailorID) or (client['clientID'] == clientEmailorID)):
                             return jsonify({"client": client, "message": "Client loaded successfully", "status": "200 OK"})
 
                 return jsonify({"client": clientEmailorID, "message": "The client not exists", "status": "204 NO CONTENT"})
@@ -223,7 +221,7 @@ def edit_clients(clientEmailorID):
             with open(path, "r+") as file:
                 clients = json.load(file)
 
-                if any(client['clientID'] == body['clientID'] and client['clientID'] == clientID for client in clients):
+                if any(client['clientID'] == body['clientID'] and client['clientID'] == clientEmailorID for client in clients):
 
                     for client in clients:
                         if client['clientID'] == body['clientID']:
@@ -234,7 +232,7 @@ def edit_clients(clientEmailorID):
                                 file.write(json.dumps(clients, indent = 4))
                                 return jsonify({"client": body, "message": "Client data updated", "status": "200 OK"})
 
-                return jsonify({"client": clientID, "message": "The clientID not exists", "status": "304 NOT MODIFED"})
+                return jsonify({"client": clientEmailorID, "message": "The clientID not exists", "status": "304 NOT MODIFED"})
 
         return jsonify({"clients_list": [], "message": "Clients database empity", "status": "204 NO CONTENT"})
 
@@ -247,22 +245,22 @@ def edit_clients(clientEmailorID):
                 clients = json.load(file)
               
                 for client in clients:
-                    if client['clientID'] == clientID:
+                    if client['clientID'] == clientEmailorID:
 
                         clients.remove(client)
 
                         with open(path, "w") as file:
 
                             file.write(json.dumps(clients, indent = 4))
-                            return jsonify({"client": clientID, "message": "Client deleted successfully", "status": "200 OK"})
+                            return jsonify({"client": clientEmailorID, "message": "Client deleted successfully", "status": "200 OK"})
 
-                return jsonify({"client": clientID, "message": "The clientID not exists", "status": "304 NOT MODIFED"})
+                return jsonify({"client": clientEmailorID, "message": "The clientID not exists", "status": "304 NOT MODIFED"})
 
         return jsonify({"clients": [], "message": "Clients database empity", "status": "204 NO CONTENT"})
 
 
 
-#  [P R O Y E C T S]  &&    [P R O Y E C T S - P A R A M S]
+#  [P R O Y E C T S]  &&    [P R O Y E C T S - P A R A M S]     [P R O Y E C T S]  &&    [P R O Y E C T S - P A R A M S]
 
 @app.route("/api/v1/proyects", methods=["GET", "POST"])
 def proyects_manage():
@@ -333,7 +331,7 @@ def proyects_manage():
             if not os.path.exists(path):
                 os.mkdir(path)
                 os.mkdir(os.path.join(path, 'ideas'))
-                os.mkdir(os.path.join(path, 'doc'))
+                os.mkdir(os.path.join(path, 'documentacion'))
                 os.mkdir(os.path.join(path, 'anteproyecto'))
                 os.mkdir(os.path.join(path, 'avances'))
                 os.mkdir(os.path.join(path, 'legajo'))
@@ -370,7 +368,7 @@ def proyects_manage():
             if not os.path.exists(path):
                 os.mkdir(path)
                 os.mkdir(os.path.join(path, 'ideas'))
-                os.mkdir(os.path.join(path, 'doc'))
+                os.mkdir(os.path.join(path, 'documentacion'))
                 os.mkdir(os.path.join(path, 'anteproyecto'))
                 os.mkdir(os.path.join(path, 'avances'))
                 os.mkdir(os.path.join(path, 'legajo'))
@@ -457,7 +455,7 @@ def admin_proyect(proyectID):
 
                 return jsonify({"proyect": proyectID, "message": "The proyectID not exists", "status": "304 NOT MODIFED"})
 
-        return jsonify({"proyects_list": [], "message": "Proyects database empity", "status": "204 NO CONTENT"})
+        return jsonify({"proyects": [], "message": "Proyects database empity", "status": "204 NO CONTENT"})
 
 
 
@@ -487,7 +485,7 @@ def admin_proyect(proyectID):
 
                 return jsonify({"proyect": proyectID, "message": "The proyectID not exists", "status": "304 NOT MODIFED"})
 
-        return jsonify({"proyects_list": [], "message": "Proyects database empity", "status": "304 NOT MODIFED"})
+        return jsonify({"proyects": [], "message": "Proyects database empity", "status": "304 NOT MODIFED"})
 
 
 
@@ -558,7 +556,7 @@ def files_view(proyect, section):
                     files = []
                     files.append(body)
                     file.write(json.dumps(files, indent = 4))
-                    return jsonify({"file": body, "message": "Files database updated", "status": "200 OK"})   
+                    return jsonify({"file": body, "message": "Files database updated", "status": "201 CREATED"})   
             else:
                 with open(path, "r+") as file:
                     files = json.load(file)
@@ -567,7 +565,7 @@ def files_view(proyect, section):
                         files.append(body)  
                         file.seek(0)
                         json.dump(files, file, indent = 4)
-                        return jsonify({"file": body, "message": "Files database updated", "status": "200 OK"})
+                        return jsonify({"file": body, "message": "Files database updated", "status": "201 CREATED"})
 
                     return jsonify({'message': 'The file name already exist', 'status': '304 NOT MODIFED'})
 
