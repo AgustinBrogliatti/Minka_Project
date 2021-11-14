@@ -33,7 +33,7 @@ export default {
       clientData: "",
     }
   },
-  mounted() {
+  beforeMount() {
     axios.get("http://localhost:4000/api/v1/clients/" + this.$route.params.id)
     .then(response => {
       this.clientData = response.data.client

@@ -60,9 +60,10 @@ export default {
       if (this.email != null && this.password != null) {
         axios.get("http://localhost:4000/api/v1/admins/" + this.email)
             .then(response => {
-              console.log(response.data.message)
-              if ((response.data.admin['email'] == this.email || response.data.client['adminID'] == this.email)
+              console.log(response)
+              if ((response.data.admin['email'] == this.email || response.data.admin['adminID'] == this.email)
                   && response.data.admin['password'] == this.password) {
+                console.log(response)
                 this.$router.push('/admin/' + response.data.admin.adminID + "/home")
               } else {
                 this.error = true
@@ -71,7 +72,7 @@ export default {
 
             })
             .catch(response => {
-              console.log(response.data.message)
+              console.log(response.data)
             })
       } else {
         this.error = true

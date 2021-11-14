@@ -1,6 +1,6 @@
 <template>
   <div class="body-page-client">
-    <ProyectClient v-for="(proyect, index) in proyects" :key="index" v-bind:proyect="proyect"></ProyectClient>
+    <Proyect v-for="(proyect, index) in proyects" :key="index" v-bind:proyect="proyect"></Proyect>
 
 
   </div>
@@ -9,13 +9,13 @@
 
 <script>
 
-import ProyectClient from "@/components/Client/ProyectClient";
+import Proyect from "@/components/Client/Proyect";
 import axios from "axios";
 
 export default {
-  name: "CatalogueClient",
+  name: "Proyects",
   components: {
-    ProyectClient
+    Proyect
   },
   data () {
     return {

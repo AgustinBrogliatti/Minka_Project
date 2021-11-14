@@ -1,6 +1,6 @@
 <template>
   <div id="home_page">
-    <Header  v-bind:userData="{name: this.adminData.name, lastname: this.adminData.lastname}"></Header>
+    <Header v-bind:userData="{name: this.adminData.name, lastname: this.adminData.lastname}"></Header>
     <div id="content-body">
       <NavBar></NavBar>
       <ContactArq></ContactArq>

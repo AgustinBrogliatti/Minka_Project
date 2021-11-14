@@ -20,17 +20,38 @@ export default {
   name: "NavBarEstudio",
   data () {
     return {
-      toHome: "/admin/" + this.$route.params.id + "/home",
-      toMiEstudio: "/admin/" + this.$route.params.id +  "/miestudio/" + this.$route.params.proyect + "/misarchivos",
-      toIdeas: "/admin/" + this.$route.params.id +  "/miestudio/" + this.$route.params.proyect + "/ideas",
-      toAnteproyecto: "/admin/" + this.$route.params.id +  "/miestudio/" + this.$route.params.proyect + "/anteproyecto",
-      toDoc: "/admin/" + this.$route.params.id +  "/miestudio/" + this.$route.params.proyect + "/documentacion",
-      toAvances: "/admin/" + this.$route.params.id +  "/miestudio/" + this.$route.params.proyect + "/avances",
-      toLegajo: "/admin/" + this.$route.params.id +  "/miestudio/" + this.$route.params.proyect + "/legajo",
-      toObra: "/admin/" + this.$route.params.id +  "/miestudio/" + this.$route.params.proyect + "/obra",
-
+      toHome: null,
+      toMiEstudio: null,
+      toIdeas: null,
+      toAnteproyecto: null,
+      toDoc: null,
+      toAvances: null,
+      toLegajo: null,
+      toObra: null,
     }
-  }
+  },
+  beforeMount() {
+    if (this.$route.fullPath.match("admin") != null) {
+      this.toHome = "/admin/" + this.$route.params.id + "/home";
+      this.toMiEstudio = "/admin/" + this.$route.params.id +  "/miestudio/" + this.$route.params.proyect + "/misarchivos";
+      this.toIdeas = "/admin/" + this.$route.params.id +  "/miestudio/" + this.$route.params.proyect + "/ideas";
+      this.toAnteproyecto = "/admin/" + this.$route.params.id +  "/miestudio/" + this.$route.params.proyect + "/anteproyecto";
+      this.toDoc = "/admin/" + this.$route.params.id +  "/miestudio/" + this.$route.params.proyect + "/documentacion";
+      this.toAvances = "/admin/" + this.$route.params.id +  "/miestudio/" + this.$route.params.proyect + "/avances";
+      this.toLegajo = "/admin/" + this.$route.params.id +  "/miestudio/" + this.$route.params.proyect + "/legajo";
+      this.toObra = "/admin/" + this.$route.params.id +  "/miestudio/" + this.$route.params.proyect + "/obra";
+      }
+    else {
+      this.toHome = "/" + this.$route.params.id + "/home";
+      this.toMiEstudio = "/" + this.$route.params.id +  "/miestudio/" + this.$route.params.proyect + "/misarchivos";
+      this.toIdeas = "/" + this.$route.params.id +  "/miestudio/" + this.$route.params.proyect + "/ideas";
+      this.toAnteproyecto = "/" + this.$route.params.id +  "/miestudio/" + this.$route.params.proyect + "/anteproyecto";
+      this.toDoc = "/" + this.$route.params.id +  "/miestudio/" + this.$route.params.proyect + "/documentacion";
+      this.toAvances = "/" + this.$route.params.id +  "/miestudio/" + this.$route.params.proyect + "/avances";
+      this.toLegajo = "/" + this.$route.params.id +  "/miestudio/" + this.$route.params.proyect + "/legajo";
+      this.toObra = "/" + this.$route.params.id +  "/miestudio/" + this.$route.params.proyect + "/obra";
+    }
+  },
 }
 </script>
 

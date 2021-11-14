@@ -8,7 +8,7 @@ import Register from "./components/Login/Register";
 
 import Home from "./components/Client/Home";
 import Profile from "./components/Client/ProfileView";
-import Contacto from "./components/Client/Contacto";
+import Contacto from "./components/Client/ContactView";
 
 import HomeArq from "./components/Architect/HomeArq";
 import AddClient from "@/components/Architect/AddClientView";

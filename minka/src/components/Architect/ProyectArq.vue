@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: "Proyect",
+  name: "ProyectArq",
   methods: {
     toProyect() {
       this.$router.push("/admin/" + this.$route.params.id + "/miestudio/" + this.proyect.name + "/misarchivos")

@@ -1,6 +1,6 @@
 <template>
   <div id="home_page">
-    <Header v-bind:userData="{name: this.adminData.name, lastname: this.adminData.lastname}"></Header>
+    <Header v-bind:userData="{name: this.userData.name, lastname: this.userData.lastname}"></Header>
     <div id="content-body">
       <NavBarEstudio></NavBarEstudio>
       <FilesManager v-bind:section="this.$route.name"></FilesManager>
@@ -31,7 +31,7 @@ export default {
   },
   data() {
     return{
-      adminData: "",
+      userData: "",
       file:'',
       message: '',
       files: [],
@@ -39,12 +39,19 @@ export default {
     }
   },
   beforeMount() {
-    axios.get("http://localhost:4000/api/v1/admins/" + this.$route.params.id)
-        .then(response => {
-          this.adminData = response.data.admin
-          console.log(response.data.message)
-
-        })
+    if (this.$route.fullPath.match("admin") != null) {
+      axios.get("http://localhost:4000/api/v1/admins/" + this.$route.params.id)
+          .then(response => {
+            this.userData = response.data.admin
+            console.log(response.data.message)
+          })
+    } else {
+      axios.get("http://localhost:4000/api/v1/clients/" + this.$route.params.id)
+          .then(response => {
+            this.userData = response.data.client
+            console.log(response.data.message)
+          })
+    }
   }
 }
 </script>

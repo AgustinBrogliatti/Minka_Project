@@ -2,16 +2,29 @@
   <div class="body-page" id="content-contact">
       <h1>Contactos</h1>
     <div id="contacts">
-      <div id="client-contact" v-for="(client, index) in clients" :key="index">
-        <p>Nombre: {{client.name}} {{client.lastname}}</p>
-        <p>Email: {{client.email}}</p>
-        <p>Telefono: {{client.tel}}</p>
-        <p>Direccion: {{client.address}}</p>
-        <p>Pais: {{client.country}}</p>
-        <p>Provincia: {{client.province}}</p>
-        <p>Ciudad: {{client.city}}</p>
-        <p>Proyectos:</p>
-      </div>
+      <table id="customers">
+        <tr>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Telefono</th>
+          <th>Direccion</th>
+          <th>Pais</th>
+          <th>Provincia</th>
+          <th>Ciudad</th>
+          <th>Proyectos</th>
+        </tr>
+        <tr id="client-contact" v-for="(client, index) in clients" :key="index">
+          <td>{{client.name}} {{client.lastname}}</td>
+          <td>{{client.email}}</td>
+          <td>{{client.tel}}</td>
+          <td>{{client.address}}</td>
+          <td>{{client.country}}</td>
+          <td>{{client.province}}</td>
+          <td>{{client.city}}</td>
+          <td></td>
+        </tr>
+      </table>
+
     </div>
   </div>
 </template>
@@ -23,7 +36,7 @@ export default {
   name: "ContactArq",
   data () {
     return {
-      clients: null,
+      clients:null,
       proyects: [],
     }
   },
@@ -54,4 +67,26 @@ export default {
 <style scoped>
 @import "../../assets/CSS/main_layout.css";
 @import "../../assets/CSS/body.css";
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: var(--main-color);
+  color: white;
+}
 </style>

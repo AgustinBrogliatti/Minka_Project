@@ -7,7 +7,7 @@
 
 <script>
 
-import Proyect from "@/components/Architect/Proyect";
+import Proyect from "@/components/Architect/ProyectArq";
 import axios from "axios";
 
 export default {

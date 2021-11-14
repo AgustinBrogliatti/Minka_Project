@@ -13,7 +13,7 @@
 <script>
 import Header from "../Header";
 import NavBarClient from "./NavBarClient";
-import CatalogueClient from "./CatalogueClient";
+import CatalogueClient from "./Proyects";
 import Banner from "../Banner";
 import Footer from "../Footer";
 import axios from "axios";

@@ -1,12 +1,9 @@
 <template>
   <div id="home_page">
-    <Header></Header>
+    <Header v-bind:userData="{name: this.clientData.name, lastname: this.clientData.lastname}"></Header>
     <div id="content-body">
       <NavBarCli></NavBarCli>
-      <div class="body-page">
-        <h2> Nombre arquitecto: </h2>
-        <p> {{nombre}} </p>
-      </div>
+      <Contact></Contact>
       <Banner></Banner>
     </div>
     <Footer></Footer>
@@ -19,19 +16,29 @@ import Header from "../Header";
 import Footer from "../Footer";
 import NavBarCli from "./NavBarClient";
 import Banner from "../Banner";
+import axios from "axios";
+import Contact from "@/components/Client/Contact";
 
 export default {
-  name: "Contacto",
+  name: "ContactView",
   components: {
     Header,
     Footer,
+    Contact,
     NavBarCli,
     Banner,
   },
   data() {
     return {
-      nombre: "Raul Pedro García"
+      clientData: ""
     }
+  },
+  beforeMount() {
+    axios.get("http://localhost:4000/api/v1/clients/" + this.$route.params.id)
+        .then(response => {
+          this.clientData = response.data.client
+          console.log(response.data.message)
+        })
   }
 }
 </script>
