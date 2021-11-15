@@ -34,7 +34,7 @@ también por la terminal, mediante los siguientes comandos:
 npm install --save @fortawesome/fontawesome-free
 npm install axios
 ```
-Una vez hecho todo esto, deberá continuar con las instalaciones correspondientes al API en el link que aparece a continuación, para así para finalmente disfrutar de la aplicación.
+Una vez hecho todo esto, deberá continuar con las instalaciones correspondientes al API en el link que aparece a continuación, para así finalmente disfrutar de la aplicación.
 https://github.com/AgustinBrogliatti/Minka_API
 
 ## Autores 🖋
