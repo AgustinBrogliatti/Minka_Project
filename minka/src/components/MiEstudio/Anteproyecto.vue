@@ -46,11 +46,21 @@ export default {
             this.userData = response.data.admin
             console.log(response.data.message)
           })
+          .catch(err => {
+            console.log(err)
+            console.log("INTERNAL SERVER ERROR 500")
+            this.$router.push("/error-server")
+          })
     } else {
       axios.get("http://localhost:4000/api/v1/clients/" + this.$route.params.id)
           .then(response => {
             this.userData = response.data.client
             console.log(response.data.message)
+          })
+          .catch(err => {
+            console.log(err)
+            console.log("INTERNAL SERVER ERROR 500")
+            this.$router.push("/error-server")
           })
     }
   }

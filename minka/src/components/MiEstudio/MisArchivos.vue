@@ -1,141 +1,181 @@
 <template>
-  <div id="home_page">
-    <Header v-bind:userData="{name: this.userData.name, lastname: this.userData.lastname}"></Header>
-    <div id="content-body">
-      <NavBarEstudio></NavBarEstudio>
+  <div class="body-page container_auxiliar titles">
+    <h2>{{this.seccion.charAt(0).toUpperCase() + this.seccion.slice(1) }}</h2>
+    <div id="content-files">
+      <div id="files" v-for="(file, index) in files" :key="index" >
+        <div id="content-image">
+          <img :src="files[index].url" :alt="files[index].name">
+        </div>
+        <div id="content-message">
+          {{file.message}}
+        </div>
 
-      <div id="files">
-        <FilesManager v-for="(section, index) in sections" :key="index" :section="section"></FilesManager>
+        <div id="content-buttons">
+          <input type="button" class="button-files" value="Descargar" @click="downloadFile(file.name)">
+          <input type="button" id="button-delete"  value="Eliminar" @click="deleteFile(file)">
+        </div>
       </div>
-
-      <Banner></Banner>
     </div>
-    <Footer></Footer>
   </div>
 
 </template>
 
 <script>
-
-
-import Header from "@/components/Header";
-import NavBarEstudio from "./NavBarEstudio";
-import Banner from "@/components/Banner";
-import Footer from "@/components/Footer";
 import axios from "axios";
-import FilesManager from "@/components/MiEstudio/FilesManager";
+
+const extensionsAllowed = ['JPEG', 'JPG', 'PNG', 'GIF', 'DWG', 'DXF', 'PDF', 'TXT', 'jfif']
 
 export default {
   name: "MisArchivos",
-  components: {
-    NavBarEstudio,
-    FilesManager,
-    Header,
-    Banner,
-    Footer,
-
-  },
   data() {
     return{
-      userData: "",
-      sections: ["ideas", "documentacion", "anteproyecto", "avances", "legajo", "obra"]
+      adminData: "",
+      file:'',
+      message: '',
+      files: [],
+    }
+  },
+  props: {
+    seccion: {
+      type: String,
+      required: true,
     }
   },
   beforeMount() {
-    if (this.$route.fullPath.match("admin") != null) {
-      axios.get("http://localhost:4000/api/v1/admins/" + this.$route.params.id)
-          .then(response => {
-            this.userData = response.data.admin
-            console.log(response.data.message)
-          })
-    } else {
-      axios.get("http://localhost:4000/api/v1/clients/" + this.$route.params.id)
-          .then(response => {
-            this.userData = response.data.client
-            console.log(response.data.message)
-          })
-    }
-  }
-};
+    axios.get("http://localhost:4000/api/v1/admins/" + this.$route.params.id)
+        .then(response => {
+          this.adminData = response.data.admin
+          console.log(response.data.message)
+          this.getFiles()
+        })
+        .catch(err => {
+          console.log(err)
+          console.log("INTERNAL SERVER ERROR 500")
+          this.$router.push("/error-server")
+        })
 
+    document.addEventListener("DOMContentLoaded", () => {this.getFiles()})
+
+  },
+  methods: {
+    getFiles () {
+      axios.get('http://localhost:4000/api/v1/uploads/files-view/' + this.$route.params.proyect + "/"+ this.seccion.toLowerCase())
+          .then(response => {
+            this.files = response.data["files"]
+            console.log(response.data.message)
+          })
+          .catch (err => {
+            console.log(err)
+            console.log("INTERNAL SERVER ERROR 500")
+          })
+    },
+    handleFileUpload() {
+      this.file = this.$refs.file.files[0];
+    },
+
+    submitFile() {
+      let formData = new FormData();
+      formData.append('file', this.file);
+      let extension = this.file.name.split(".").reverse()[0].toUpperCase();
+
+      if (extensionsAllowed.includes(extension)) {
+        let fileName = this.file.name
+        fileName = fileName.replace(/[\s$&+,:;=?@<>"'`#%~{}^]/gi, "_");
+        fileName = fileName.replace(/^[_]*|[_]*$/gi, "");
+        fileName = fileName.replace(/[()]/gi, "");
+        fileName = fileName.replace(/[_]+/gi, "_");
+
+
+        axios.post('http://localhost:4000/api/v1/upload-file/' + this.$route.params.proyect + "/" + this.seccion.toLowerCase(), formData,
+            {headers: {'Content-Type': 'multipart/form-data'},
+            }
+        )
+            .then(response => {
+              console.log(response.data.message)
+
+              let file = {name:'', url: '', message: this.message};
+              file.name = fileName;
+
+              if (file.name.split(".").reverse()[0] == "pdf") {
+                file.url = "https://cdn-icons-png.flaticon.com/512/337/337946.png";
+              } else if (file.name.split(".").reverse()[0] == ("dwg" || "dxf")) {
+                file.url = "https://gisresources.com/wp-content/uploads/2016/09/dwg-icon.png";
+              } else if (file.name.split(".").reverse()[0] == ("txt")) {
+                file.url = "https://cdn-icons-png.flaticon.com/512/28/28878.png";
+              }  else {
+                file.url = 'http://localhost:4000/api/v1/uploads/' + this.$route.params.proyect + "/"+ this.seccion.toLowerCase() + "/" + file.name;
+              }
+
+              if (response.data.message != "The file name already exist") {
+                axios.post('http://localhost:4000/api/v1/uploads/files-view/' + this.$route.params.proyect + "/" +this.seccion.toLowerCase() , file)
+                    .then(response => {
+                      console.log(response.data.message)
+                      setTimeout(function(){ location.reload(); }, 2500);
+                    })
+                    .catch(err => {
+                      console.log(err)
+                      console.log("INTERNAL SERVER ERROR 500")
+                      this.$router.push("/error-server")
+                    })
+              }
+
+            })
+            .catch(err => {
+              console.log(err)
+              console.log("INTERNAL SERVER ERROR 500")
+              this.$router.push("/error-server")
+            })
+      } else {
+        console.log("The file extension not allowed")
+      }
+
+    },
+    downloadFile(fileName) {
+
+      fileName = fileName.replace(/[\s$&+,:;=?@<>"'`#%~{}^]/gi, "_");
+      fileName = fileName.replace(/^[_]*|[_]*$/gi, "");
+      fileName = fileName.replace(/[()]/gi, "");
+      fileName = fileName.replace(/[_]+/gi, "_");
+
+      axios.get('http://localhost:4000/api/v1/uploads/' + this.$route.params.proyect + "/" + this.seccion.toLowerCase() + "/" + fileName, {responseType: 'blob'})
+          .then(response => {
+            const url = window.URL.createObjectURL(new Blob([response.data]));
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', fileName);
+            document.body.appendChild(link);
+            link.click();
+            console.log("File downloaded successfully")
+
+          })
+          .catch(err => {
+            console.log(err)
+            console.log("INTERNAL SERVER ERROR 500")
+            this.$router.push("/error-server")
+          })
+    },
+    deleteFile(file) {
+      axios.delete('http://localhost:4000/api/v1/uploads/' +  this.$route.params.proyect + "/" + this.seccion.toLowerCase() + "/" + file.name)
+          .then(response => {
+            console.log(response.data.message)
+            location.reload()
+          })
+          .catch(err => {
+            console.log(err)
+            console.log("INTERNAL SERVER ERROR 500")
+            this.$router.push("/error-server")
+          })
+
+    },
+  }
+}
 
 </script>
 
 <style scoped>
 @import "../../assets/CSS/main_layout.css";
+@import "../../assets/CSS/normalize.css";
 @import "../../assets/CSS/MyFiles.css";
 
 
-.file-container  {
-  width: 100px;
-  height: 100px;
-  border: 1px solid lightgray;
-  margin: .9%;
-  box-sizing: border-box;
-  background: white;
-  align-items: ;
-}
-
-.file-container:hover {
-  border: 1px solid #777;
-}
-
-
-.file-container__img  {
-  width: 100%;
-  height: 100%;
-  border: 1px solid steelblue;
-  padding: 1%;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-
-}
-
-#file-container__img  img{
-  width: 50%;
-  align-self: center;
-}
-
-.file-container__description   {
-  width: 100%;
-  height: 50%;
-  padding: 1%;
-  border: 1px solid steelblue;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  font-size: .8em;
-
-}
-
-.file-container__description p {
-  margin: .6% 2%;
-  font-size: 1em;
-}
-
-#add-project_button {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 10px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-#files {
-  display: flex;
-  flex-direction: column;
-  margin-left: -8%;
-  margin-top: 3%;
-  margin-right: -5%;
-  height: 60%;
-  width: 70%;
-  align-items: center;
-}
 </style>

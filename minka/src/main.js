@@ -16,7 +16,7 @@ import AddProject from "@/components/Architect/AddProjectView";
 import ProfileArq from "./components/Architect/ProfileArqView";
 import ContactArq from "./components/Architect/ContactArqView";
 
-import MisArchivos from "./components/MiEstudio/MisArchivos";
+import MisArchivos from "./components/MiEstudio/MisArchivosView";
 import Ideas from "./components/MiEstudio/Ideas";
 import Documentacion from "./components/MiEstudio/Documentacion";
 import Anteproyecto from "./components/MiEstudio/Anteproyecto";
@@ -26,6 +26,7 @@ import Obra from "./components/MiEstudio/Obra";
 
 import AboutUS from "./components/AboutUs";
 import ErrorPage from "./components/ErrorPage";
+import Error500 from "./components/Error500";
 
 //npm install --save @fortawesome/fontawesome-free
 import '@fortawesome/fontawesome-free/js/all'
@@ -70,8 +71,9 @@ const routes = [
   {path: '/admin/:id/miestudio/:proyect/avances', name:"Avances", component: Avances},
   {path: '/admin/:id/miestudio/:proyect/legajo', name:"Legajo", component: Legajo},
   {path: '/admin/:id/miestudio/:proyect/obra', name:"Obra", component: Obra},
-
+  {path: '/error-server', name:"Error500", component: Error500},
   {path: '/*', name:"ErrorPage", component: ErrorPage},
+
 ]
 
 

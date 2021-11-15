@@ -34,7 +34,7 @@
 
       <br><br>
 
-      <input id="add-client_button" type="button" @click="registerClient()"  value="AÑADIR CLIENTE">
+      <input class="add_button" type="button" @click="registerClient()"  value="AÑADIR CLIENTE">
     </form>
   </div>
 
@@ -113,6 +113,7 @@ export default {
             .catch(err => {
               console.log(err)
               console.log("INTERNAL SERVER ERROR 500")
+              this.$router.push("/error-server")
             })
 
       } else {

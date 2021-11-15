@@ -17,7 +17,7 @@
         <input type="date" v-model="date" required>
         <br><br>
 
-        <input id="add-project_button" type="button" @click="createProyect()" value="AÑADIR PROYECTO">
+        <input class="add-project_button" type="button" @click="createProyect()" value="AÑADIR PROYECTO">
         <p class="message" v-if="alertPost">{{message}}</p>
         <p v-if="error" class="login-error">{{message}}</p>
 
@@ -66,6 +66,11 @@ export default {
               this.alertPost = true
             } else {this.alertPost = true}
           })
+            .catch(err => {
+              console.log(err)
+              console.log("INTERNAL SERVER ERROR 500")
+              this.$router.push("/error-server")
+            })
       } else{
         this.message = "Debes completar todos los campos"
         if (this.alertPost == true) {
@@ -82,6 +87,11 @@ export default {
         console.log(response.data.message)
         this.clients = response.data.clients
       })
+        .catch(err => {
+          console.log(err)
+          console.log("INTERNAL SERVER ERROR 500")
+          this.$router.push("/error-server")
+        })
   }
 }
 </script>

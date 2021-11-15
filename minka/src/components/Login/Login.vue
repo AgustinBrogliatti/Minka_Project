@@ -70,10 +70,11 @@ export default {
               this.error = true
               this.$refs.email.focus()
             }
-
           })
-          .catch(response => {
-            console.log(response.data.message)
+          .catch(err => {
+            console.log(err)
+            console.log("INTERNAL SERVER ERROR 500")
+            this.$router.push("/error-server")
           })
       } else {
         this.error = true

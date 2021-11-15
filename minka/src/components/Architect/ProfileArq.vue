@@ -15,7 +15,7 @@
       </div>
       <p class="message" v-if="message">Datos actualizados exitosamente</p>
       <p v-if="error" class="login-error">{{alertMessage}}</p>
-      <input type="button" id="add-client_button" @click="updateAdminData()" value="Actualizar Datos">
+      <input type="button" class="add_button"  @click="updateAdminData()" value="Actualizar Datos">
     </div>
   </div>
 </template>
@@ -37,6 +37,11 @@ export default {
           this.tel = this.adminData.tel
           this.address = this.adminData.address
           this.card = this.adminData.card
+        })
+        .catch(err => {
+          console.log(err)
+          console.log("INTERNAL SERVER ERROR 500")
+          this.$router.push("/error-server")
         })
 
   },
@@ -82,6 +87,11 @@ export default {
                   this.error = false
                   this.message = true
                 } else {this.message = true}
+              })
+              .catch(err => {
+                console.log(err)
+                console.log("INTERNAL SERVER ERROR 500")
+                this.$router.push("/error-server")
               })
         } else {
           this.alertMessage = "Contraseña incorrecta"

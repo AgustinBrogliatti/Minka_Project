@@ -45,6 +45,11 @@ export default {
       .then(response => {
         this.clients = response.data.clients
       })
+      .catch(err => {
+        console.log(err)
+        console.log("INTERNAL SERVER ERROR 500")
+        this.$router.push("/error-server")
+      })
   },
   methods: {
     // getClientProyects(clientID) {

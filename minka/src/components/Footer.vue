@@ -12,8 +12,8 @@
       </div>
       <p class="footer-links">
         <router-link :to="toHome">Home </router-link>
-        <router-link class="bar" to="aboutus">Acerca de nosotros </router-link>
-        <router-link class="bar" to="aboutus">Contacto</router-link>
+        <router-link class="bar" :to="toAboutUs">Acerca de nosotros </router-link>
+        <router-link class="bar" :to="toAboutUs">Contacto</router-link>
       </p>
       <p id="footer-company-name">Minka© 2021. All rights reserved.</p>
     </div>
@@ -27,16 +27,19 @@ export default {
   data () {
     return {
       toHome: "",
-      toContact: "/admin/" + this.$route.params.id + "/contact",
+      toContact: "",
+      toAboutUs: "",
     }
   },
   beforeMount () {
     if (this.$route.fullPath.match("admin") != null) {
       this.toHome = "/admin/" + this.$route.params.id + "/home"
       this.toContact = "/admin/" + this.$route.params.id + "/contact"
+      this.toAboutUs = "/admin/" + this.$route.params.id + "/aboutus"
     } else {
       this.toHome = "/" + this.$route.params.id + "/home"
       this.toContact = "/" + this.$route.params.id + "/contact"
+      this.toContact = "/" + this.$route.params.id + "/aboutus"
     }
   }
 }
@@ -50,11 +53,12 @@ export default {
 .footer-distributed{
   background: #484E52;
   width: 100%;
-  height: 200px;
   text-align: center;
   padding: 30px;
   font-family: sans-serif;
   font-size: 17px;
+  height: 300px;
+
 }
 
 .footer-left{
@@ -62,6 +66,7 @@ export default {
   flex-direction: column;
   align-items: center;
   margin: auto;
+  margin-top: 70px;
 }
 
 #footer-company-name {

@@ -3,10 +3,12 @@
     <div id="content-article__img">
       <img  src="../../assets/img/default_gris.png">
     </div>
+
     <div id="content-article__description">
       <p>{{this.proyect.name}}</p>
       <p>{{this.proyect.clientName}} {{this.proyect.clientLastname}}</p>
-      <p>{{this.proyect.date}} - {{this.proyect.endpoint}}</p>
+      <p>{{this.proyect.date}}</p>
+      <input id="add-background"  class="add_button" type="button" value=" +  Agregar portada" @click="agregarPortada()">
     </div>
   </div>
 </template>
@@ -14,6 +16,11 @@
 <script>
 export default {
   name: "ProyectArq",
+  data() {
+    return {
+      image: '../../assets/img/default_gris.png',
+    }
+  },
   methods: {
     toProyect() {
       this.$router.push("/admin/" + this.$route.params.id + "/miestudio/" + this.proyect.name + "/misarchivos")
@@ -65,6 +72,13 @@ export default {
   #content-article__description p {
     margin: .6% 2%;
     font-size: 1 em;
+  }
+
+  #add-background {
+    font-size: 15px;
+    width: 40%;
+    margin: 5px;
+   padding: 5px;
   }
 
 </style>

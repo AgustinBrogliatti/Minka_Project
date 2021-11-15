@@ -14,7 +14,7 @@
         <label>Contraseña Actual:</label><input type="password" v-model="password">
         <label>Nueva Contraseña:</label><input type="password" v-model="newPassword">
       </div>
-      <input type="button" id="add-client_button" @click="updateAdminData()" value="Actualizar Datos">
+      <input type="button" class="add_button"  @click="updateAdminData()" value="Actualizar Datos">
     </div>
   </div>
 </template>
@@ -41,7 +41,11 @@ export default {
           this.cuit = this.clientData.cuit
           this.tel = this.clientData.tel
           this.address = this.clientData.address
-
+        })
+        .catch(err => {
+          console.log(err)
+          console.log("INTERNAL SERVER ERROR 500")
+          this.$router.push("/error-server")
         })
 
   },
@@ -89,6 +93,11 @@ export default {
           axios.put("http://localhost:4000/api/v1/clients/" + this.$route.params.id, newClientData)
               .then(response =>{
                 console.log(response.data.message)
+              })
+              .catch(err => {
+                console.log(err)
+                console.log("INTERNAL SERVER ERROR 500")
+                this.$router.push("/error-server")
               })
         } else {console.log("Contrase;a incorrecta")}
       } else{console.log("Completa los datos capo")}

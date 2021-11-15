@@ -35,7 +35,7 @@ textarea {
     margin: 20px;
 }
 
-#contacts2 {
+.content-contacts__section {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -43,14 +43,14 @@ textarea {
     width: auto;
 }
 
-#contacts3 {
+#content-contacts {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     width: 100%;
 }
 
-#client-contact2 {
+.content-contacts__section-card{
     margin: 20px;
     border: 1px solid gray;
     background-color: #cccccc;
@@ -69,6 +69,7 @@ textarea {
     background: #f2f2f2;
     margin-top: 4.4%;
     display: flex;
+    box-sizing: border-box;
 }
 
 form {
@@ -94,7 +95,7 @@ form {
     margin-bottom: 30px;
 }
 
-#add-client_button {
+.add_button {
     background-color: #4CAF50;
     border: none;
     color: white;
@@ -109,7 +110,7 @@ form {
     border-radius: 4px;
 }
 
-#add-project_button {
+.add-project_button {
     background-color: #4CAF50;
     border: none;
     color: white;
@@ -122,4 +123,8 @@ form {
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 4px;
+}
+
+.add-project_button:hover, .add-client_button:hover, .add_button:hover {
+    filter: brightness(.9);
 }

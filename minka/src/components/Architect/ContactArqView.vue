@@ -39,6 +39,11 @@ export default {
           this.adminData = response.data.admin
           console.log(response.data.message)
         })
+        .catch(err => {
+          console.log(err)
+          console.log("INTERNAL SERVER ERROR 500")
+          this.$router.push("/error-server")
+        })
 
   }
 }

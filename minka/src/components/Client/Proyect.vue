@@ -1,12 +1,12 @@
 <template>
   <div id="content-article" @click="toProyect()">
     <div id="content-article__img">
-      <img  src="../../assets/img/miravalles.jpeg">
+      <img  src="../../assets/img/default_gris.png">
     </div>
     <div id="content-article__description">
       <p>{{this.proyect.name}}</p>
       <p>{{this.proyect.adminName}} {{this.proyect.adminLastname}}</p>
-      <p>{{this.proyect.date}} - {{this.proyect.endpoint}}</p>
+      <p>{{this.proyect.date}}</p>
     </div>
   </div>
 </template>

@@ -157,6 +157,7 @@ export default {
               .catch(err => {
                 console.log(err)
                 console.log("INTERNAL SERVER ERROR 500")
+                this.$router.push("/error-server")
               })
 
         } else {
