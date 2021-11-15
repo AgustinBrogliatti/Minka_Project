@@ -34,12 +34,12 @@ export default {
   beforeMount () {
     if (this.$route.fullPath.match("admin") != null) {
       this.toHome = "/admin/" + this.$route.params.id + "/home"
-      this.toContact = "/admin/" + this.$route.params.id + "/contact"
+      this.toContact = "/admin/" + this.$route.params.id + "/aboutus"
       this.toAboutUs = "/admin/" + this.$route.params.id + "/aboutus"
     } else {
       this.toHome = "/" + this.$route.params.id + "/home"
-      this.toContact = "/" + this.$route.params.id + "/contact"
       this.toContact = "/" + this.$route.params.id + "/aboutus"
+      this.toAboutUs = "/" + this.$route.params.id + "/aboutus"
     }
   }
 }

@@ -14,6 +14,8 @@
         <label>Contraseña Actual:</label><input type="password" v-model="password">
         <label>Nueva Contraseña:</label><input type="password" v-model="newPassword">
       </div>
+      <p class="message" v-if="message">Datos actualizados exitosamente</p>
+      <p v-if="error" class="login-error">{{alertMessage}}</p>
       <input type="button" class="add_button"  @click="updateAdminData()" value="Actualizar Datos">
     </div>
   </div>
@@ -66,6 +68,9 @@ export default {
       password: null,
       newPassword: null,
       adminID: null,
+      message: false,
+      error: false,
+      alertMessage: "",
     }
   },
   methods: {
@@ -93,14 +98,29 @@ export default {
           axios.put("http://localhost:4000/api/v1/clients/" + this.$route.params.id, newClientData)
               .then(response =>{
                 console.log(response.data.message)
+                setTimeout(function(){ location.reload(); }, 2000);
+                if (this.error == true) {
+                  this.error = false
+                  this.message = true
+                } else {this.message = true}
               })
               .catch(err => {
                 console.log(err)
                 console.log("INTERNAL SERVER ERROR 500")
                 this.$router.push("/error-server")
               })
-        } else {console.log("Contrase;a incorrecta")}
-      } else{console.log("Completa los datos capo")}
+        }  else {
+          this.alertMessage = "Contraseña incorrecta"
+          if (this.message == true) {
+            this.message = false
+            this.error = true
+          } else {this.error = true}
+        }
+      } this.alertMessage = "Debes completar todos los campos"
+      if (this.message == true) {
+        this.message = false
+        this.error = true
+      } else {this.error = true}
     },
   }
 }

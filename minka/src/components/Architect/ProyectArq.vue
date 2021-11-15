@@ -6,7 +6,7 @@
 
     <div id="content-article__description">
       <p>{{this.proyect.name}}</p>
-      <p>{{this.proyect.clientName}} {{this.proyect.clientLastname}}</p>
+<!--      <p>{{this.clientData}} {{this.clientData}}</p>-->
       <p>{{this.proyect.date}}</p>
       <input id="add-background"  class="add_button" type="button" value=" +  Agregar portada" @click="agregarPortada()">
     </div>
@@ -14,11 +14,13 @@
 </template>
 
 <script>
+
 export default {
   name: "ProyectArq",
   data() {
     return {
       image: '../../assets/img/default_gris.png',
+      userData: null,
     }
   },
   methods: {
@@ -31,8 +33,8 @@ export default {
       type: Object,
       required: true,
     }
-  }
-  }
+  },
+}
 </script>
 
 <style scoped>

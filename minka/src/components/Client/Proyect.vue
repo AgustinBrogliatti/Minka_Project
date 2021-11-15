@@ -7,6 +7,7 @@
       <p>{{this.proyect.name}}</p>
       <p>{{this.proyect.adminName}} {{this.proyect.adminLastname}}</p>
       <p>{{this.proyect.date}}</p>
+      <input id="add-background"  class="add_button" type="button" value=" +  Agregar portada" @click="agregarPortada()">
     </div>
   </div>
 </template>
@@ -69,4 +70,11 @@ export default {
   font-size: 1 em;
 }
 
+
+#add-background {
+  font-size: 15px;
+  width: 40%;
+  margin: 5px;
+  padding: 5px;
+}
 </style>

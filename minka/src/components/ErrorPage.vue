@@ -7,7 +7,7 @@
       <img src="../assets/img/error-404-not-found.webp">
       <p>
         La URL solicitada no existe.<br>
-        Intentá reescribiendola o <u><router-link :to="toHome">{{message}}</router-link></u>
+        Intentá reescribiendola o <u><router-link :to="login">{{message}}</router-link></u>
       </p>
 
     </div>
@@ -18,7 +18,6 @@
 </template>
 
 <script>
-import Footer from "./Footer";
 import HeaderLogin from "@/components/Login/HeaderLogin";
 
 
@@ -26,24 +25,14 @@ export default {
   name: "QuienesSomos",
   components:{
     HeaderLogin,
-    Footer,
   },
   data () {
     return {
       userData: "",
-      message: "volvé a la homepage ",
-      toHome: "",
+      message: "volvé al inicio ",
+      login: "/"
     }
   },
-  beforeMount () {
-    if (this.$route.fullPath.match("admin") != null) {
-      this.toHome = "/admin/" + this.$route.params.id + "/home"
-
-    } else {
-      this.toHome = "/" + this.$route.params.id + "/home"
-    }
-  }
-
 }
 </script>
 
@@ -54,7 +43,7 @@ export default {
 #content-body3 {
   display: flex;
   width: 100%;
-  height: 120vh;
+  height: 100vh;
   flex-flow: column;
   justify-content: space-between;
   background-image: url("../assets/img/backgrounds/marmol_texture.jpg");
@@ -73,6 +62,7 @@ export default {
 p {
   text-align: left;
 }
+
 img{
   width: 35%;
 }

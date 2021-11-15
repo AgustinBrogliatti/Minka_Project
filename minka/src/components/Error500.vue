@@ -7,7 +7,7 @@
       <img src="../assets/img/error500.jpg">
       <p>
         Estamos trabajando para solucionarlo.<br>
-        <u><router-link to="login">{{message}}</router-link></u>
+        <u><router-link :to="login">{{message}}</router-link></u>
       </p>
 
     </div>
@@ -32,17 +32,9 @@ export default {
     return {
       userData: "",
       message: "volver al Inicio ",
-      toHome: "",
+      login: "/"
     }
   },
-  beforeMount () {
-    if (this.$route.fullPath.match("admin") != null) {
-      this.toHome = "/admin/" + this.$route.params.id + "/home"
-
-    } else {
-      this.toHome = "/" + this.$route.params.id + "/home"
-    }
-  }
 
 }
 </script>
