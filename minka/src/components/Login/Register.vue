@@ -131,6 +131,7 @@ export default {
             "email": this.email,
             "tel": '',
             "address": '',
+            "card": '',
           };
 
           axios.post('http://localhost:4000/api/v1/admins', adminData)

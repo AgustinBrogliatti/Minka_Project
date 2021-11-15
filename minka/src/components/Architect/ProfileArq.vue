@@ -9,9 +9,12 @@
         <label>Email:</label><input type="text" v-model="email">
         <label>Telefono:</label><input type="tel" v-model="tel">
         <label>Direccion:</label><input type="text" v-model="address">
+        <label>Matricula (Nro. de 8 digitos):</label><input type="number" v-model="card">
         <label>Contraseña Actual:</label><input type="password" v-model="password">
         <label>Nueva Contraseña:</label><input type="password" v-model="newPassword">
       </div>
+      <p class="message" v-if="message">Datos actualizados exitosamente</p>
+      <p v-if="alert" class="login-error">{{alertMessage}}</p>
       <input type="button" id="add-client_button" @click="updateAdminData()" value="Actualizar Datos">
     </div>
   </div>
@@ -33,20 +36,25 @@ export default {
           this.email = this.adminData.email
           this.tel = this.adminData.tel
           this.address = this.adminData.address
+          this.card = this.adminData.card
         })
 
   },
   data () {
     return {
-      adminData: null,
-      adminID: null,
-      name: null,
-      lastname: null,
-      email: null,
-      tel: null,
-      address: null,
-      password: null,
-      newPassword: null,
+      adminData: "",
+      adminID: "",
+      name: "",
+      lastname: "",
+      email: "",
+      tel: "",
+      address: "",
+      password: "",
+      newPassword: "",
+      card: "",
+      message: false,
+      alert: false,
+      alertMessage: "",
     }
   },
   methods: {
@@ -59,18 +67,36 @@ export default {
         "email": this.email,
         "tel": this.tel,
         "address": this.address,
+        "card": this.card,
       };
 
-      if (this.adminID != null && this.name != null && this.lastname != null
-          && this.email != null && this.tel != null && this.address != null && this.password != null && this.newPassword != null) {
+      if (this.adminID != "" && this.name != "" && this.lastname != "" && this.card != ""
+          && this.email != "" && this.tel != "" && this.address != "" && this.password != "" && this.newPassword != "") {
         if (this.password == this.adminData.password) {
 
           axios.put("http://localhost:4000/api/v1/admins/" + this.$route.params.id, newAdminData)
               .then(response =>{
                 console.log(response.data.message)
+                setTimeout(function(){ location.reload(); }, 2000);
+                if (this.alert == true) {
+                  this.alert = false
+                  this.message = true
+                } else {this.message = true}
               })
-        } else {console.log("Contrase;a incorrecta")}
-      } else{console.log("Completa los datos capo")}
+        } else {
+          this.alertMessage = "Contraseña incorrecta"
+          if (this.message == true) {
+            this.message = false
+            this.alert = true
+          } else {this.alert = true}
+        }
+      } else{
+          this.alertMessage = "Debes completar todos los campos"
+          if (this.message == true) {
+            this.message = false
+            this.alert = true
+          } else {this.alert = true}
+       }
     }
   }
   

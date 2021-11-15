@@ -11,7 +11,7 @@
           <router-link :to="toAddClient"><li>  <i class="fas fa-user-plus"></i>  Añadir cliente </li></router-link>
           <router-link :to="toAddProyect"> <li>  <i class="fas fa-plus"></i>  Añadir proyecto </li> </router-link>
           <router-link :to="toProfile"><li><i class="fas fa-user-circle"></i>  Mi Perfil</li></router-link>
-          <router-link :to="toContact"><li><i class="fas fa-address-card"></i>  Contacto</li></router-link>
+          <router-link :to="toContact"><li><i class="fas fa-address-card"></i>  Contactos</li></router-link>
           <router-link to="/"><li><i class="fas fa-sign-out-alt"></i>  Cerrar Sesión</li></router-link>
         </ul>
     </div>
