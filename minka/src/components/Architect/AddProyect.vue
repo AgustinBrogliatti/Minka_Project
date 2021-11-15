@@ -18,8 +18,8 @@
         <br><br>
 
         <input id="add-project_button" type="button" @click="createProyect()" value="AÑADIR PROYECTO">
-
         <p class="message" v-if="alertPost">{{message}}</p>
+        <p v-if="error" class="login-error">{{message}}</p>
 
       </form>
     </div>
@@ -39,7 +39,8 @@ export default {
       date: null,
       clients: null,
       alertPost: false,
-      message: null,
+      error: false,
+      message: null
     }
   },
   methods: {
@@ -59,9 +60,18 @@ export default {
         axios.post("http://localhost:4000/api/v1/proyects", newProyect)
           .then(response => {
             console.log(response.data.message);
-            this.message = response.data.message
-            this.alertPost = true;
+            this.message = "Proyecto añadido correctamente"
+            if (this.error == true) {
+              this.error = false
+              this.alertPost = true
+            } else {this.alertPost = true}
           })
+      } else{
+        this.message = "Debes completar todos los campos"
+        if (this.alertPost == true) {
+          this.alertPost = false
+          this.error = true
+        } else {this.error = true}
       }
     }
 

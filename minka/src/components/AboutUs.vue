@@ -1,6 +1,6 @@
 <template>
   <div id="content-body3">
-    <Header/>
+    <Header v-bind:userData="{name: this.userData.name, lastname: this.userData.lastname}"></Header>
     <br><br><br>
     <div id="content-body4">
       <h1>Quiénes Somos...</h1><br>
@@ -9,8 +9,10 @@
         Al analizar el trabajo a realizar por arquitectos y la forma en que el fruto de eso era presentado al cliente, observamos cierta dificultad y poca sincronicidad a la hora de hacerlo, lo que generaba disconformidad y atrasaba la realización de proyectos. <br><br>De esta forma, decidimos crear una plataforma con el objetivo de atacar esa problemática, e intentar hacer de la comunicación entre ambas partes algo más fluido.
         Así, y a través de Minka, esperamos que las ideas de clientes junto con la creatividad y profesionalismo de los arquitectos vayan de la mano en todo el proceso, para así fomentar el correcto desarrollo del proyecto, sin dejar nada atrás o prevenir algo por delante.
       </p>
-      <br><router-link to="home">Volvé a la homepage</router-link>
+      <br><router-link to="home">{{message}}</router-link>
+
     </div>
+
     <br><br><br>
     <Footer/>
   </div>
@@ -19,13 +21,34 @@
 <script>
 import Header from "./Header";
 import Footer from "./Footer";
+import axios from "axios";
 
 export default {
   name: "QuienesSomos",
   components:{
     Header,
     Footer,
-
+  },
+  data () {
+    return {
+      userData: "",
+      message: "<-- Volvé a la homepage "
+    }
+  },
+  beforeMount() {
+    if (this.$route.fullPath.match("admin") != null) {
+      axios.get("http://localhost:4000/api/v1/admins/" + this.$route.params.id)
+          .then(response => {
+            this.userData = response.data.admin
+            console.log(response.data.message)
+          })
+    } else {
+      axios.get("http://localhost:4000/api/v1/clients/" + this.$route.params.id)
+          .then(response => {
+            this.userData = response.data.client
+            console.log(response.data.message)
+          })
+    }
   }
 }
 </script>
@@ -37,9 +60,10 @@ export default {
 #content-body3 {
   display: flex;
   width: 100%;
+  height: 100vh;
   flex-flow: column;
   justify-content: space-between;
-  background-image: url("https://images.unsplash.com/photo-1558346648-9757f2fa4474?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80") ;
+  background-image: url("../assets/img/backgrounds/marmol_texture.jpg");
   background-size: cover;
 }
 
@@ -50,7 +74,6 @@ export default {
   background-color: aliceblue;
   padding: 2%;
   margin-left: 10%;
-
 }
 
 </style>

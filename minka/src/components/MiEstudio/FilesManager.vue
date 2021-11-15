@@ -1,27 +1,24 @@
 <template>
-  <div id="body">
-    <div id="files-manager_container">
-      <form id="form-fileUpdate">
-          <label> Suba su archivo aquí. Formatos compatibles: JPEG, JPG, PNG, GIF, DWG, DXF, XSLX, CSV, PDF
-            <input type="file" value="Elija su archivo"  ref="file" v-on:change="handleFileUpload()" required>
-            <label>Añada una breve descripción del archivo </label>
-            <textarea name="description"  cols="30" rows="2" maxlength="140" v-model="message" required></textarea>
-          </label>
-          <div id="submit-file" @click="submitFile()">    <i class="fas fa-plus"></i>      Añadir archivo  </div>
-      </form>
+  <div class="body-page container_auxiliar" id="contet-files">
+    <form id="form-fileUpdate">
+        <label> Suba su archivo aquí. Formatos compatibles: JPEG, JPG, PNG, DWG, DXF, XSLX, CSV, PDF
+          <input type="file"  ref="file" v-on:change="handleFileUpload()" required>
+          <label>Añada una breve descripción del archivo </label>
+          <textarea id="message" name="description" cols="30" rows="5" maxlength="140" v-model="message" required></textarea>
+        </label>
+        <div id="submit-file" @click="submitFile()">    <i class="fas fa-plus"></i>      Añadir archivo  </div>
+    </form>
 
-      <div v-for="(file, index) in files" :key="index" >
-        <img :src="files[index].url" :alt="files[index].name" width="10%">
-        {{file.message}} <br>
-        <button @click="downloadFile(file.name)">Descargar</button>
-        <button @click="deleteFile(file)">Delete</button>
-      </div>
+    <div id="content-image" v-for="(file, index) in files" :key="index">
+      <img :src="files[index].url" :alt="files[index].name" width="100%">
+      {{file.message}} <br>
+      <button @click="downloadFile(file.name)">Descargar</button>
+      <button @click="deleteFile(file)">Delete</button>
     </div>
   </div>
 
 </template>
 
-import axios from "axios";
 <script>
 import axios from "axios";
 

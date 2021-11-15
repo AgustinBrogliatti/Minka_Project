@@ -38,7 +38,6 @@ export default {
           this.adminData = response.data.admin
           console.log(response.data.message)
         })
-
   }
 }
 </script>

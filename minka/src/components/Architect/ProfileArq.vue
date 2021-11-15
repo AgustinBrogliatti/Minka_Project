@@ -14,7 +14,7 @@
         <label>Nueva Contraseña:</label><input type="password" v-model="newPassword">
       </div>
       <p class="message" v-if="message">Datos actualizados exitosamente</p>
-      <p v-if="alert" class="login-error">{{alertMessage}}</p>
+      <p v-if="error" class="login-error">{{alertMessage}}</p>
       <input type="button" id="add-client_button" @click="updateAdminData()" value="Actualizar Datos">
     </div>
   </div>
@@ -53,7 +53,7 @@ export default {
       newPassword: "",
       card: "",
       message: false,
-      alert: false,
+      error: false,
       alertMessage: "",
     }
   },
@@ -78,8 +78,8 @@ export default {
               .then(response =>{
                 console.log(response.data.message)
                 setTimeout(function(){ location.reload(); }, 2000);
-                if (this.alert == true) {
-                  this.alert = false
+                if (this.error == true) {
+                  this.error = false
                   this.message = true
                 } else {this.message = true}
               })
@@ -87,15 +87,15 @@ export default {
           this.alertMessage = "Contraseña incorrecta"
           if (this.message == true) {
             this.message = false
-            this.alert = true
-          } else {this.alert = true}
+            this.error = true
+          } else {this.error = true}
         }
       } else{
           this.alertMessage = "Debes completar todos los campos"
           if (this.message == true) {
             this.message = false
-            this.alert = true
-          } else {this.alert = true}
+            this.error = true
+          } else {this.error = true}
        }
     }
   }

@@ -13,7 +13,7 @@
       <p class="footer-links">
         <router-link :to="toHome">Home </router-link>
         <router-link class="bar" to="aboutus">Acerca de nosotros </router-link>
-        <router-link class="bar" :to="toContact">Contacto</router-link>
+        <router-link class="bar" to="aboutus">Contacto</router-link>
       </p>
       <p id="footer-company-name">Minka© 2021. All rights reserved.</p>
     </div>
@@ -65,6 +65,8 @@ export default {
 }
 
 #footer-company-name {
+  font-size: 14.5px;
+  color: white;
   margin: 0;
 }
 
