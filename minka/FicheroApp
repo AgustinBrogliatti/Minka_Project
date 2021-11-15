@@ -1,9 +1,0 @@
-{
-"name": "MinkaApp",
-"description": "Minka App Inc.",
-"buildpacks": [
-{
-"url": "https://minkaapp.herokuapp.com/"
-}
-]
-}
