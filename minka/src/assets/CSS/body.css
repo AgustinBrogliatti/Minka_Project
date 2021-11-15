@@ -35,6 +35,35 @@ textarea {
     margin: 20px;
 }
 
+#contacts2 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: auto;
+}
+
+#contacts3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+}
+
+#client-contact2 {
+    margin: 20px;
+    border: 1px solid gray;
+    background-color: #cccccc;
+    padding: 0.5%;
+    width: 300px;
+    height: 150px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
 .container_auxiliar, #content-contact {
     padding: 2%;
     background: #f2f2f2;

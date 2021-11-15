@@ -1,12 +1,22 @@
 <template>
   <div class="body-page" id="content-contact">
-    <h1>Contacto</h1>
-    <div id="contacts">
-      <div id="client-contact">
-        <p>Nombre: {{adminData.name}} {{adminData.lastname}}</p>
-        <p>Email: {{adminData.email}}</p>
-        <p>Telefono: {{adminData.tel}}</p>
-        <p>Direccion: {{adminData.address}}</p>
+    <h1>Arq. Miguel Unzué</h1>
+    <div id="contacts3">
+      <div id="contacts2">
+        <div id="client-contact2">
+          <p><i class="fas fa-envelope fa-2x"></i><br><br><strong>Mail: </strong><br><br>{{adminData.email}}</p>
+        </div>
+        <div id="client-contact2">
+          <p><i class="fas fa-phone fa-2x"></i><br><br><strong>Teléfono: </strong><br><br>{{adminData.tel}}</p>
+        </div>
+      </div>
+      <div id="contacts2">
+        <div id="client-contact2">
+          <p><i class="fas fa-map-marker-alt fa-2x"></i><br><br><strong>Direccion: </strong><br><br>{{adminData.address}}</p>
+        </div>
+        <div id="client-contact2">
+          <p><i class="fas fa-id-badge fa-2x"></i><br><br><strong>Nro. de Matrícula: </strong><br><br>{{adminData.card}}</p>
+        </div>
       </div>
     </div>
   </div>

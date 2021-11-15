@@ -3,12 +3,12 @@
     <Header v-bind:userData="{name: this.userData.name, lastname: this.userData.lastname}"></Header>
     <div id="content-body">
       <NavBarEstudio></NavBarEstudio>
+
       <div id="files">
         <FilesManager v-for="(section, index) in sections" :key="index" :section="section"></FilesManager>
       </div>
 
       <Banner></Banner>
-
     </div>
     <Footer></Footer>
   </div>
@@ -131,5 +131,11 @@ export default {
 #files {
   display: flex;
   flex-direction: column;
+  margin-left: -8%;
+  margin-top: 3%;
+  margin-right: -5%;
+  height: 60%;
+  width: 70%;
+  align-items: center;
 }
 </style>
